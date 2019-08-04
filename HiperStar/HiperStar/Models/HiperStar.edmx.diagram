@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="fefee90c4d2a4c03bd51d58a873060b6" Name="Diagram1" ZoomLevel="25">
+        <EntityTypeShape EntityType="FsetMvcModel.AboutUs" Width="1.5" PointX="0.75" PointY="0.875" />
+        <EntityTypeShape EntityType="FsetMvcModel.ComponyRule" Width="1.5" PointX="5.75" PointY="0.875" />
+        <EntityTypeShape EntityType="FsetMvcModel.ContactUs" Width="1.5" PointX="0.75" PointY="3.875" />
+        <EntityTypeShape EntityType="FsetMvcModel.Customer" Width="1.5" PointX="3.75" PointY="0.75" />
+        <EntityTypeShape EntityType="FsetMvcModel.customerchangepass" Width="1.5" PointX="6" PointY="16.625" />
+        <EntityTypeShape EntityType="FsetMvcModel.CustomerProduct" Width="1.5" PointX="6" PointY="10.125" />
+        <EntityTypeShape EntityType="FsetMvcModel.CustomerProjectTicket" Width="1.5" PointX="11" PointY="2.625" />
+        <EntityTypeShape EntityType="FsetMvcModel.discountcode" Width="1.5" PointX="7.75" PointY="0.875" />
+        <EntityTypeShape EntityType="FsetMvcModel.factor" Width="1.5" PointX="6" PointY="19.375" />
+        <EntityTypeShape EntityType="FsetMvcModel.Partner_companies" Width="1.5" PointX="13.75" PointY="0.875" />
+        <EntityTypeShape EntityType="FsetMvcModel.Payment" Width="1.5" PointX="6" PointY="5.5" />
+        <EntityTypeShape EntityType="FsetMvcModel.paymentfactor" Width="1.5" PointX="15.75" PointY="0.875" />
+        <EntityTypeShape EntityType="FsetMvcModel.Product" Width="1.5" PointX="0.75" PointY="10.25" />
+        <EntityTypeShape EntityType="FsetMvcModel.ProductImage" Width="1.5" PointX="3" PointY="17" />
+        <EntityTypeShape EntityType="FsetMvcModel.ProductProperty" Width="1.5" PointX="3" PointY="11.75" />
+        <EntityTypeShape EntityType="FsetMvcModel.ProductSuggestion" Width="1.5" PointX="3" PointY="25.375" />
+        <EntityTypeShape EntityType="FsetMvcModel.Property" Width="1.5" PointX="0.75" PointY="16" />
+        <EntityTypeShape EntityType="FsetMvcModel.RelativeProduct" Width="1.5" PointX="3" PointY="7.125" />
+        <EntityTypeShape EntityType="FsetMvcModel.Role" Width="1.5" PointX="11" PointY="14.25" />
+        <EntityTypeShape EntityType="FsetMvcModel.sendcost" Width="1.5" PointX="13.75" PointY="6.875" />
+        <EntityTypeShape EntityType="FsetMvcModel.SlidShow" Width="1.5" PointX="15.75" PointY="6.875" />
+        <EntityTypeShape EntityType="FsetMvcModel.StateCustomerProduct" Width="1.5" PointX="3.75" PointY="21" />
+        <EntityTypeShape EntityType="FsetMvcModel.Suggestion" Width="1.5" PointX="15.75" PointY="11.875" />
+        <EntityTypeShape EntityType="FsetMvcModel.sysdiagrams" Width="1.5" PointX="15.75" PointY="15.875" />
+        <EntityTypeShape EntityType="FsetMvcModel.Todo" Width="1.5" PointX="13.25" PointY="12.25" />
+        <EntityTypeShape EntityType="FsetMvcModel.Unit" Width="1.5" PointX="8.75" PointY="4.875" />
+        <EntityTypeShape EntityType="FsetMvcModel.UserRole" Width="1.5" PointX="13.25" PointY="9" />
+        <EntityTypeShape EntityType="FsetMvcModel.Users" Width="1.5" PointX="11" PointY="8.625" />
+        <AssociationConnector Association="FsetMvcModel.FK_customerchangepass_Customer" />
+        <AssociationConnector Association="FsetMvcModel.FK_CustomerProduct_Customer" />
+        <AssociationConnector Association="FsetMvcModel.FK_CustomerProjectTicket_Customer" />
+        <AssociationConnector Association="FsetMvcModel.FK_factor_Customer" />
+        <AssociationConnector Association="FsetMvcModel.FK_Payment_Customer" />
+        <AssociationConnector Association="FsetMvcModel.FK_CustomerProduct_Product" />
+        <AssociationConnector Association="FsetMvcModel.FK_CustomerProduct_StateCustomerProduct" />
+        <AssociationConnector Association="FsetMvcModel.FK_CustomerProjectTicket_Unit" />
+        <AssociationConnector Association="FsetMvcModel.FK_ProductImage_Product" />
+        <AssociationConnector Association="FsetMvcModel.FK_ProductProperty_Product" />
+        <AssociationConnector Association="FsetMvcModel.FK_ProductSuggestion_Product" />
+        <AssociationConnector Association="FsetMvcModel.FK_RelativeProduct_Product" />
+        <AssociationConnector Association="FsetMvcModel.FK_RelativeProduct_Product1" />
+        <AssociationConnector Association="FsetMvcModel.FK_ProductProperty_Property" />
+        <AssociationConnector Association="FsetMvcModel.FK_UserRole_Role" />
+        <AssociationConnector Association="FsetMvcModel.FK_Todo_Users" />
+        <AssociationConnector Association="FsetMvcModel.FK_Users_Unit" />
+        <AssociationConnector Association="FsetMvcModel.FK_UserRole_Users" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

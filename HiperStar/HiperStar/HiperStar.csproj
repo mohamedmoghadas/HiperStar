@@ -1,0 +1,512 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E06B3145-4AD1-4DCD-9D00-721A5C0C6025}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HiperStar</RootNamespace>
+    <AssemblyName>HiperStar</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44382</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PersianDate">
+      <HintPath>..\..\..\Fset\Fset\bin\PersianDate.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.7\lib\net45\System.Web.Webpages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Deployment">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.7\lib\net45\System.Web.Webpages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.7\lib\net45\System.Web.Webpages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.7\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.7\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="assets\css\bootstrap.min.css" />
+    <Content Include="assets\css\custom.css" />
+    <Content Include="assets\css\plugins.css" />
+    <Content Include="assets\css\style.css" />
+    <Content Include="assets\fonts\fa-brands-400.svg" />
+    <Content Include="assets\fonts\fa-regular-400.svg" />
+    <Content Include="assets\fonts\fa-solid-900.svg" />
+    <Content Include="assets\fonts\Flaticon.svg" />
+    <Content Include="assets\fonts\lg.svg" />
+    <Content Include="assets\fonts\slick.svg" />
+    <Content Include="assets\images\ajax-loader.gif" />
+    <Content Include="assets\images\bg\bg-image-1.jpeg" />
+    <Content Include="assets\images\bg\bg-image-2.jpeg" />
+    <Content Include="assets\images\bg\breadcrumb-bg-1.jpg" />
+    <Content Include="assets\images\bg\breadcrumb-bg-2.jpg" />
+    <Content Include="assets\images\blog\authors\author-image-1.png" />
+    <Content Include="assets\images\blog\authors\author-image-2.png" />
+    <Content Include="assets\images\blog\authors\author-image-3.png" />
+    <Content Include="assets\images\blog\blog-image-1.jpeg" />
+    <Content Include="assets\images\blog\blog-image-2.jpeg" />
+    <Content Include="assets\images\blog\blog-image-3.jpeg" />
+    <Content Include="assets\images\blog\blog-image-4.jpeg" />
+    <Content Include="assets\images\blog\blog-image-5.jpeg" />
+    <Content Include="assets\images\blog\blog-image-6.jpeg" />
+    <Content Include="assets\images\blog\blog2\blog2-image-1.jpeg" />
+    <Content Include="assets\images\blog\blog2\blog2-image-2.jpeg" />
+    <Content Include="assets\images\blog\blog2\blog2-image-3.jpeg" />
+    <Content Include="assets\images\blog\blog2\blog2-image-4.jpeg" />
+    <Content Include="assets\images\blog\blog2\blog2-image-5.jpeg" />
+    <Content Include="assets\images\blog\blog2\blog2-image-6.jpeg" />
+    <Content Include="assets\images\blog\blog2\blog2-image-7.jpeg" />
+    <Content Include="assets\images\blog\widget\blog-thumbnail-1.png" />
+    <Content Include="assets\images\blog\widget\blog-thumbnail-2.png" />
+    <Content Include="assets\images\blog\widget\blog-thumbnail-3.png" />
+    <Content Include="assets\images\brand-logo\brand-logo-1.png" />
+    <Content Include="assets\images\brand-logo\brand-logo-2.png" />
+    <Content Include="assets\images\brand-logo\brand-logo-3.png" />
+    <Content Include="assets\images\brand-logo\brand-logo-4.png" />
+    <Content Include="assets\images\brand-logo\brand-logo-5.png" />
+    <Content Include="assets\images\favicon.ico" />
+    <Content Include="assets\images\funfact\funfact-shape.png" />
+    <Content Include="assets\images\heroslider\heroslider-image-1.jpg" />
+    <Content Include="assets\images\heroslider\heroslider-image-2.jpg" />
+    <Content Include="assets\images\heroslider\heroslider-image-3.jpg" />
+    <Content Include="assets\images\heroslider\heroslider-shape-2.png" />
+    <Content Include="assets\images\heroslider\heroslider-shape.png" />
+    <Content Include="assets\images\icons\accordio-minus.png" />
+    <Content Include="assets\images\icons\accordio-plus.png" />
+    <Content Include="assets\images\icons\bg-map-shapes.png" />
+    <Content Include="assets\images\icons\down-caret.png" />
+    <Content Include="assets\images\icons\white-shape.png" />
+    <Content Include="assets\images\logo\logo-dark.png" />
+    <Content Include="assets\images\logo\logo-light.png" />
+    <Content Include="assets\images\others\about-image-2.png" />
+    <Content Include="assets\images\others\about-image.png" />
+    <Content Include="assets\images\others\author-image-1.png" />
+    <Content Include="assets\images\others\author-image-2.png" />
+    <Content Include="assets\images\others\faq-image.png" />
+    <Content Include="assets\images\others\feature-image.png" />
+    <Content Include="assets\images\others\promo-image-2.png" />
+    <Content Include="assets\images\others\promo-image.png" />
+    <Content Include="assets\images\others\service-details.jpeg" />
+    <Content Include="assets\images\portfolio\lg\portfolio-image-lg-1.jpeg" />
+    <Content Include="assets\images\portfolio\lg\portfolio-image-lg-2.jpeg" />
+    <Content Include="assets\images\portfolio\lg\portfolio-image-lg-3.jpeg" />
+    <Content Include="assets\images\portfolio\lg\portfolio-image-lg-4.jpeg" />
+    <Content Include="assets\images\portfolio\lg\portfolio-image-lg-6.jpeg" />
+    <Content Include="assets\images\portfolio\lg\portfolio-image-lg-7.jpeg" />
+    <Content Include="assets\images\portfolio\lg\portfolio-image-lg-8.jpeg" />
+    <Content Include="assets\images\portfolio\lg\portfolio-image-lg-9.jpeg" />
+    <Content Include="assets\images\portfolio\portfolio-image-1.jpeg" />
+    <Content Include="assets\images\portfolio\portfolio-image-2.jpeg" />
+    <Content Include="assets\images\portfolio\portfolio-image-3.jpeg" />
+    <Content Include="assets\images\portfolio\portfolio-image-4.jpeg" />
+    <Content Include="assets\images\portfolio\portfolio-image-5.jpeg" />
+    <Content Include="assets\images\portfolio\portfolio-image-6.jpeg" />
+    <Content Include="assets\images\portfolio\portfolio-image-7.jpeg" />
+    <Content Include="assets\images\portfolio\portfolio-image-8.jpeg" />
+    <Content Include="assets\images\portfolio\portfolio-image-9.jpeg" />
+    <Content Include="assets\images\product\product-details\prdoduct-details-image-1-lg.jpeg" />
+    <Content Include="assets\images\product\product-details\prdoduct-details-image-1.jpeg" />
+    <Content Include="assets\images\product\product-image-1.jpeg" />
+    <Content Include="assets\images\product\product-image-2.jpeg" />
+    <Content Include="assets\images\product\product-image-3.jpeg" />
+    <Content Include="assets\images\product\product-image-4.jpeg" />
+    <Content Include="assets\images\product\product-image-5.jpeg" />
+    <Content Include="assets\images\product\product-image-6.jpeg" />
+    <Content Include="assets\images\product\product-image-7.jpeg" />
+    <Content Include="assets\images\product\product-image-8.jpeg" />
+    <Content Include="assets\images\product\product-image-9.jpeg" />
+    <Content Include="assets\images\product\thumbnails\product-thumbnail-1.png" />
+    <Content Include="assets\images\product\thumbnails\product-thumbnail-2.png" />
+    <Content Include="assets\images\product\thumbnails\product-thumbnail-3.png" />
+    <Content Include="assets\images\team\team-image-1.jpeg" />
+    <Content Include="assets\images\team\team-image-2.jpeg" />
+    <Content Include="assets\images\team\team-image-3.jpeg" />
+    <Content Include="assets\images\team\team-image-4.jpeg" />
+    <Content Include="assets\images\testimonial\testimonial-fullimage-1.jpeg" />
+    <Content Include="assets\images\testimonial\testimonial-fullimage-2.jpeg" />
+    <Content Include="assets\images\testimonial\testimonial-fullimage-3.jpeg" />
+    <Content Include="assets\images\testimonial\testimonial-image-1.png" />
+    <Content Include="assets\images\testimonial\testimonial-image-2.png" />
+    <Content Include="assets\images\testimonial\testimonial-image-3.png" />
+    <Content Include="assets\img\loading.gif" />
+    <Content Include="assets\js\ajaxmail.js" />
+    <Content Include="assets\js\bootstrap.min.js" />
+    <Content Include="assets\js\chart-active.js" />
+    <Content Include="assets\js\chart.min.js" />
+    <Content Include="assets\js\google-map.js" />
+    <Content Include="assets\js\jquery.min.js" />
+    <Content Include="assets\js\main.js" />
+    <Content Include="assets\js\modernizr-3.6.0.min.js" />
+    <Content Include="assets\js\particles.min.js" />
+    <Content Include="assets\js\plugins.js" />
+    <Content Include="assets\js\popper.min.js" />
+    <Content Include="assets\js\video-background.js" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\font-awesome.css" />
+    <Content Include="Content\font-awesome.min.css" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Image\AboutUs.jpg" />
+    <Content Include="Image\nopic_s.jpg" />
+    <Content Include="Image\productImage\bag.jpg" />
+    <Content Include="Image\productImage\dress.jpg" />
+    <Content Include="Image\productImage\femalekatoni.jpg" />
+    <Content Include="Image\productImage\majlesi.jpg" />
+    <Content Include="Image\productImage\malekatoni.jpg" />
+    <Content Include="Image\productImage\neckleck.jpg" />
+    <Content Include="Image\productImage\Shoes.jpg" />
+    <Content Include="Image\productImage\SportShoes.jpg" />
+    <Content Include="Image\productImage\taziinat.jpg" />
+    <Content Include="Image\s1.jpg" />
+    <Content Include="Image\s2.jpg" />
+    <Content Include="Image\s3.jpg" />
+    <Content Include="Models\HiperStar.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>HiperStar.Context.cs</LastGenOutput>
+      <DependentUpon>HiperStar.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\HiperStar.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>HiperStar.edmx</DependentUpon>
+      <LastGenOutput>HiperStar.cs</LastGenOutput>
+    </Content>
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="App_Code\GlyphIcon.cshtml" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.3.1.js" />
+    <Content Include="Scripts\jquery-3.3.1.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
+    <Content Include="Scripts\Js\GetBasketCooki.js" />
+    <Content Include="Scripts\Js\Pagination\pagination.js" />
+    <Content Include="Scripts\Js\Pagination\Pgination.css" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AboutUsController.cs" />
+    <Compile Include="Controllers\ContactUsController.cs" />
+    <Compile Include="Controllers\CustumerAreaController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProductDetailController.cs" />
+    <Compile Include="Controllers\ProductDetailListController.cs" />
+    <Compile Include="Controllers\ProductsController.cs" />
+    <Compile Include="Controllers\SinSupController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AboutUs.cs">
+      <DependentUpon>HiperStar.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ComponyRule.cs">
+      <DependentUpon>HiperStar.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ContactUs.cs">
+      <DependentUpon>HiperStar.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Customer.cs">
+      <DependentUpon>HiperStar.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\customerchangepass.cs">
+      <DependentUpon>HiperStar.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CustomerProduct.cs">
+      <DependentUpon>HiperStar.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CustomerProjectTicket.cs">
+      <DependentUpon>HiperStar.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\discountcode.cs">
+      <DependentUpon>HiperStar.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\factor.cs">
+      <DependentUpon>HiperStar.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\HiperStar.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HiperStar.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\HiperStar.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HiperStar.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\HiperStar.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HiperStar.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Partner_companies.cs">
+      <DependentUpon>HiperStar.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Payment.cs">
+      <DependentUpon>HiperStar.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\paymentfactor.cs">
+      <DependentUpon>HiperStar.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Product.cs">
+      <DependentUpon>HiperStar.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ProductImage.cs">
+      <DependentUpon>HiperStar.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ProductProperty.cs">
+      <DependentUpon>HiperStar.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ProductSuggestion.cs">
+      <DependentUpon>HiperStar.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Property.cs">
+      <DependentUpon>HiperStar.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RelativeProduct.cs">
+      <DependentUpon>HiperStar.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Role.cs">
+      <DependentUpon>HiperStar.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sendcost.cs">
+      <DependentUpon>HiperStar.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SlidShow.cs">
+      <DependentUpon>HiperStar.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\StateCustomerProduct.cs">
+      <DependentUpon>HiperStar.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Suggestion.cs">
+      <DependentUpon>HiperStar.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysdiagrams.cs">
+      <DependentUpon>HiperStar.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Todo.cs">
+      <DependentUpon>HiperStar.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Unit.cs">
+      <DependentUpon>HiperStar.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UserRole.cs">
+      <DependentUpon>HiperStar.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Users.cs">
+      <DependentUpon>HiperStar.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\VmComponent\VmHome.cs" />
+    <Compile Include="Models\VmList\VmAllPage.cs" />
+    <Compile Include="Models\VmList\VmProductDetail.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utility\clsPersianDate.cs" />
+    <Compile Include="Utility\CreatHash.cs" />
+    <Compile Include="Utility\Email.cs" />
+    <Compile Include="Utility\ExtentionFunction.cs" />
+    <Compile Include="Utility\HttpHelper.cs" />
+    <Compile Include="Utility\PaymentResult.cs" />
+    <Compile Include="Utility\PaymentState.cs" />
+    <Compile Include="Utility\PricePart.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <EntityDeploy Include="Models\HiperStar.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>HiperStar.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\HiperStar.edmx.diagram">
+      <DependentUpon>HiperStar.edmx</DependentUpon>
+    </Content>
+    <Content Include="assets\fonts\fa-brands-400-1.eot" />
+    <Content Include="assets\fonts\fa-brands-400.eot" />
+    <Content Include="assets\fonts\fa-brands-400.ttf" />
+    <Content Include="assets\fonts\fa-brands-400.woff" />
+    <Content Include="assets\fonts\fa-brands-400.woff2" />
+    <Content Include="assets\fonts\fa-regular-400-1.eot" />
+    <Content Include="assets\fonts\fa-regular-400.eot" />
+    <Content Include="assets\fonts\fa-regular-400.ttf" />
+    <Content Include="assets\fonts\fa-regular-400.woff" />
+    <Content Include="assets\fonts\fa-regular-400.woff2" />
+    <Content Include="assets\fonts\fa-solid-900-1.eot" />
+    <Content Include="assets\fonts\fa-solid-900.eot" />
+    <Content Include="assets\fonts\fa-solid-900.ttf" />
+    <Content Include="assets\fonts\fa-solid-900.woff" />
+    <Content Include="assets\fonts\fa-solid-900.woff2" />
+    <Content Include="assets\fonts\Flaticon-1.eot" />
+    <Content Include="assets\fonts\Flaticon.eot" />
+    <Content Include="assets\fonts\Flaticon.ttf" />
+    <Content Include="assets\fonts\Flaticon.woff" />
+    <Content Include="assets\fonts\iranyekanwebregular.eot" />
+    <Content Include="assets\fonts\iranyekanwebregular.ttf" />
+    <Content Include="assets\fonts\iranyekanwebregular.woff" />
+    <Content Include="assets\fonts\iranyekanwebregular.woff2" />
+    <Content Include="assets\fonts\lg-1.eot" />
+    <Content Include="assets\fonts\lg.eot" />
+    <Content Include="assets\fonts\lg.ttf" />
+    <Content Include="assets\fonts\lg.woff" />
+    <Content Include="assets\fonts\slick-1.eot" />
+    <Content Include="assets\fonts\slick.eot" />
+    <Content Include="assets\fonts\slick.ttf" />
+    <Content Include="assets\fonts\slick.woff" />
+    <None Include="packages.config" />
+    <Content Include="Views\Shared\_layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Scripts\jquery-3.3.1.min.map" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
+    <Content Include="Views\ProductDetail\Index.cshtml" />
+    <Content Include="Views\ProductDetailList\Index.cshtml" />
+    <Content Include="Views\Products\Index.cshtml" />
+    <Content Include="Views\AboutUs\Index.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Views\ContactUs\" />
+    <Folder Include="Views\CustumerArea\" />
+    <Folder Include="Views\SinSup\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>60257</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44382/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

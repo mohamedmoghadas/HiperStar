@@ -1,0 +1,132 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_layout.cshtml";
+}
+
+@model HiperStar.Models.VmList.VmProductDetail
+<div class="tm-breadcrumb-area tm-padding-section" style="background-image:url(../../Image/AboutUs.jpg)">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="tm-breadcrumb">
+                    <h2>فروشگاه</h2>
+                    <ul>
+                        <li><a href="~/Home/Index">خانه</a></li>
+                        <li>فروشگاه</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="tm-section shop-page-area bg-white tm-padding-section">
+    <div class="container">
+        <form action="#" class="tm-shop-header">
+            <p class="tm-shop-countview">نمایش 1 تا 10 از @Model.ProductList.Count محصول </p>
+            <select>
+                <option value="value">نمایش پیشفرض</option>
+                <option value="value">نام</option>
+                <option value="value">تاریخ</option>
+                <option value="value">برترین فروشندگان</option>
+                <option value="value">پرفروش ترین</option>
+            </select>
+        </form>
+        <div class="tm-shop-products">
+            <div class="row mt-50-reverse">
+
+                @foreach (var item in Model.ProductList)
+                {
+
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-12 mt-50">
+                        <div class="tm-product">
+                            <div class="tm-product-image">
+                                <a class="tm-product-imagelink" href="#">
+                                    @if (item.ProductImage.Where(p => p.IdProduct == item.Id).FirstOrDefault() != null)
+                                    {
+
+                                        <img src="~/Image/productImage/@item.ProductImage.Where(p=>p.IdProduct==item.Id).FirstOrDefault().Url" alt="product image"
+                                             style="width:300px;height:300px">
+                                    }
+                                    else
+                                    {
+                                        <img src="~/Image/nopic_s.jpg" style="width:300px;height:300px" />
+                                    }
+                                </a>
+                                <ul class="tm-product-actions">
+                                    <li><a href="cart.html"><i class="fas fa-shopping-cart"></i></a></li>
+                                    <li>
+                                        <button type="button" data-toggle="modal"
+                                                data-target="#tm-product-quickview">
+                                            <i class="far fa-eye"></i>
+                                        </button>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="tm-product-content">
+                                <h5 class="tm-product-title"><a href="product-details.html">@item.Name</a></h5>
+                                <div class="tm-product-rating">
+                                    <span class="active"><i class="fas fa-star"></i></span>
+                                    <span class="active"><i class="fas fa-star"></i></span>
+                                    <span class="active"><i class="fas fa-star"></i></span>
+                                    <span class="active"><i class="fas fa-star"></i></span>
+                                    <span class="active"><i class="fas fa-star"></i></span>
+                                </div>
+                                <h6 class="tm-product-price">
+                                    <del>@item.ProductProperty.Where(p => p.IdProduct == item.Id && p.IdProperty == 3).FirstOrDefault().Value تومان</del>
+                                    @item.ProductProperty.Where(p => p.IdProduct == item.Id && p.IdProperty == 4).FirstOrDefault().Value تومان
+                                </h6>
+
+                            </div>
+                            <br />
+                            <br />
+                            <br /><br />
+                            <br />
+                            <br />
+                        </div>
+
+                    </div>
+
+
+                }
+
+
+
+            </div>
+        </div>
+        <div class="tm-pagination mt-50">
+            <div id="pagination"></div>
+
+        </div>
+    </div>
+</div>
+@section localscript{
+    <script>
+
+        var dataPaging;
+
+        var currentpage;
+
+        dataPaging=@Model.AllPage;
+
+
+        currentpage =@Model.CurrentPage;
+
+        var init = function () {
+            Pagination.Init(document.getElementById('pagination'), {
+                size: dataPaging, // pages size
+                page: currentpage,  // selected page
+                step: 3   // pages before and after current
+            });
+
+        };
+
+
+
+        document.addEventListener('DOMContentLoaded', init, false);
+
+
+
+    </script>
+}

@@ -1,0 +1,2013 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="FsetMvcModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AboutUs">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DesCription" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ComponyRule">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="roledescription" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="IdUserInsert" Type="bigint" />
+          <Property Name="IdUserDelete" Type="bigint" />
+          <Property Name="IdUserUpdate" Type="bigint" />
+          <Property Name="DateInsert" Type="datetime" />
+          <Property Name="DateUpdate" Type="datetime" />
+          <Property Name="DateDelete" Type="datetime" />
+          <Property Name="StateDelete" Type="bit" />
+        </EntityType>
+        <EntityType Name="ContactUs">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="Description" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FullName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Mobile" Type="nvarchar" MaxLength="50" />
+          <Property Name="Tel" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CompanyName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Address" Type="nvarchar(max)" />
+          <Property Name="DateInsert" Type="datetime" Nullable="false" />
+          <Property Name="DateDelete" Type="datetime" />
+          <Property Name="DateUpdate" Type="datetime" />
+          <Property Name="Statedelete" Type="bit" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="userimage" Type="nvarchar" MaxLength="50" />
+          <Property Name="PostalCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="NationalCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="NationalID" Type="nvarchar" MaxLength="50" />
+          <Property Name="EconomicCode" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="customerchangepass">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CustomerId" Type="bigint" Nullable="false" />
+          <Property Name="Code" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="numberofchages" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CustomerProduct">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CustomerId" Type="bigint" Nullable="false" />
+          <Property Name="ProductId" Type="bigint" Nullable="false" />
+          <Property Name="DateRequest" Type="datetime" Nullable="false" />
+          <Property Name="DateUpdate" Type="datetime" />
+          <Property Name="DateDelete" Type="datetime" />
+          <Property Name="DateRespond" Type="datetime" />
+          <Property Name="Description" Type="nvarchar" MaxLength="50" />
+          <Property Name="ResonOfCancelletion" Type="nvarchar" MaxLength="50" />
+          <Property Name="IdState" Type="int" Nullable="false" />
+          <Property Name="Count" Type="bigint" />
+          <Property Name="TotalPrice" Type="bigint" />
+          <Property Name="DateDelivery" Type="datetime" />
+          <Property Name="StateDelete" Type="bit" />
+          <Property Name="factorcod" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="resonofnotconfirm" Type="nvarchar" MaxLength="50" />
+          <Property Name="PaymentFactoreCode" Type="nvarchar(max)" />
+          <Property Name="SaleRefrence" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="CustomerProjectTicket">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdCustomer" Type="bigint" Nullable="false" />
+          <Property Name="IdProduct" Type="bigint" Nullable="false" />
+          <Property Name="Message" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="dateinsert" Type="datetime" Nullable="false" />
+          <Property Name="daterespond" Type="datetime" />
+          <Property Name="datedelete" Type="datetime" />
+          <Property Name="IdUnit" Type="bigint" Nullable="false" />
+          <Property Name="ResponseMessage" Type="nvarchar(max)" />
+          <Property Name="IdUserRespond" Type="bigint" />
+          <Property Name="IdUserDelete" Type="bigint" />
+          <Property Name="Statedelete" Type="bit" />
+        </EntityType>
+        <EntityType Name="discountcode">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="dicountcode" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="discountpersent" Type="int" Nullable="false" />
+          <Property Name="dateinsert" Type="datetime" Nullable="false" />
+          <Property Name="dateende" Type="datetime" Nullable="false" />
+          <Property Name="numberofuseg" Type="int" />
+          <Property Name="customerid" Type="bigint" />
+        </EntityType>
+        <EntityType Name="factor">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="factorcode" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="dateinsert" Type="datetime" Nullable="false" />
+          <Property Name="dateupdate" Type="datetime" />
+          <Property Name="datedelete" Type="datetime" />
+          <Property Name="prcount" Type="bigint" Nullable="false" />
+          <Property Name="customerId" Type="bigint" Nullable="false" />
+          <Property Name="discountcode" Type="nvarchar" MaxLength="50" />
+          <Property Name="discountpercent" Type="int" />
+          <Property Name="statedelete" Type="bit" Nullable="false" />
+          <Property Name="totalprice" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Partner_companies">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="CooperationText" Type="nvarchar(max)" />
+          <Property Name="ActivityText" Type="nvarchar(max)" />
+          <Property Name="Link" Type="nvarchar" MaxLength="50" />
+          <Property Name="image" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Payment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RefrenceNumber" Type="nvarchar(max)" />
+          <Property Name="SaleRefrence" Type="bigint" />
+          <Property Name="StatusPayment" Type="nvarchar" MaxLength="100" />
+          <Property Name="PaymentFinish" Type="bit" />
+          <Property Name="Amount" Type="bigint" />
+          <Property Name="BankName" Type="nvarchar" MaxLength="50" />
+          <Property Name="CustomerId" Type="bigint" />
+          <Property Name="BuyDatetime" Type="datetime" />
+          <Property Name="StatusCode" Type="nvarchar(max)" />
+          <Property Name="StatusMessag" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="paymentfactor">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PaymentFactorCode" Type="nvarchar(max)" />
+          <Property Name="dateinsert" Type="datetime" />
+          <Property Name="dateupdate" Type="datetime" />
+          <Property Name="datedelete" Type="datetime" />
+          <Property Name="prcount" Type="nvarchar(max)" />
+          <Property Name="customerId" Type="bigint" />
+          <Property Name="totalprice" Type="bigint" />
+          <Property Name="statedelete" Type="bit" />
+          <Property Name="RefNum" Type="nvarchar(max)" />
+          <Property Name="RefId" Type="nvarchar(max)" />
+          <Property Name="SaleRefrence" Type="nvarchar(max)" />
+          <Property Name="State" Type="nvarchar(max)" />
+          <Property Name="StateCode" Type="nvarchar(max)" />
+          <Property Name="ResNum" Type="nvarchar(max)" />
+          <Property Name="MID" Type="nvarchar(max)" />
+          <Property Name="CID" Type="nvarchar(max)" />
+          <Property Name="TRACENO" Type="nvarchar(max)" />
+          <Property Name="PRN" Type="nvarchar(max)" />
+          <Property Name="Amount" Type="nvarchar(max)" />
+          <Property Name="SecurePan" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="DateInsert" Type="datetime" />
+          <Property Name="DateUpdate" Type="datetime" />
+          <Property Name="DateDelete" Type="datetime" />
+          <Property Name="Idparent" Type="bigint" />
+          <Property Name="Idsort" Type="bigint" />
+          <Property Name="IdUserDelete" Type="bigint" />
+          <Property Name="IdUserInsert" Type="bigint" />
+          <Property Name="IdUserUpdate" Type="bigint" />
+          <Property Name="StateDelete" Type="bit" Nullable="false" />
+          <Property Name="StateExist" Type="bit" />
+          <Property Name="Catalog" Type="nvarchar" MaxLength="50" />
+          <Property Name="Code" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="ProductImage">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Url" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="IdProduct" Type="bigint" />
+          <Property Name="Date_Insert" Type="datetime" />
+          <Property Name="IdUser_Insert" Type="bigint" />
+          <Property Name="Date_Update" Type="datetime" />
+          <Property Name="IdUser_Update" Type="bigint" />
+          <Property Name="Date_Delete" Type="datetime" />
+          <Property Name="IdUser_Delete" Type="bigint" />
+          <Property Name="StateDelete" Type="bit" />
+        </EntityType>
+        <EntityType Name="ProductProperty">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdProduct" Type="bigint" Nullable="false" />
+          <Property Name="IdProperty" Type="bigint" Nullable="false" />
+          <Property Name="Value" Type="nvarchar(max)" />
+          <Property Name="Date_Insert" Type="datetime" />
+          <Property Name="IdUser_Insert" Type="bigint" />
+          <Property Name="Date_Update" Type="datetime" />
+          <Property Name="IdUser_Update" Type="bigint" />
+          <Property Name="Date_Delete" Type="datetime" />
+          <Property Name="IdUser_Delete" Type="bigint" />
+          <Property Name="StateDelete" Type="bit" />
+          <Property Name="Idsort" Type="bigint" />
+        </EntityType>
+        <EntityType Name="ProductSuggestion">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductId" Type="bigint" Nullable="false" />
+          <Property Name="FullName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="SuggestionText" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="rank" Type="int" Nullable="false" />
+          <Property Name="dateinsert" Type="datetime" Nullable="false" />
+          <Property Name="dateupdate" Type="datetime" />
+          <Property Name="datedelete" Type="datetime" />
+          <Property Name="statedelete" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Property">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DeletePermision" Type="bit" Nullable="false" />
+          <Property Name="IdParent" Type="bigint" Nullable="false" />
+          <Property Name="Date_Insert" Type="datetime" />
+          <Property Name="IdUser_Insert" Type="bigint" />
+          <Property Name="Date_Update" Type="datetime" />
+          <Property Name="IdUser_Update" Type="bigint" />
+          <Property Name="Date_Delete" Type="datetime" />
+          <Property Name="IdUser_Delete" Type="bigint" />
+          <Property Name="StateDelete" Type="bit" />
+        </EntityType>
+        <EntityType Name="RelativeProduct">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdProductMain" Type="bigint" Nullable="false" />
+          <Property Name="IdProductSubmain" Type="bigint" Nullable="false" />
+          <Property Name="DateInsert" Type="datetime" />
+          <Property Name="DateUpdate" Type="datetime" />
+          <Property Name="DateDelete" Type="datetime" />
+          <Property Name="IdUserInsert" Type="bigint" />
+          <Property Name="IdUserDelete" Type="bigint" />
+          <Property Name="IdUserUpdate" Type="bigint" />
+          <Property Name="StateDelete" Type="bit" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RoleName" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sendcost">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SendCost" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SlidShow">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Text" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Image" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Idsort" Type="bigint" />
+          <Property Name="DateInsert" Type="datetime" />
+          <Property Name="DateUpdate" Type="datetime" />
+          <Property Name="IdUserInsert" Type="int" />
+          <Property Name="IdUserUpdate" Type="int" />
+          <Property Name="IduserDelete" Type="int" />
+          <Property Name="StateDelete" Type="bit" Nullable="false" />
+          <Property Name="DateDelete" Type="datetime" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="StateCustomerProduct">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StateName" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Suggestion">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Tel" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Subject" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Message" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="respondmessag" Type="nvarchar(max)" />
+          <Property Name="dateinsert" Type="datetime" Nullable="false" />
+          <Property Name="datedelete" Type="datetime" />
+          <Property Name="daterespond" Type="datetime" />
+          <Property Name="statedelete" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Todo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Text" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="DateInsert" Type="datetime" Nullable="false" />
+          <Property Name="DateRemind" Type="datetime" Nullable="false" />
+          <Property Name="DateEnd" Type="datetime" Nullable="false" />
+          <Property Name="DateDelete" Type="datetime" />
+          <Property Name="TimeInsert" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TimeRemind" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TimeEnde" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="UserId" Type="bigint" />
+        </EntityType>
+        <EntityType Name="Unit">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UnitName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="StateDelete" Type="bit" />
+          <Property Name="IdUserInsert" Type="bigint" />
+          <Property Name="IdUserUpdate" Type="bigint" />
+          <Property Name="IdUserDelete" Type="bigint" />
+          <Property Name="DateInsert" Type="datetime" />
+          <Property Name="DateUpdate" Type="datetime" />
+          <Property Name="DateDelete" Type="datetime" />
+          <Property Name="Idlanguege" Type="int" />
+        </EntityType>
+        <EntityType Name="UserRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="bigint" Nullable="false" />
+          <Property Name="RoleId" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FullName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Mobile" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Tel" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="HomeAddress" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Image" Type="nvarchar" MaxLength="50" />
+          <Property Name="DateInsert" Type="datetime" Nullable="false" />
+          <Property Name="DateUpdate" Type="datetime" />
+          <Property Name="DateDelete" Type="datetime" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="StateDelete" Type="bit" Nullable="false" />
+          <Property Name="UnitId" Type="bigint" Nullable="false" />
+          <Property Name="IdUserInsert" Type="bigint" />
+          <Property Name="IdUserDelete" Type="bigint" />
+          <Property Name="IdUserUpdate" Type="bigint" />
+        </EntityType>
+        <Association Name="FK_customerchangepass_Customer">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="customerchangepass" Type="Self.customerchangepass" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="customerchangepass">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CustomerProduct_Customer">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CustomerProduct" Type="Self.CustomerProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CustomerProduct">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CustomerProduct_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CustomerProduct" Type="Self.CustomerProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CustomerProduct">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CustomerProduct_StateCustomerProduct">
+          <End Role="StateCustomerProduct" Type="Self.StateCustomerProduct" Multiplicity="1" />
+          <End Role="CustomerProduct" Type="Self.CustomerProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StateCustomerProduct">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CustomerProduct">
+              <PropertyRef Name="IdState" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CustomerProjectTicket_Customer">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CustomerProjectTicket" Type="Self.CustomerProjectTicket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CustomerProjectTicket">
+              <PropertyRef Name="IdCustomer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CustomerProjectTicket_Unit">
+          <End Role="Unit" Type="Self.Unit" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CustomerProjectTicket" Type="Self.CustomerProjectTicket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Unit">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CustomerProjectTicket">
+              <PropertyRef Name="IdUnit" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_factor_Customer">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="factor" Type="Self.factor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="factor">
+              <PropertyRef Name="customerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Payment_Customer">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
+          <End Role="Payment" Type="Self.Payment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Payment">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductImage_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ProductImage" Type="Self.ProductImage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProductImage">
+              <PropertyRef Name="IdProduct" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductProperty_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ProductProperty" Type="Self.ProductProperty" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProductProperty">
+              <PropertyRef Name="IdProduct" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductProperty_Property">
+          <End Role="Property" Type="Self.Property" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ProductProperty" Type="Self.ProductProperty" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Property">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProductProperty">
+              <PropertyRef Name="IdProperty" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductSuggestion_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ProductSuggestion" Type="Self.ProductSuggestion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProductSuggestion">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RelativeProduct_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="RelativeProduct" Type="Self.RelativeProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RelativeProduct">
+              <PropertyRef Name="IdProductMain" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RelativeProduct_Product1">
+          <End Role="Product" Type="Self.Product" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="RelativeProduct" Type="Self.RelativeProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RelativeProduct">
+              <PropertyRef Name="IdProductSubmain" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Todo_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Todo" Type="Self.Todo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Todo">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserRole_Role">
+          <End Role="Role" Type="Self.Role" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="UserRole" Type="Self.UserRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserRole">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserRole_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="UserRole" Type="Self.UserRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserRole">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_Unit">
+          <End Role="Unit" Type="Self.Unit" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Unit">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="UnitId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="FsetMvcModelStoreContainer">
+          <EntitySet Name="AboutUs" EntityType="Self.AboutUs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ComponyRule" EntityType="Self.ComponyRule" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ContactUs" EntityType="Self.ContactUs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="customerchangepass" EntityType="Self.customerchangepass" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CustomerProduct" EntityType="Self.CustomerProduct" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CustomerProjectTicket" EntityType="Self.CustomerProjectTicket" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="discountcode" EntityType="Self.discountcode" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="factor" EntityType="Self.factor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Partner_companies" EntityType="Self.Partner_companies" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Payment" EntityType="Self.Payment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="paymentfactor" EntityType="Self.paymentfactor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductImage" EntityType="Self.ProductImage" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductProperty" EntityType="Self.ProductProperty" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductSuggestion" EntityType="Self.ProductSuggestion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Property" EntityType="Self.Property" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RelativeProduct" EntityType="Self.RelativeProduct" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sendcost" EntityType="Self.sendcost" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SlidShow" EntityType="Self.SlidShow" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StateCustomerProduct" EntityType="Self.StateCustomerProduct" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Suggestion" EntityType="Self.Suggestion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Todo" EntityType="Self.Todo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Unit" EntityType="Self.Unit" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserRole" EntityType="Self.UserRole" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_customerchangepass_Customer" Association="Self.FK_customerchangepass_Customer">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="customerchangepass" EntitySet="customerchangepass" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CustomerProduct_Customer" Association="Self.FK_CustomerProduct_Customer">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="CustomerProduct" EntitySet="CustomerProduct" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CustomerProduct_Product" Association="Self.FK_CustomerProduct_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="CustomerProduct" EntitySet="CustomerProduct" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CustomerProduct_StateCustomerProduct" Association="Self.FK_CustomerProduct_StateCustomerProduct">
+            <End Role="StateCustomerProduct" EntitySet="StateCustomerProduct" />
+            <End Role="CustomerProduct" EntitySet="CustomerProduct" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CustomerProjectTicket_Customer" Association="Self.FK_CustomerProjectTicket_Customer">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="CustomerProjectTicket" EntitySet="CustomerProjectTicket" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CustomerProjectTicket_Unit" Association="Self.FK_CustomerProjectTicket_Unit">
+            <End Role="Unit" EntitySet="Unit" />
+            <End Role="CustomerProjectTicket" EntitySet="CustomerProjectTicket" />
+          </AssociationSet>
+          <AssociationSet Name="FK_factor_Customer" Association="Self.FK_factor_Customer">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="factor" EntitySet="factor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Payment_Customer" Association="Self.FK_Payment_Customer">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="Payment" EntitySet="Payment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductImage_Product" Association="Self.FK_ProductImage_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="ProductImage" EntitySet="ProductImage" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductProperty_Product" Association="Self.FK_ProductProperty_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="ProductProperty" EntitySet="ProductProperty" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductProperty_Property" Association="Self.FK_ProductProperty_Property">
+            <End Role="Property" EntitySet="Property" />
+            <End Role="ProductProperty" EntitySet="ProductProperty" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductSuggestion_Product" Association="Self.FK_ProductSuggestion_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="ProductSuggestion" EntitySet="ProductSuggestion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RelativeProduct_Product" Association="Self.FK_RelativeProduct_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="RelativeProduct" EntitySet="RelativeProduct" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RelativeProduct_Product1" Association="Self.FK_RelativeProduct_Product1">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="RelativeProduct" EntitySet="RelativeProduct" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Todo_Users" Association="Self.FK_Todo_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Todo" EntitySet="Todo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserRole_Role" Association="Self.FK_UserRole_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="UserRole" EntitySet="UserRole" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserRole_Users" Association="Self.FK_UserRole_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="UserRole" EntitySet="UserRole" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_Unit" Association="Self.FK_Users_Unit">
+            <End Role="Unit" EntitySet="Unit" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="FsetMvcModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="FsetMvcEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AboutUs" EntityType="FsetMvcModel.AboutUs" />
+          <EntitySet Name="ComponyRule" EntityType="FsetMvcModel.ComponyRule" />
+          <EntitySet Name="ContactUs" EntityType="FsetMvcModel.ContactUs" />
+          <EntitySet Name="Customer" EntityType="FsetMvcModel.Customer" />
+          <EntitySet Name="customerchangepass" EntityType="FsetMvcModel.customerchangepass" />
+          <EntitySet Name="CustomerProduct" EntityType="FsetMvcModel.CustomerProduct" />
+          <EntitySet Name="CustomerProjectTicket" EntityType="FsetMvcModel.CustomerProjectTicket" />
+          <EntitySet Name="discountcode" EntityType="FsetMvcModel.discountcode" />
+          <EntitySet Name="factor" EntityType="FsetMvcModel.factor" />
+          <EntitySet Name="Partner_companies" EntityType="FsetMvcModel.Partner_companies" />
+          <EntitySet Name="Payment" EntityType="FsetMvcModel.Payment" />
+          <EntitySet Name="paymentfactor" EntityType="FsetMvcModel.paymentfactor" />
+          <EntitySet Name="Product" EntityType="FsetMvcModel.Product" />
+          <EntitySet Name="ProductImage" EntityType="FsetMvcModel.ProductImage" />
+          <EntitySet Name="ProductProperty" EntityType="FsetMvcModel.ProductProperty" />
+          <EntitySet Name="ProductSuggestion" EntityType="FsetMvcModel.ProductSuggestion" />
+          <EntitySet Name="Property" EntityType="FsetMvcModel.Property" />
+          <EntitySet Name="RelativeProduct" EntityType="FsetMvcModel.RelativeProduct" />
+          <EntitySet Name="Role" EntityType="FsetMvcModel.Role" />
+          <EntitySet Name="sendcost" EntityType="FsetMvcModel.sendcost" />
+          <EntitySet Name="SlidShow" EntityType="FsetMvcModel.SlidShow" />
+          <EntitySet Name="StateCustomerProduct" EntityType="FsetMvcModel.StateCustomerProduct" />
+          <EntitySet Name="Suggestion" EntityType="FsetMvcModel.Suggestion" />
+          <EntitySet Name="sysdiagrams" EntityType="FsetMvcModel.sysdiagrams" />
+          <EntitySet Name="Todo" EntityType="FsetMvcModel.Todo" />
+          <EntitySet Name="Unit" EntityType="FsetMvcModel.Unit" />
+          <EntitySet Name="UserRole" EntityType="FsetMvcModel.UserRole" />
+          <EntitySet Name="Users" EntityType="FsetMvcModel.Users" />
+          <AssociationSet Name="FK_customerchangepass_Customer" Association="FsetMvcModel.FK_customerchangepass_Customer">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="customerchangepass" EntitySet="customerchangepass" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CustomerProduct_Customer" Association="FsetMvcModel.FK_CustomerProduct_Customer">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="CustomerProduct" EntitySet="CustomerProduct" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CustomerProjectTicket_Customer" Association="FsetMvcModel.FK_CustomerProjectTicket_Customer">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="CustomerProjectTicket" EntitySet="CustomerProjectTicket" />
+          </AssociationSet>
+          <AssociationSet Name="FK_factor_Customer" Association="FsetMvcModel.FK_factor_Customer">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="factor" EntitySet="factor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Payment_Customer" Association="FsetMvcModel.FK_Payment_Customer">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="Payment" EntitySet="Payment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CustomerProduct_Product" Association="FsetMvcModel.FK_CustomerProduct_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="CustomerProduct" EntitySet="CustomerProduct" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CustomerProduct_StateCustomerProduct" Association="FsetMvcModel.FK_CustomerProduct_StateCustomerProduct">
+            <End Role="StateCustomerProduct" EntitySet="StateCustomerProduct" />
+            <End Role="CustomerProduct" EntitySet="CustomerProduct" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CustomerProjectTicket_Unit" Association="FsetMvcModel.FK_CustomerProjectTicket_Unit">
+            <End Role="Unit" EntitySet="Unit" />
+            <End Role="CustomerProjectTicket" EntitySet="CustomerProjectTicket" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductImage_Product" Association="FsetMvcModel.FK_ProductImage_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="ProductImage" EntitySet="ProductImage" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductProperty_Product" Association="FsetMvcModel.FK_ProductProperty_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="ProductProperty" EntitySet="ProductProperty" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductSuggestion_Product" Association="FsetMvcModel.FK_ProductSuggestion_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="ProductSuggestion" EntitySet="ProductSuggestion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RelativeProduct_Product" Association="FsetMvcModel.FK_RelativeProduct_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="RelativeProduct" EntitySet="RelativeProduct" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RelativeProduct_Product1" Association="FsetMvcModel.FK_RelativeProduct_Product1">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="RelativeProduct" EntitySet="RelativeProduct" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductProperty_Property" Association="FsetMvcModel.FK_ProductProperty_Property">
+            <End Role="Property" EntitySet="Property" />
+            <End Role="ProductProperty" EntitySet="ProductProperty" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserRole_Role" Association="FsetMvcModel.FK_UserRole_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="UserRole" EntitySet="UserRole" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Todo_Users" Association="FsetMvcModel.FK_Todo_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Todo" EntitySet="Todo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_Unit" Association="FsetMvcModel.FK_Users_Unit">
+            <End Role="Unit" EntitySet="Unit" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserRole_Users" Association="FsetMvcModel.FK_UserRole_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="UserRole" EntitySet="UserRole" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="AboutUs">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DesCription" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ComponyRule">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="roledescription" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IdUserInsert" Type="Int64" />
+          <Property Name="IdUserDelete" Type="Int64" />
+          <Property Name="IdUserUpdate" Type="Int64" />
+          <Property Name="DateInsert" Type="DateTime" Precision="3" />
+          <Property Name="DateUpdate" Type="DateTime" Precision="3" />
+          <Property Name="DateDelete" Type="DateTime" Precision="3" />
+          <Property Name="StateDelete" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="ContactUs">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FullName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Tel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DateInsert" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DateDelete" Type="DateTime" Precision="3" />
+          <Property Name="DateUpdate" Type="DateTime" Precision="3" />
+          <Property Name="Statedelete" Type="Boolean" Nullable="false" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="userimage" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PostalCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NationalCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NationalID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EconomicCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="customerchangepass" Relationship="FsetMvcModel.FK_customerchangepass_Customer" FromRole="Customer" ToRole="customerchangepass" />
+          <NavigationProperty Name="CustomerProduct" Relationship="FsetMvcModel.FK_CustomerProduct_Customer" FromRole="Customer" ToRole="CustomerProduct" />
+          <NavigationProperty Name="CustomerProjectTicket" Relationship="FsetMvcModel.FK_CustomerProjectTicket_Customer" FromRole="Customer" ToRole="CustomerProjectTicket" />
+          <NavigationProperty Name="factor" Relationship="FsetMvcModel.FK_factor_Customer" FromRole="Customer" ToRole="factor" />
+          <NavigationProperty Name="Payment" Relationship="FsetMvcModel.FK_Payment_Customer" FromRole="Customer" ToRole="Payment" />
+        </EntityType>
+        <EntityType Name="customerchangepass">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerId" Type="Int64" Nullable="false" />
+          <Property Name="Code" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="numberofchages" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Customer" Relationship="FsetMvcModel.FK_customerchangepass_Customer" FromRole="customerchangepass" ToRole="Customer" />
+        </EntityType>
+        <EntityType Name="CustomerProduct">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerId" Type="Int64" Nullable="false" />
+          <Property Name="ProductId" Type="Int64" Nullable="false" />
+          <Property Name="DateRequest" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DateUpdate" Type="DateTime" Precision="3" />
+          <Property Name="DateDelete" Type="DateTime" Precision="3" />
+          <Property Name="DateRespond" Type="DateTime" Precision="3" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ResonOfCancelletion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IdState" Type="Int32" Nullable="false" />
+          <Property Name="Count" Type="Int64" />
+          <Property Name="TotalPrice" Type="Int64" />
+          <Property Name="DateDelivery" Type="DateTime" Precision="3" />
+          <Property Name="StateDelete" Type="Boolean" />
+          <Property Name="factorcod" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="resonofnotconfirm" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PaymentFactoreCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SaleRefrence" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Customer" Relationship="FsetMvcModel.FK_CustomerProduct_Customer" FromRole="CustomerProduct" ToRole="Customer" />
+          <NavigationProperty Name="Product" Relationship="FsetMvcModel.FK_CustomerProduct_Product" FromRole="CustomerProduct" ToRole="Product" />
+          <NavigationProperty Name="StateCustomerProduct" Relationship="FsetMvcModel.FK_CustomerProduct_StateCustomerProduct" FromRole="CustomerProduct" ToRole="StateCustomerProduct" />
+        </EntityType>
+        <EntityType Name="CustomerProjectTicket">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdCustomer" Type="Int64" Nullable="false" />
+          <Property Name="IdProduct" Type="Int64" Nullable="false" />
+          <Property Name="Message" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="dateinsert" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="daterespond" Type="DateTime" Precision="3" />
+          <Property Name="datedelete" Type="DateTime" Precision="3" />
+          <Property Name="IdUnit" Type="Int64" Nullable="false" />
+          <Property Name="ResponseMessage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IdUserRespond" Type="Int64" />
+          <Property Name="IdUserDelete" Type="Int64" />
+          <Property Name="Statedelete" Type="Boolean" />
+          <NavigationProperty Name="Customer" Relationship="FsetMvcModel.FK_CustomerProjectTicket_Customer" FromRole="CustomerProjectTicket" ToRole="Customer" />
+          <NavigationProperty Name="Unit" Relationship="FsetMvcModel.FK_CustomerProjectTicket_Unit" FromRole="CustomerProjectTicket" ToRole="Unit" />
+        </EntityType>
+        <EntityType Name="discountcode">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="dicountcode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="discountpersent" Type="Int32" Nullable="false" />
+          <Property Name="dateinsert" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="dateende" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="numberofuseg" Type="Int32" />
+          <Property Name="customerid" Type="Int64" />
+        </EntityType>
+        <EntityType Name="factor">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="factorcode" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="dateinsert" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="dateupdate" Type="DateTime" Precision="3" />
+          <Property Name="datedelete" Type="DateTime" Precision="3" />
+          <Property Name="prcount" Type="Int64" Nullable="false" />
+          <Property Name="customerId" Type="Int64" Nullable="false" />
+          <Property Name="discountcode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="discountpercent" Type="Int32" />
+          <Property Name="statedelete" Type="Boolean" Nullable="false" />
+          <Property Name="totalprice" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="Customer" Relationship="FsetMvcModel.FK_factor_Customer" FromRole="factor" ToRole="Customer" />
+        </EntityType>
+        <EntityType Name="Partner_companies">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CooperationText" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ActivityText" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Link" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="image" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Payment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RefrenceNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SaleRefrence" Type="Int64" />
+          <Property Name="StatusPayment" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PaymentFinish" Type="Boolean" />
+          <Property Name="Amount" Type="Int64" />
+          <Property Name="BankName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerId" Type="Int64" />
+          <Property Name="BuyDatetime" Type="DateTime" Precision="3" />
+          <Property Name="StatusCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="StatusMessag" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Customer" Relationship="FsetMvcModel.FK_Payment_Customer" FromRole="Payment" ToRole="Customer" />
+        </EntityType>
+        <EntityType Name="paymentfactor">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PaymentFactorCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="dateinsert" Type="DateTime" Precision="3" />
+          <Property Name="dateupdate" Type="DateTime" Precision="3" />
+          <Property Name="datedelete" Type="DateTime" Precision="3" />
+          <Property Name="prcount" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="customerId" Type="Int64" />
+          <Property Name="totalprice" Type="Int64" />
+          <Property Name="statedelete" Type="Boolean" />
+          <Property Name="RefNum" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="RefId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SaleRefrence" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="State" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="StateCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ResNum" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TRACENO" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PRN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Amount" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecurePan" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DateInsert" Type="DateTime" Precision="3" />
+          <Property Name="DateUpdate" Type="DateTime" Precision="3" />
+          <Property Name="DateDelete" Type="DateTime" Precision="3" />
+          <Property Name="Idparent" Type="Int64" />
+          <Property Name="Idsort" Type="Int64" />
+          <Property Name="IdUserDelete" Type="Int64" />
+          <Property Name="IdUserInsert" Type="Int64" />
+          <Property Name="IdUserUpdate" Type="Int64" />
+          <Property Name="StateDelete" Type="Boolean" Nullable="false" />
+          <Property Name="StateExist" Type="Boolean" />
+          <Property Name="Catalog" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Code" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="CustomerProduct" Relationship="FsetMvcModel.FK_CustomerProduct_Product" FromRole="Product" ToRole="CustomerProduct" />
+          <NavigationProperty Name="ProductImage" Relationship="FsetMvcModel.FK_ProductImage_Product" FromRole="Product" ToRole="ProductImage" />
+          <NavigationProperty Name="ProductProperty" Relationship="FsetMvcModel.FK_ProductProperty_Product" FromRole="Product" ToRole="ProductProperty" />
+          <NavigationProperty Name="ProductSuggestion" Relationship="FsetMvcModel.FK_ProductSuggestion_Product" FromRole="Product" ToRole="ProductSuggestion" />
+          <NavigationProperty Name="RelativeProduct" Relationship="FsetMvcModel.FK_RelativeProduct_Product" FromRole="Product" ToRole="RelativeProduct" />
+          <NavigationProperty Name="RelativeProduct1" Relationship="FsetMvcModel.FK_RelativeProduct_Product1" FromRole="Product" ToRole="RelativeProduct" />
+        </EntityType>
+        <EntityType Name="ProductImage">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Url" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IdProduct" Type="Int64" />
+          <Property Name="Date_Insert" Type="DateTime" Precision="3" />
+          <Property Name="IdUser_Insert" Type="Int64" />
+          <Property Name="Date_Update" Type="DateTime" Precision="3" />
+          <Property Name="IdUser_Update" Type="Int64" />
+          <Property Name="Date_Delete" Type="DateTime" Precision="3" />
+          <Property Name="IdUser_Delete" Type="Int64" />
+          <Property Name="StateDelete" Type="Boolean" />
+          <NavigationProperty Name="Product" Relationship="FsetMvcModel.FK_ProductImage_Product" FromRole="ProductImage" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="ProductProperty">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdProduct" Type="Int64" Nullable="false" />
+          <Property Name="IdProperty" Type="Int64" Nullable="false" />
+          <Property Name="Value" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Date_Insert" Type="DateTime" Precision="3" />
+          <Property Name="IdUser_Insert" Type="Int64" />
+          <Property Name="Date_Update" Type="DateTime" Precision="3" />
+          <Property Name="IdUser_Update" Type="Int64" />
+          <Property Name="Date_Delete" Type="DateTime" Precision="3" />
+          <Property Name="IdUser_Delete" Type="Int64" />
+          <Property Name="StateDelete" Type="Boolean" />
+          <Property Name="Idsort" Type="Int64" />
+          <NavigationProperty Name="Product" Relationship="FsetMvcModel.FK_ProductProperty_Product" FromRole="ProductProperty" ToRole="Product" />
+          <NavigationProperty Name="Property" Relationship="FsetMvcModel.FK_ProductProperty_Property" FromRole="ProductProperty" ToRole="Property" />
+        </EntityType>
+        <EntityType Name="ProductSuggestion">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductId" Type="Int64" Nullable="false" />
+          <Property Name="FullName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SuggestionText" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="rank" Type="Int32" Nullable="false" />
+          <Property Name="dateinsert" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="dateupdate" Type="DateTime" Precision="3" />
+          <Property Name="datedelete" Type="DateTime" Precision="3" />
+          <Property Name="statedelete" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Product" Relationship="FsetMvcModel.FK_ProductSuggestion_Product" FromRole="ProductSuggestion" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="Property">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DeletePermision" Type="Boolean" Nullable="false" />
+          <Property Name="IdParent" Type="Int64" Nullable="false" />
+          <Property Name="Date_Insert" Type="DateTime" Precision="3" />
+          <Property Name="IdUser_Insert" Type="Int64" />
+          <Property Name="Date_Update" Type="DateTime" Precision="3" />
+          <Property Name="IdUser_Update" Type="Int64" />
+          <Property Name="Date_Delete" Type="DateTime" Precision="3" />
+          <Property Name="IdUser_Delete" Type="Int64" />
+          <Property Name="StateDelete" Type="Boolean" />
+          <NavigationProperty Name="ProductProperty" Relationship="FsetMvcModel.FK_ProductProperty_Property" FromRole="Property" ToRole="ProductProperty" />
+        </EntityType>
+        <EntityType Name="RelativeProduct">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdProductMain" Type="Int64" Nullable="false" />
+          <Property Name="IdProductSubmain" Type="Int64" Nullable="false" />
+          <Property Name="DateInsert" Type="DateTime" Precision="3" />
+          <Property Name="DateUpdate" Type="DateTime" Precision="3" />
+          <Property Name="DateDelete" Type="DateTime" Precision="3" />
+          <Property Name="IdUserInsert" Type="Int64" />
+          <Property Name="IdUserDelete" Type="Int64" />
+          <Property Name="IdUserUpdate" Type="Int64" />
+          <Property Name="StateDelete" Type="Boolean" />
+          <NavigationProperty Name="Product" Relationship="FsetMvcModel.FK_RelativeProduct_Product" FromRole="RelativeProduct" ToRole="Product" />
+          <NavigationProperty Name="Product1" Relationship="FsetMvcModel.FK_RelativeProduct_Product1" FromRole="RelativeProduct" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="UserRole" Relationship="FsetMvcModel.FK_UserRole_Role" FromRole="Role" ToRole="UserRole" />
+        </EntityType>
+        <EntityType Name="sendcost">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SendCost1" Type="Int64" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SlidShow">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Text" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Image" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Idsort" Type="Int64" />
+          <Property Name="DateInsert" Type="DateTime" Precision="3" />
+          <Property Name="DateUpdate" Type="DateTime" Precision="3" />
+          <Property Name="IdUserInsert" Type="Int32" />
+          <Property Name="IdUserUpdate" Type="Int32" />
+          <Property Name="IduserDelete" Type="Int32" />
+          <Property Name="StateDelete" Type="Boolean" Nullable="false" />
+          <Property Name="DateDelete" Type="DateTime" Precision="3" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="StateCustomerProduct">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StateName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CustomerProduct" Relationship="FsetMvcModel.FK_CustomerProduct_StateCustomerProduct" FromRole="StateCustomerProduct" ToRole="CustomerProduct" />
+        </EntityType>
+        <EntityType Name="Suggestion">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Tel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Subject" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Message" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="respondmessag" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="dateinsert" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="datedelete" Type="DateTime" Precision="3" />
+          <Property Name="daterespond" Type="DateTime" Precision="3" />
+          <Property Name="statedelete" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Todo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Text" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DateInsert" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DateRemind" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DateEnd" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DateDelete" Type="DateTime" Precision="3" />
+          <Property Name="TimeInsert" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TimeRemind" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TimeEnde" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UserId" Type="Int64" />
+          <NavigationProperty Name="Users" Relationship="FsetMvcModel.FK_Todo_Users" FromRole="Todo" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Unit">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UnitName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StateDelete" Type="Boolean" />
+          <Property Name="IdUserInsert" Type="Int64" />
+          <Property Name="IdUserUpdate" Type="Int64" />
+          <Property Name="IdUserDelete" Type="Int64" />
+          <Property Name="DateInsert" Type="DateTime" Precision="3" />
+          <Property Name="DateUpdate" Type="DateTime" Precision="3" />
+          <Property Name="DateDelete" Type="DateTime" Precision="3" />
+          <Property Name="Idlanguege" Type="Int32" />
+          <NavigationProperty Name="CustomerProjectTicket" Relationship="FsetMvcModel.FK_CustomerProjectTicket_Unit" FromRole="Unit" ToRole="CustomerProjectTicket" />
+          <NavigationProperty Name="Users" Relationship="FsetMvcModel.FK_Users_Unit" FromRole="Unit" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="UserRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int64" Nullable="false" />
+          <Property Name="RoleId" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="Role" Relationship="FsetMvcModel.FK_UserRole_Role" FromRole="UserRole" ToRole="Role" />
+          <NavigationProperty Name="Users" Relationship="FsetMvcModel.FK_UserRole_Users" FromRole="UserRole" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FullName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Mobile" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Tel" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HomeAddress" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Image" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DateInsert" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DateUpdate" Type="DateTime" Precision="3" />
+          <Property Name="DateDelete" Type="DateTime" Precision="3" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StateDelete" Type="Boolean" Nullable="false" />
+          <Property Name="UnitId" Type="Int64" Nullable="false" />
+          <Property Name="IdUserInsert" Type="Int64" />
+          <Property Name="IdUserDelete" Type="Int64" />
+          <Property Name="IdUserUpdate" Type="Int64" />
+          <NavigationProperty Name="Todo" Relationship="FsetMvcModel.FK_Todo_Users" FromRole="Users" ToRole="Todo" />
+          <NavigationProperty Name="Unit" Relationship="FsetMvcModel.FK_Users_Unit" FromRole="Users" ToRole="Unit" />
+          <NavigationProperty Name="UserRole" Relationship="FsetMvcModel.FK_UserRole_Users" FromRole="Users" ToRole="UserRole" />
+        </EntityType>
+        <Association Name="FK_customerchangepass_Customer">
+          <End Type="FsetMvcModel.Customer" Role="Customer" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="FsetMvcModel.customerchangepass" Role="customerchangepass" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="customerchangepass">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CustomerProduct_Customer">
+          <End Type="FsetMvcModel.Customer" Role="Customer" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="FsetMvcModel.CustomerProduct" Role="CustomerProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CustomerProduct">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CustomerProjectTicket_Customer">
+          <End Type="FsetMvcModel.Customer" Role="Customer" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="FsetMvcModel.CustomerProjectTicket" Role="CustomerProjectTicket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CustomerProjectTicket">
+              <PropertyRef Name="IdCustomer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_factor_Customer">
+          <End Type="FsetMvcModel.Customer" Role="Customer" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="FsetMvcModel.factor" Role="factor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="factor">
+              <PropertyRef Name="customerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Payment_Customer">
+          <End Type="FsetMvcModel.Customer" Role="Customer" Multiplicity="0..1" />
+          <End Type="FsetMvcModel.Payment" Role="Payment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Payment">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CustomerProduct_Product">
+          <End Type="FsetMvcModel.Product" Role="Product" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="FsetMvcModel.CustomerProduct" Role="CustomerProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CustomerProduct">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CustomerProduct_StateCustomerProduct">
+          <End Type="FsetMvcModel.StateCustomerProduct" Role="StateCustomerProduct" Multiplicity="1" />
+          <End Type="FsetMvcModel.CustomerProduct" Role="CustomerProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StateCustomerProduct">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CustomerProduct">
+              <PropertyRef Name="IdState" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CustomerProjectTicket_Unit">
+          <End Type="FsetMvcModel.Unit" Role="Unit" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="FsetMvcModel.CustomerProjectTicket" Role="CustomerProjectTicket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Unit">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CustomerProjectTicket">
+              <PropertyRef Name="IdUnit" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductImage_Product">
+          <End Type="FsetMvcModel.Product" Role="Product" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="FsetMvcModel.ProductImage" Role="ProductImage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProductImage">
+              <PropertyRef Name="IdProduct" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductProperty_Product">
+          <End Type="FsetMvcModel.Product" Role="Product" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="FsetMvcModel.ProductProperty" Role="ProductProperty" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProductProperty">
+              <PropertyRef Name="IdProduct" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductSuggestion_Product">
+          <End Type="FsetMvcModel.Product" Role="Product" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="FsetMvcModel.ProductSuggestion" Role="ProductSuggestion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProductSuggestion">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RelativeProduct_Product">
+          <End Type="FsetMvcModel.Product" Role="Product" Multiplicity="1" />
+          <End Type="FsetMvcModel.RelativeProduct" Role="RelativeProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RelativeProduct">
+              <PropertyRef Name="IdProductMain" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RelativeProduct_Product1">
+          <End Type="FsetMvcModel.Product" Role="Product" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="FsetMvcModel.RelativeProduct" Role="RelativeProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RelativeProduct">
+              <PropertyRef Name="IdProductSubmain" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductProperty_Property">
+          <End Type="FsetMvcModel.Property" Role="Property" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="FsetMvcModel.ProductProperty" Role="ProductProperty" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Property">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProductProperty">
+              <PropertyRef Name="IdProperty" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserRole_Role">
+          <End Type="FsetMvcModel.Role" Role="Role" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="FsetMvcModel.UserRole" Role="UserRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserRole">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Todo_Users">
+          <End Type="FsetMvcModel.Users" Role="Users" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="FsetMvcModel.Todo" Role="Todo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Todo">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_Unit">
+          <End Type="FsetMvcModel.Unit" Role="Unit" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="FsetMvcModel.Users" Role="Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Unit">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="UnitId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserRole_Users">
+          <End Type="FsetMvcModel.Users" Role="Users" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="FsetMvcModel.UserRole" Role="UserRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserRole">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="FsetMvcModelStoreContainer" CdmEntityContainer="FsetMvcEntities">
+          <EntitySetMapping Name="AboutUs">
+            <EntityTypeMapping TypeName="FsetMvcModel.AboutUs">
+              <MappingFragment StoreEntitySet="AboutUs">
+                <ScalarProperty Name="DesCription" ColumnName="DesCription" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ComponyRule">
+            <EntityTypeMapping TypeName="FsetMvcModel.ComponyRule">
+              <MappingFragment StoreEntitySet="ComponyRule">
+                <ScalarProperty Name="StateDelete" ColumnName="StateDelete" />
+                <ScalarProperty Name="DateDelete" ColumnName="DateDelete" />
+                <ScalarProperty Name="DateUpdate" ColumnName="DateUpdate" />
+                <ScalarProperty Name="DateInsert" ColumnName="DateInsert" />
+                <ScalarProperty Name="IdUserUpdate" ColumnName="IdUserUpdate" />
+                <ScalarProperty Name="IdUserDelete" ColumnName="IdUserDelete" />
+                <ScalarProperty Name="IdUserInsert" ColumnName="IdUserInsert" />
+                <ScalarProperty Name="roledescription" ColumnName="roledescription" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ContactUs">
+            <EntityTypeMapping TypeName="FsetMvcModel.ContactUs">
+              <MappingFragment StoreEntitySet="ContactUs">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Customer">
+            <EntityTypeMapping TypeName="FsetMvcModel.Customer">
+              <MappingFragment StoreEntitySet="Customer">
+                <ScalarProperty Name="EconomicCode" ColumnName="EconomicCode" />
+                <ScalarProperty Name="NationalID" ColumnName="NationalID" />
+                <ScalarProperty Name="NationalCode" ColumnName="NationalCode" />
+                <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+                <ScalarProperty Name="userimage" ColumnName="userimage" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Statedelete" ColumnName="Statedelete" />
+                <ScalarProperty Name="DateUpdate" ColumnName="DateUpdate" />
+                <ScalarProperty Name="DateDelete" ColumnName="DateDelete" />
+                <ScalarProperty Name="DateInsert" ColumnName="DateInsert" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Tel" ColumnName="Tel" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="customerchangepass">
+            <EntityTypeMapping TypeName="FsetMvcModel.customerchangepass">
+              <MappingFragment StoreEntitySet="customerchangepass">
+                <ScalarProperty Name="numberofchages" ColumnName="numberofchages" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CustomerProduct">
+            <EntityTypeMapping TypeName="FsetMvcModel.CustomerProduct">
+              <MappingFragment StoreEntitySet="CustomerProduct">
+                <ScalarProperty Name="SaleRefrence" ColumnName="SaleRefrence" />
+                <ScalarProperty Name="PaymentFactoreCode" ColumnName="PaymentFactoreCode" />
+                <ScalarProperty Name="resonofnotconfirm" ColumnName="resonofnotconfirm" />
+                <ScalarProperty Name="factorcod" ColumnName="factorcod" />
+                <ScalarProperty Name="StateDelete" ColumnName="StateDelete" />
+                <ScalarProperty Name="DateDelivery" ColumnName="DateDelivery" />
+                <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
+                <ScalarProperty Name="Count" ColumnName="Count" />
+                <ScalarProperty Name="IdState" ColumnName="IdState" />
+                <ScalarProperty Name="ResonOfCancelletion" ColumnName="ResonOfCancelletion" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="DateRespond" ColumnName="DateRespond" />
+                <ScalarProperty Name="DateDelete" ColumnName="DateDelete" />
+                <ScalarProperty Name="DateUpdate" ColumnName="DateUpdate" />
+                <ScalarProperty Name="DateRequest" ColumnName="DateRequest" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CustomerProjectTicket">
+            <EntityTypeMapping TypeName="FsetMvcModel.CustomerProjectTicket">
+              <MappingFragment StoreEntitySet="CustomerProjectTicket">
+                <ScalarProperty Name="Statedelete" ColumnName="Statedelete" />
+                <ScalarProperty Name="IdUserDelete" ColumnName="IdUserDelete" />
+                <ScalarProperty Name="IdUserRespond" ColumnName="IdUserRespond" />
+                <ScalarProperty Name="ResponseMessage" ColumnName="ResponseMessage" />
+                <ScalarProperty Name="IdUnit" ColumnName="IdUnit" />
+                <ScalarProperty Name="datedelete" ColumnName="datedelete" />
+                <ScalarProperty Name="daterespond" ColumnName="daterespond" />
+                <ScalarProperty Name="dateinsert" ColumnName="dateinsert" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="IdProduct" ColumnName="IdProduct" />
+                <ScalarProperty Name="IdCustomer" ColumnName="IdCustomer" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="discountcode">
+            <EntityTypeMapping TypeName="FsetMvcModel.discountcode">
+              <MappingFragment StoreEntitySet="discountcode">
+                <ScalarProperty Name="customerid" ColumnName="customerid" />
+                <ScalarProperty Name="numberofuseg" ColumnName="numberofuseg" />
+                <ScalarProperty Name="dateende" ColumnName="dateende" />
+                <ScalarProperty Name="dateinsert" ColumnName="dateinsert" />
+                <ScalarProperty Name="discountpersent" ColumnName="discountpersent" />
+                <ScalarProperty Name="dicountcode" ColumnName="dicountcode" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="factor">
+            <EntityTypeMapping TypeName="FsetMvcModel.factor">
+              <MappingFragment StoreEntitySet="factor">
+                <ScalarProperty Name="totalprice" ColumnName="totalprice" />
+                <ScalarProperty Name="statedelete" ColumnName="statedelete" />
+                <ScalarProperty Name="discountpercent" ColumnName="discountpercent" />
+                <ScalarProperty Name="discountcode" ColumnName="discountcode" />
+                <ScalarProperty Name="customerId" ColumnName="customerId" />
+                <ScalarProperty Name="prcount" ColumnName="prcount" />
+                <ScalarProperty Name="datedelete" ColumnName="datedelete" />
+                <ScalarProperty Name="dateupdate" ColumnName="dateupdate" />
+                <ScalarProperty Name="dateinsert" ColumnName="dateinsert" />
+                <ScalarProperty Name="factorcode" ColumnName="factorcode" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Partner_companies">
+            <EntityTypeMapping TypeName="FsetMvcModel.Partner_companies">
+              <MappingFragment StoreEntitySet="Partner_companies">
+                <ScalarProperty Name="image" ColumnName="image" />
+                <ScalarProperty Name="Link" ColumnName="Link" />
+                <ScalarProperty Name="ActivityText" ColumnName="ActivityText" />
+                <ScalarProperty Name="CooperationText" ColumnName="CooperationText" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Payment">
+            <EntityTypeMapping TypeName="FsetMvcModel.Payment">
+              <MappingFragment StoreEntitySet="Payment">
+                <ScalarProperty Name="StatusMessag" ColumnName="StatusMessag" />
+                <ScalarProperty Name="StatusCode" ColumnName="StatusCode" />
+                <ScalarProperty Name="BuyDatetime" ColumnName="BuyDatetime" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="BankName" ColumnName="BankName" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="PaymentFinish" ColumnName="PaymentFinish" />
+                <ScalarProperty Name="StatusPayment" ColumnName="StatusPayment" />
+                <ScalarProperty Name="SaleRefrence" ColumnName="SaleRefrence" />
+                <ScalarProperty Name="RefrenceNumber" ColumnName="RefrenceNumber" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="paymentfactor">
+            <EntityTypeMapping TypeName="FsetMvcModel.paymentfactor">
+              <MappingFragment StoreEntitySet="paymentfactor">
+                <ScalarProperty Name="SecurePan" ColumnName="SecurePan" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="PRN" ColumnName="PRN" />
+                <ScalarProperty Name="TRACENO" ColumnName="TRACENO" />
+                <ScalarProperty Name="CID" ColumnName="CID" />
+                <ScalarProperty Name="MID" ColumnName="MID" />
+                <ScalarProperty Name="ResNum" ColumnName="ResNum" />
+                <ScalarProperty Name="StateCode" ColumnName="StateCode" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="SaleRefrence" ColumnName="SaleRefrence" />
+                <ScalarProperty Name="RefId" ColumnName="RefId" />
+                <ScalarProperty Name="RefNum" ColumnName="RefNum" />
+                <ScalarProperty Name="statedelete" ColumnName="statedelete" />
+                <ScalarProperty Name="totalprice" ColumnName="totalprice" />
+                <ScalarProperty Name="customerId" ColumnName="customerId" />
+                <ScalarProperty Name="prcount" ColumnName="prcount" />
+                <ScalarProperty Name="datedelete" ColumnName="datedelete" />
+                <ScalarProperty Name="dateupdate" ColumnName="dateupdate" />
+                <ScalarProperty Name="dateinsert" ColumnName="dateinsert" />
+                <ScalarProperty Name="PaymentFactorCode" ColumnName="PaymentFactorCode" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Product">
+            <EntityTypeMapping TypeName="FsetMvcModel.Product">
+              <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Catalog" ColumnName="Catalog" />
+                <ScalarProperty Name="StateExist" ColumnName="StateExist" />
+                <ScalarProperty Name="StateDelete" ColumnName="StateDelete" />
+                <ScalarProperty Name="IdUserUpdate" ColumnName="IdUserUpdate" />
+                <ScalarProperty Name="IdUserInsert" ColumnName="IdUserInsert" />
+                <ScalarProperty Name="IdUserDelete" ColumnName="IdUserDelete" />
+                <ScalarProperty Name="Idsort" ColumnName="Idsort" />
+                <ScalarProperty Name="Idparent" ColumnName="Idparent" />
+                <ScalarProperty Name="DateDelete" ColumnName="DateDelete" />
+                <ScalarProperty Name="DateUpdate" ColumnName="DateUpdate" />
+                <ScalarProperty Name="DateInsert" ColumnName="DateInsert" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductImage">
+            <EntityTypeMapping TypeName="FsetMvcModel.ProductImage">
+              <MappingFragment StoreEntitySet="ProductImage">
+                <ScalarProperty Name="StateDelete" ColumnName="StateDelete" />
+                <ScalarProperty Name="IdUser_Delete" ColumnName="IdUser_Delete" />
+                <ScalarProperty Name="Date_Delete" ColumnName="Date_Delete" />
+                <ScalarProperty Name="IdUser_Update" ColumnName="IdUser_Update" />
+                <ScalarProperty Name="Date_Update" ColumnName="Date_Update" />
+                <ScalarProperty Name="IdUser_Insert" ColumnName="IdUser_Insert" />
+                <ScalarProperty Name="Date_Insert" ColumnName="Date_Insert" />
+                <ScalarProperty Name="IdProduct" ColumnName="IdProduct" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductProperty">
+            <EntityTypeMapping TypeName="FsetMvcModel.ProductProperty">
+              <MappingFragment StoreEntitySet="ProductProperty">
+                <ScalarProperty Name="Idsort" ColumnName="Idsort" />
+                <ScalarProperty Name="StateDelete" ColumnName="StateDelete" />
+                <ScalarProperty Name="IdUser_Delete" ColumnName="IdUser_Delete" />
+                <ScalarProperty Name="Date_Delete" ColumnName="Date_Delete" />
+                <ScalarProperty Name="IdUser_Update" ColumnName="IdUser_Update" />
+                <ScalarProperty Name="Date_Update" ColumnName="Date_Update" />
+                <ScalarProperty Name="IdUser_Insert" ColumnName="IdUser_Insert" />
+                <ScalarProperty Name="Date_Insert" ColumnName="Date_Insert" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="IdProperty" ColumnName="IdProperty" />
+                <ScalarProperty Name="IdProduct" ColumnName="IdProduct" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductSuggestion">
+            <EntityTypeMapping TypeName="FsetMvcModel.ProductSuggestion">
+              <MappingFragment StoreEntitySet="ProductSuggestion">
+                <ScalarProperty Name="statedelete" ColumnName="statedelete" />
+                <ScalarProperty Name="datedelete" ColumnName="datedelete" />
+                <ScalarProperty Name="dateupdate" ColumnName="dateupdate" />
+                <ScalarProperty Name="dateinsert" ColumnName="dateinsert" />
+                <ScalarProperty Name="rank" ColumnName="rank" />
+                <ScalarProperty Name="SuggestionText" ColumnName="SuggestionText" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Property">
+            <EntityTypeMapping TypeName="FsetMvcModel.Property">
+              <MappingFragment StoreEntitySet="Property">
+                <ScalarProperty Name="StateDelete" ColumnName="StateDelete" />
+                <ScalarProperty Name="IdUser_Delete" ColumnName="IdUser_Delete" />
+                <ScalarProperty Name="Date_Delete" ColumnName="Date_Delete" />
+                <ScalarProperty Name="IdUser_Update" ColumnName="IdUser_Update" />
+                <ScalarProperty Name="Date_Update" ColumnName="Date_Update" />
+                <ScalarProperty Name="IdUser_Insert" ColumnName="IdUser_Insert" />
+                <ScalarProperty Name="Date_Insert" ColumnName="Date_Insert" />
+                <ScalarProperty Name="IdParent" ColumnName="IdParent" />
+                <ScalarProperty Name="DeletePermision" ColumnName="DeletePermision" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RelativeProduct">
+            <EntityTypeMapping TypeName="FsetMvcModel.RelativeProduct">
+              <MappingFragment StoreEntitySet="RelativeProduct">
+                <ScalarProperty Name="StateDelete" ColumnName="StateDelete" />
+                <ScalarProperty Name="IdUserUpdate" ColumnName="IdUserUpdate" />
+                <ScalarProperty Name="IdUserDelete" ColumnName="IdUserDelete" />
+                <ScalarProperty Name="IdUserInsert" ColumnName="IdUserInsert" />
+                <ScalarProperty Name="DateDelete" ColumnName="DateDelete" />
+                <ScalarProperty Name="DateUpdate" ColumnName="DateUpdate" />
+                <ScalarProperty Name="DateInsert" ColumnName="DateInsert" />
+                <ScalarProperty Name="IdProductSubmain" ColumnName="IdProductSubmain" />
+                <ScalarProperty Name="IdProductMain" ColumnName="IdProductMain" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Role">
+            <EntityTypeMapping TypeName="FsetMvcModel.Role">
+              <MappingFragment StoreEntitySet="Role">
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sendcost">
+            <EntityTypeMapping TypeName="FsetMvcModel.sendcost">
+              <MappingFragment StoreEntitySet="sendcost">
+                <ScalarProperty Name="SendCost1" ColumnName="SendCost" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SlidShow">
+            <EntityTypeMapping TypeName="FsetMvcModel.SlidShow">
+              <MappingFragment StoreEntitySet="SlidShow">
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="DateDelete" ColumnName="DateDelete" />
+                <ScalarProperty Name="StateDelete" ColumnName="StateDelete" />
+                <ScalarProperty Name="IduserDelete" ColumnName="IduserDelete" />
+                <ScalarProperty Name="IdUserUpdate" ColumnName="IdUserUpdate" />
+                <ScalarProperty Name="IdUserInsert" ColumnName="IdUserInsert" />
+                <ScalarProperty Name="DateUpdate" ColumnName="DateUpdate" />
+                <ScalarProperty Name="DateInsert" ColumnName="DateInsert" />
+                <ScalarProperty Name="Idsort" ColumnName="Idsort" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StateCustomerProduct">
+            <EntityTypeMapping TypeName="FsetMvcModel.StateCustomerProduct">
+              <MappingFragment StoreEntitySet="StateCustomerProduct">
+                <ScalarProperty Name="StateName" ColumnName="StateName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Suggestion">
+            <EntityTypeMapping TypeName="FsetMvcModel.Suggestion">
+              <MappingFragment StoreEntitySet="Suggestion">
+                <ScalarProperty Name="statedelete" ColumnName="statedelete" />
+                <ScalarProperty Name="daterespond" ColumnName="daterespond" />
+                <ScalarProperty Name="datedelete" ColumnName="datedelete" />
+                <ScalarProperty Name="dateinsert" ColumnName="dateinsert" />
+                <ScalarProperty Name="respondmessag" ColumnName="respondmessag" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Tel" ColumnName="Tel" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="FsetMvcModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Todo">
+            <EntityTypeMapping TypeName="FsetMvcModel.Todo">
+              <MappingFragment StoreEntitySet="Todo">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="TimeEnde" ColumnName="TimeEnde" />
+                <ScalarProperty Name="TimeRemind" ColumnName="TimeRemind" />
+                <ScalarProperty Name="TimeInsert" ColumnName="TimeInsert" />
+                <ScalarProperty Name="DateDelete" ColumnName="DateDelete" />
+                <ScalarProperty Name="DateEnd" ColumnName="DateEnd" />
+                <ScalarProperty Name="DateRemind" ColumnName="DateRemind" />
+                <ScalarProperty Name="DateInsert" ColumnName="DateInsert" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Unit">
+            <EntityTypeMapping TypeName="FsetMvcModel.Unit">
+              <MappingFragment StoreEntitySet="Unit">
+                <ScalarProperty Name="Idlanguege" ColumnName="Idlanguege" />
+                <ScalarProperty Name="DateDelete" ColumnName="DateDelete" />
+                <ScalarProperty Name="DateUpdate" ColumnName="DateUpdate" />
+                <ScalarProperty Name="DateInsert" ColumnName="DateInsert" />
+                <ScalarProperty Name="IdUserDelete" ColumnName="IdUserDelete" />
+                <ScalarProperty Name="IdUserUpdate" ColumnName="IdUserUpdate" />
+                <ScalarProperty Name="IdUserInsert" ColumnName="IdUserInsert" />
+                <ScalarProperty Name="StateDelete" ColumnName="StateDelete" />
+                <ScalarProperty Name="UnitName" ColumnName="UnitName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserRole">
+            <EntityTypeMapping TypeName="FsetMvcModel.UserRole">
+              <MappingFragment StoreEntitySet="UserRole">
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="FsetMvcModel.Users">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="IdUserUpdate" ColumnName="IdUserUpdate" />
+                <ScalarProperty Name="IdUserDelete" ColumnName="IdUserDelete" />
+                <ScalarProperty Name="IdUserInsert" ColumnName="IdUserInsert" />
+                <ScalarProperty Name="UnitId" ColumnName="UnitId" />
+                <ScalarProperty Name="StateDelete" ColumnName="StateDelete" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="DateDelete" ColumnName="DateDelete" />
+                <ScalarProperty Name="DateUpdate" ColumnName="DateUpdate" />
+                <ScalarProperty Name="DateInsert" ColumnName="DateInsert" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="HomeAddress" ColumnName="HomeAddress" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Tel" ColumnName="Tel" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

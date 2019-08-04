@@ -1,0 +1,82 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_layout.cshtml";
+}
+
+
+@model HiperStar.Models.AboutUs
+
+<div class="tm-breadcrumb-area tm-padding-section" style="background-image:url(../../Image/AboutUs.jpg)">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="tm-breadcrumb">
+                    <h2>درباره ما</h2>
+                    <ul>
+                        <li><a href="~/Home/Index"><i class="fa fa-home"></i> خانه </a></li>
+                        <li>درباره ما</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="tm-section about-us-area bg-white tm-padding-section">
+    <div class="container">
+        <div class="row">
+            <div class="tm-section about-us-area bg-white tm-padding-section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="features-slider-row">
+
+                                <!-- Single Feature -->
+                                <div class="tm-feature text-center">
+                                    <span class="tm-feature-icon">
+                                        <i class="flaticon-planning"></i>
+                                    </span>
+                                    <h5>استراتژی کسب و کار</h5>
+
+                                </div>
+                                <!--// Single Feature -->
+                                <!-- Single Feature -->
+                                <div class="tm-feature text-center">
+                                    <span class="tm-feature-icon">
+                                        <i class="flaticon-diagram"></i>
+                                    </span>
+                                    <h5>رشد کسب و کار</h5>
+
+                                </div>
+                                <!--// Single Feature -->
+                                <!-- Single Feature -->
+                                <div class="tm-feature text-center">
+                                    <span class="tm-feature-icon">
+                                        <i class="flaticon-chart"></i>
+                                    </span>
+                                    <h5>برنامه ریزی مالی</h5>
+
+                                </div>
+                                <!--// Single Feature -->
+                            </div>
+
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="about-content">
+                                <h2>به شرکت ما خوش آمدید</h2>
+                                <h6 class="text-justify">@Model.DesCription</h6>
+                                <ul class="stylish-list">
+                                    <li><i class="far fa-check-square"></i>ما خدمات مختلفی را ارائه می کنیم .</li>
+                                    <li><i class="far fa-check-square"></i>ما یکی از شرکت های پیشرو هستیم .</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

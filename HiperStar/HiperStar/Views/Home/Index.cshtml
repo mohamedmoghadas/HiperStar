@@ -1,0 +1,983 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_layout.cshtml";
+}
+
+
+
+@model HiperStar.Models.VmComponent.VmHome
+
+
+
+
+<div class="row" style="margin-top:10px">
+
+    <div class="col-sm-1">
+
+    </div>
+
+
+
+    <div class="col-sm-10">
+
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+
+            <ol class="carousel-indicators">
+
+                @for (int i = 0; i < Model.ListSlidShows.Count(); i++)
+                {
+                    if (i == 0)
+                    {
+                        <li data-target="#myCarousel" data-slide-to="@i" class="active"></li>
+
+                    }
+                    else
+                    {
+                        <li data-target="#myCarousel" data-slide-to="@i"></li>
+
+                    }
+                }
+
+
+
+
+            </ol>
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+
+                @{
+                    int j = 0;
+                }
+
+                @foreach (var item in Model.ListSlidShows)
+                {
+                    if (j == 0)
+                    {
+                        <div class="item active">
+                            <img src="~/Image/@item.Image" alt="@item.Text" style="width:100%;height:500px">
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="item">
+                            <img src="~/Image/@item.Image" alt="@item.Text" style="width:100%;height:500px">
+                        </div>
+                    }
+                    j++;
+
+                }
+
+
+
+            </div>
+
+            <!-- Left and right controls -->
+            <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+
+
+    <div class="col-sm-1">
+
+    </div>
+
+</div>
+
+
+
+
+<div class="tm-section about-us-area bg-white tm-padding-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="about-image2">
+                    <img class="wow fadeInRight" src="~/assets/images/others/about-image-2.png" alt="about image">
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="about-content">
+                    <h2>به فروشگاه ما خوش آمدید</h2>
+                    <h6>
+                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک
+                        است.
+                    </h6>
+                    <p>
+                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک
+                        است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط
+                        فعلی تکنولوژی مورد نیاز و
+                    </p>
+                    <ul class="stylish-list">
+                        <li><i class="far fa-check-square"></i>ما خدمات مختلفی را ارائه می کنیم .</li>
+                        <li><i class="far fa-check-square"></i>ما یکی از شرکت های پیشرو هستیم .</li>
+                        <li><i class="far fa-check-square"></i>سودآوری هدف اصلی تمام کسب . کار ها است .</li>
+                        <li><i class="far fa-check-square"></i>یاد بگیرید چگونه کسب و کار خود را رشد دهید .</li>
+                    </ul>
+                    <a href="about-us.html" class="tm-button">درباره ما <b></b></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--// About Us Area -->
+<!-- Features Area -->
+<div class="tm-section features-area bg-grey tm-padding-section">
+    <div class="container">
+        <div class="row justify-content-end">
+            <div class="col-xl-9 col-lg-12">
+                <div class="features-slider-active tm-slider-dots tm-slider-dots-vertical">
+
+                    <div class="features-slider-row">
+
+                        <!-- Single Feature -->
+                        <div class="tm-feature text-center">
+                            <span class="tm-feature-icon">
+                                <i class="flaticon-planning"></i>
+                            </span>
+                            <h5>استراتژی کسب و کار</h5>
+                            <p>
+                                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
+                                گرافیک است.
+                            </p>
+                        </div>
+                        <!--// Single Feature -->
+                        <!-- Single Feature -->
+                        <div class="tm-feature text-center">
+                            <span class="tm-feature-icon">
+                                <i class="flaticon-diagram"></i>
+                            </span>
+                            <h5>رشد کسب و کار</h5>
+                            <p>
+                                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
+                                گرافیک است.
+                            </p>
+                        </div>
+                        <!--// Single Feature -->
+                        <!-- Single Feature -->
+                        <div class="tm-feature text-center">
+                            <span class="tm-feature-icon">
+                                <i class="flaticon-chart"></i>
+                            </span>
+                            <h5>برنامه ریزی مالی</h5>
+                            <p>
+                                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
+                                گرافیک است.
+                            </p>
+                        </div>
+                        <!--// Single Feature -->
+                    </div>
+
+                    <div class="features-slider-row">
+
+                        <!-- Single Feature -->
+                        <div class="tm-feature text-center">
+                            <span class="tm-feature-icon">
+                                <i class="flaticon-chart"></i>
+                            </span>
+                            <h5>استراتژی کسب و کار</h5>
+                            <p>
+                                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
+                                گرافیک است.
+                            </p>
+                        </div>
+                        <!--// Single Feature -->
+                        <!-- Single Feature -->
+                        <div class="tm-feature text-center">
+                            <span class="tm-feature-icon">
+                                <i class="flaticon-planning"></i>
+                            </span>
+                            <h5>رشد کسب و کار</h5>
+                            <p>
+                                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
+                                گرافیک است.
+                            </p>
+                        </div>
+                        <!--// Single Feature -->
+                        <!-- Single Feature -->
+                        <div class="tm-feature text-center">
+                            <span class="tm-feature-icon">
+                                <i class="flaticon-diagram"></i>
+                            </span>
+                            <h5>برنامه ریزی مالی</h5>
+                            <p>
+                                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
+                                گرافیک است.
+                            </p>
+                        </div>
+                        <!--// Single Feature -->
+                    </div>
+
+                    <div class="features-slider-row">
+
+                        <!-- Single Feature -->
+                        <div class="tm-feature text-center">
+                            <span class="tm-feature-icon">
+                                <i class="flaticon-chart"></i>
+                            </span>
+
+                            <h5>استراتژی کسب و کار</h5>
+                            <p>
+                                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
+                                گرافیک است.
+                            </p>
+                        </div>
+                        <!--// Single Feature -->
+                        <!-- Single Feature -->
+                        <div class="tm-feature text-center">
+                            <span class="tm-feature-icon">
+                                <i class="flaticon-planning"></i>
+                            </span>
+                            <h5>رشد کسب و کار</h5>
+                            <p>
+                                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
+                                گرافیک است.
+                            </p>
+                        </div>
+                        <!--// Single Feature -->
+                        <!-- Single Feature -->
+                        <div class="tm-feature text-center">
+                            <span class="tm-feature-icon">
+                                <i class="flaticon-diagram"></i>
+                            </span>
+                            <h5>برنامه ریزی مالی</h5>
+                            <p>
+                                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
+                                گرافیک است.
+                            </p>
+                        </div>
+                        <!--// Single Feature -->
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!--// Features Area -->
+<!-- Funfact Area -->
+<div class="tm-section funfact-area tm-padding-section" data-bgimage="~/assets/images/funfact/funfact-bg.jpg"
+     data-black-overlay="8">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-5 col-12">
+                <div class="funfact-headline">
+                    <h4>دارای </h4>
+                    <h2> بیش از <span>20 سال </span> سابقه</h2>
+                </div>
+            </div>
+            <div class="col-xl-7 col-12">
+                <div class="row no-gutters mt-30-reverse funfact-wrapper">
+
+                    <!-- Funfact Single -->
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-12 mt-30">
+                        <div class="tm-funfact">
+                            <span class="tm-funfact-icon">
+                                <i class="flaticon-check-mark"></i>
+                            </span>
+                            <div class="tm-funfact-content">
+                                <span class="odometer" data-count-to="0015"></span>
+                                <h5>کالا</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <!--// Funfact Single -->
+                    <!-- Funfact Single -->
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-12 mt-30">
+                        <div class="tm-funfact">
+                            <span class="tm-funfact-icon">
+                                <i class="flaticon-smile"></i>
+                            </span>
+                            <div class="tm-funfact-content">
+                                <span class="odometer" data-count-to="023"></span>
+                                <h5>مشتری</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <!--// Funfact Single -->
+                    <!-- Funfact Single -->
+                    <!--// Funfact Single -->
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!--// Funfact Area -->
+<!-- Services Area -->
+<div class="tm-section services-area tm-padding-section bg-white">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 col-md-10 col-12">
+                <div class="tm-section-title text-center">
+                    <h2>خدمات ما</h2>
+                    <p>
+                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک
+                        است
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="row services-wrap-2">
+
+            <!-- Single Service -->
+            <div class="col-lg-4 col-md-6 col-sm-6 col-12 wow fadeInUp">
+                <div class="tm-service2 text-center">
+                    <span class="tm-service2-icon">
+                        <i class="flaticon-idea"></i>
+                    </span>
+                    <h5><a href="service-details.html">رشد کسب و کار</a></h5>
+                    <p>
+                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک
+                        است
+                    </p>
+                </div>
+            </div>
+            <!--// Single Service -->
+            <!-- Single Service -->
+            <div class="col-lg-4 col-md-6 col-sm-6 col-12 wow fadeInUp">
+                <div class="tm-service2 text-center">
+                    <span class="tm-service2-icon">
+                        <i class="flaticon-options"></i>
+                    </span>
+                    <h5><a href="service-details.html">استراتژی کسب و کار</a></h5>
+                    <p>
+                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک
+                        است
+                    </p>
+                </div>
+            </div>
+            <!--// Single Service -->
+            <!-- Single Service -->
+            <div class="col-lg-4 col-md-6 col-sm-6 col-12 wow fadeInUp">
+                <div class="tm-service2 text-center">
+                    <span class="tm-service2-icon">
+                        <i class="flaticon-leadership"></i>
+                    </span>
+                    <h5><a href="service-details.html">فروش فوقالعاده</a></h5>
+                    <p>
+                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک
+                        است
+                    </p>
+                </div>
+            </div>
+            <!--// Single Service -->
+            <!-- Single Service -->
+            <div class="col-lg-4 col-md-6 col-sm-6 col-12 wow fadeInUp">
+                <div class="tm-service2 text-center">
+                    <span class="tm-service2-icon">
+                        <i class="flaticon-responsive"></i>
+                    </span>
+                    <h5><a href="service-details.html">واکنشگرا</a></h5>
+                    <p>
+                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک
+                        است
+                    </p>
+                </div>
+            </div>
+            <!--// Single Service -->
+            <!-- Single Service -->
+            <div class="col-lg-4 col-md-6 col-sm-6 col-12 wow fadeInUp">
+                <div class="tm-service2 text-center">
+                    <span class="tm-service2-icon">
+                        <i class="flaticon-password"></i>
+                    </span>
+                    <h5><a href="service-details.html">خدمات امن</a></h5>
+                    <p>
+                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک
+                        است
+                    </p>
+                </div>
+            </div>
+            <!--// Single Service -->
+            <!-- Single Service -->
+            <div class="col-lg-4 col-md-6 col-sm-6 col-12 wow fadeInUp">
+                <div class="tm-service2 text-center">
+                    <span class="tm-service2-icon">
+                        <i class="flaticon-24-hours"></i>
+                    </span>
+                    <h5><a href="service-details.html">پشتیبانی 24 ساعته</a></h5>
+                    <p>
+                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک
+                        است
+                    </p>
+                </div>
+            </div>
+            <!--// Single Service -->
+
+        </div>
+    </div>
+</div>
+<!--// Services Area -->
+<!-- Testimonial Area -->
+<div class="tm-section testimonial-area tm-padding-section bg-grey">
+    <div class="container">
+        <div class="row testimonial-slider-active">
+
+            <!-- Testimonial -->
+            <div class="col-lg-6">
+                <div class="tm-testimonial">
+                    <div class="tm-testimonial-top">
+                        <div class="tm-testimonial-author">
+                            <img src="~/assets/images/others/author-image-1.png" alt="author image">
+                        </div>
+                        <div class="tm-testimonial-content">
+                            <p>
+                                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
+                                گرافیک است
+                            </p>
+                            <i class="fas fa-quote-left"></i>
+                        </div>
+                    </div>
+                    <div class="tm-testimonial-bottom">
+                        <h5>جواد کاظمی</h5>
+                        <p>فروشنده</p>
+                        <br />
+                    </div>
+                </div>
+            </div>
+            <!--// Testimonial -->
+            <!-- Testimonial -->
+            <div class="col-lg-6">
+                <div class="tm-testimonial">
+                    <div class="tm-testimonial-top">
+                        <div class="tm-testimonial-author">
+                            <img src="~/assets/images/others/author-image-2.png" alt="author image">
+                        </div>
+                        <div class="tm-testimonial-content">
+                            <p>
+                                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
+                                گرافیک است
+                            </p>
+                            <i class="fas fa-quote-left"></i>
+                        </div>
+                    </div>
+                    <div class="tm-testimonial-bottom">
+                        <h5>جواد کاظمی</h5>
+                        <p>فروشنده</p>
+                        <br />
+
+                    </div>
+                </div>
+            </div>
+            <!--// Testimonial -->
+            <!-- Testimonial -->
+            <div class="col-lg-6">
+                <div class="tm-testimonial">
+                    <div class="tm-testimonial-top">
+                        <div class="tm-testimonial-author">
+                            <img src="~/assets/images/others/author-image-1.png" alt="author image">
+                        </div>
+                        <div class="tm-testimonial-content">
+                            <p>
+                                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
+                                گرافیک است
+                            </p>
+                            <i class="fas fa-quote-left"></i>
+                        </div>
+                    </div>
+                    <div class="tm-testimonial-bottom">
+                        <h5>جواد کاظمی</h5>
+                        <p>فروشنده</p>
+                        <br />
+
+                    </div>
+                </div>
+            </div>
+            <!--// Testimonial -->
+            <!-- Testimonial -->
+            <div class="col-lg-6">
+                <div class="tm-testimonial">
+                    <div class="tm-testimonial-top">
+                        <div class="tm-testimonial-author">
+                            <img src="~/assets/images/others/author-image-2.png" alt="author image">
+                        </div>
+                        <div class="tm-testimonial-content">
+                            <p>
+                                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
+                                گرافیک است
+                            </p>
+                            <i class="fas fa-quote-left"></i>
+                        </div>
+                    </div>
+                    <div class="tm-testimonial-bottom">
+                        <h5>جواد کاظمی</h5>
+                        <p>فروشنده</p>
+                        <br />
+
+                    </div>
+                </div>
+            </div>
+            <!--// Testimonial -->
+
+        </div>
+    </div>
+</div>
+<!--// Testimonial Area -->
+<!-- Pupular Products -->
+<div class="tm-section product-section tm-padding-section bg-white">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 col-md-10">
+                <div class="tm-section-title text-center">
+                    <h2>آخرین محصولات ما</h2>
+                    <p>
+                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک
+                        است
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab Buttons -->
+        <ul class="nav tm-tabgroup" id="bstab1" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="bstab1-area1-tab" data-toggle="tab" href="#bstab1-area1"
+                   role="tab" aria-controls="bstab1-area1" aria-selected="true">همه</a>
+            </li>
+
+        </ul>
+        <!--// Tab Buttons -->
+        <!-- Tab Content -->
+        <div class="tab-content" id="bstab1-ontent">
+            <div class="tab-pane fade show active" id="bstab1-area1" role="tabpanel"
+                 aria-labelledby="bstab1-area1-tab">
+
+                <div class="product-vertical-slider-active tm-slider-dots tm-slider-dots-vertical">
+                    <div class="product-vertical-slider-row">
+                        <div class="row mt-30-reverse">
+                            @foreach (var item in Model.ListProduct)
+                            {
+                                <div class="col-lg-3 col-md-6 col-sm-6 col-12 mt-30">
+                                    <div class="tm-product">
+                                        <div class="tm-product-image">
+                                            <a class="tm-product-imagelink" onclick="ShowProductDetail(@item.Id)" href="#">
+                                                @if (@item.ProductImage.FirstOrDefault() != null)
+                                                {
+                                                    <img src="~/Image/productImage/@item.ProductImage.FirstOrDefault().Url"
+                                                         alt="product image" class="img-responsive" style="width:300px;height:300px">
+                                                }
+                                                else
+                                                {
+                                                    <img src="~/Image/nopic_s.jpg" style="width:300px;height:300px"/>
+                                                }
+
+                                            </a>
+                                            <ul class="tm-product-actions">
+
+                                                <li>
+                                                    <button type="button" onclick="ShowProductDetail(@item.Id)">
+                                                        <i class="far fa-eye"></i>
+                                                    </button>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="tm-product-content">
+                                            <h5 class="tm-product-title">
+                                                <a href="product-details.html">
+                                                    @item.Name
+                                                </a>
+                                            </h5>
+                                            <div class="tm-product-rating">
+                                                <span class="active"><i class="fas fa-star"></i></span>
+                                                <span class="active"><i class="fas fa-star"></i></span>
+                                                <span class="active"><i class="fas fa-star"></i></span>
+                                                <span class="active"><i class="fas fa-star"></i></span>
+                                                <span class="active"><i class="fas fa-star"></i></span>
+                                            </div>
+
+
+                                            <br />
+                                            <br />
+
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+                <a href="~/Products/Index" class="tm-button"> بیشتر <b></b></a>
+
+            </div>
+
+
+        </div>
+        <!--// Tab Content -->
+
+    </div>
+</div>
+<!--// Pupular Products -->
+<!-- Promo Offer Area -->
+<div class="tm-section promo-area bg-grey">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 order-2 order-lg-1 align-self-end">
+                <div class="tm-promo-image-2">
+                    <img class="wow fadeInRight" src="~/assets/images/others/promo-image-2.png" alt="promo image">
+                </div>
+            </div>
+            <div class="col-lg-6 order-1 order-lg-2">
+                <div class="tm-promo-content tm-padding-section">
+                    <h2><span class="color-theme">40٪</span> تخفیف </h2>
+                    <p>
+                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک
+                        است .
+                    </p>
+                    <div class="tm-countdown" data-countdown="2020/08/12"></div>
+                    <a href="shop.html" class="tm-button">هم اکنون خرید کنید <b></b></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--// Promo Offer Area -->
+<!-- Latest Blog Area -->
+<div class="tm-section latest-blog-area tm-padding-section bg-white">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 col-md-10">
+                <div class="tm-section-title text-center">
+                    <h2>آخرین مطالب</h2>
+                    <p>
+                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک
+                        است .
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row blog-slider-active">
+
+        <!-- Single Blog -->
+        <div class="col">
+            <div class="tm-blog">
+                <div class="tm-blog-image">
+                    <img src="~/assets/images/blog/blog-image-1.jpeg" alt="blog image">
+                </div>
+                <div class="tm-blog-content">
+                    <h4><a href="blog-details.html">عنوان خبر</a></h4>
+                    <div class="tm-blog-meta">
+                        <span>شنبه، 12 مهر 1397</span>
+                    </div>
+                    <p>
+                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک
+                        است .
+                    </p>
+                    <div class="tm-blog-contentbottom">
+                        <a href="blog-details.html" class="tm-readmore">
+                            ادامه مطلب <i class="fas fa-chevron-left"></i>
+                        </a>
+                        <a href="blog-details.html">2 نظر</a>
+                    </div>
+                </div>
+                <div class="tm-blog-social">
+                    <ul>
+                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href="#"><i class="fab fa-skype"></i></a></li>
+                        <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--// Single Blog -->
+        <!-- Single Blog -->
+        <div class="col">
+            <div class="tm-blog">
+                <div class="tm-blog-image">
+                    <img src="~/assets/images/blog/blog-image-2.jpeg" alt="blog image">
+                </div>
+                <div class="tm-blog-content">
+                    <h4><a href="blog-details.html">عنوان خبر</a></h4>
+                    <div class="tm-blog-meta">
+                        <span>شنبه، 15 مهر 1397</span>
+                    </div>
+                    <p>
+                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک
+                        است .
+                    </p>
+                    <div class="tm-blog-contentbottom">
+                        <a href="blog-details.html" class="tm-readmore">
+                            ادامه مطلب <i class="fas fa-chevron-left"></i>
+                        </a>
+                        <a href="blog-details.html">5 نظر</a>
+                    </div>
+                </div>
+                <div class="tm-blog-social">
+                    <ul>
+                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href="#"><i class="fab fa-skype"></i></a></li>
+                        <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--// Single Blog -->
+        <!-- Single Blog -->
+        <div class="col">
+            <div class="tm-blog">
+                <div class="tm-blog-image">
+                    <img src="~/assets/images/blog/blog-image-3.jpeg" alt="blog image">
+                </div>
+                <div class="tm-blog-content">
+                    <h4><a href="blog-details.html">عنوان خبر</a></h4>
+                    <div class="tm-blog-meta">
+                        <span>شنبه، 18 مهر 1397</span>
+                    </div>
+                    <p>
+                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک
+                        است .
+                    </p>
+                    <div class="tm-blog-contentbottom">
+                        <a href="blog-details.html" class="tm-readmore">
+                            ادامه مطلب <i class="fas fa-chevron-left"></i>
+                        </a>
+                        <a href="blog-details.html">8 نظر</a>
+                    </div>
+                </div>
+                <div class="tm-blog-social">
+                    <ul>
+                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href="#"><i class="fab fa-skype"></i></a></li>
+                        <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--// Single Blog -->
+        <!-- Single Blog -->
+        <div class="col">
+            <div class="tm-blog">
+                <div class="tm-blog-image">
+                    <img src="~/assets/images/blog/blog-image-4.jpeg" alt="blog image">
+                </div>
+                <div class="tm-blog-content">
+                    <h4><a href="blog-details.html">عنوان خبر</a></h4>
+                    <div class="tm-blog-meta">
+                        <span>شنبه، 12 مهر 1397</span>
+                    </div>
+                    <p>
+                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک
+                        است .
+                    </p>
+                    <div class="tm-blog-contentbottom">
+                        <a href="blog-details.html" class="tm-readmore">
+                            ادامه مطلب <i class="fas fa-chevron-left"></i>
+                        </a>
+                        <a href="blog-details.html">20 نظر</a>
+                    </div>
+                </div>
+                <div class="tm-blog-social">
+                    <ul>
+                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href="#"><i class="fab fa-skype"></i></a></li>
+                        <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--// Single Blog -->
+        <!-- Single Blog -->
+        <div class="col">
+            <div class="tm-blog">
+                <div class="tm-blog-image">
+                    <img src="~/assets/images/blog/blog-image-5.jpeg" alt="blog image">
+                </div>
+                <div class="tm-blog-content">
+                    <h4><a href="blog-details.html">عنوان خبر</a></h4>
+                    <div class="tm-blog-meta">
+                        <span>شنبه، 10 مهر 1397</span>
+                    </div>
+                    <p>
+                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک
+                        است .
+                    </p>
+                    <div class="tm-blog-contentbottom">
+                        <a href="blog-details.html" class="tm-readmore">
+                            ادامه مطلب <i class="fas fa-chevron-left"></i>
+                        </a>
+                        <a href="blog-details.html">9 نظر</a>
+                    </div>
+                </div>
+                <div class="tm-blog-social">
+                    <ul>
+                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href="#"><i class="fab fa-skype"></i></a></li>
+                        <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--// Single Blog -->
+        <!-- Single Blog -->
+        <div class="col">
+            <div class="tm-blog">
+                <div class="tm-blog-image">
+                    <img src="~/assets/images/blog/blog-image-6.jpeg" alt="blog image">
+                </div>
+                <div class="tm-blog-content">
+                    <h4><a href="blog-details.html">عنوان خبر</a></h4>
+                    <div class="tm-blog-meta">
+                        <span>شنبه، 12 مهر 1397</span>
+                    </div>
+                    <p>
+                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک
+                        است .
+                    </p>
+                    <div class="tm-blog-contentbottom">
+                        <a href="blog-details.html" class="tm-readmore">
+                            ادامه مطلب <i class="fas fa-chevron-left"></i>
+                        </a>
+                        <a href="blog-details.html">2 نظر</a>
+                    </div>
+                </div>
+                <div class="tm-blog-social">
+                    <ul>
+                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href="#"><i class="fab fa-skype"></i></a></li>
+                        <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--// Single Blog -->
+
+    </div>
+</div>
+<!--// Latest Blog Area -->
+<!-- Brand Logos Area -->
+<div class="tm-section brand-logos-area tm-padding-section-bottom bg-white">
+    <div class="container">
+        <div class="brandlogo-slider">
+
+            <!-- Brang Logo Single -->
+            <div class="brandlogo">
+                <a href="#">
+                    <img src="~/assets/images/brand-logo/brand-logo-1.png" alt="brand-logo">
+                </a>
+            </div>
+            <!--// Brang Logo Single -->
+            <!-- Brang Logo Single -->
+            <div class="brandlogo">
+                <a href="#">
+                    <img src="~/assets/images/brand-logo/brand-logo-2.png" alt="brand-logo">
+                </a>
+            </div>
+            <!--// Brang Logo Single -->
+            <!-- Brang Logo Single -->
+            <div class="brandlogo">
+                <a href="#">
+                    <img src="~/assets/images/brand-logo/brand-logo-3.png" alt="brand-logo">
+                </a>
+            </div>
+            <!--// Brang Logo Single -->
+            <!-- Brang Logo Single -->
+            <div class="brandlogo">
+                <a href="#">
+                    <img src="~/assets/images/brand-logo/brand-logo-4.png" alt="brand-logo">
+                </a>
+            </div>
+            <!--// Brang Logo Single -->
+            <!-- Brang Logo Single -->
+            <div class="brandlogo">
+                <a href="#">
+                    <img src="~/assets/images/brand-logo/brand-logo-5.png" alt="brand-logo">
+                </a>
+            </div>
+            <!--// Brang Logo Single -->
+            <!-- Brang Logo Single -->
+            <div class="brandlogo">
+                <a href="#">
+                    <img src="~/assets/images/brand-logo/brand-logo-1.png" alt="brand-logo">
+                </a>
+            </div>
+            <!--// Brang Logo Single -->
+            <!-- Brang Logo Single -->
+            <div class="brandlogo">
+                <a href="#">
+                    <img src="~/assets/images/brand-logo/brand-logo-2.png" alt="brand-logo">
+                </a>
+            </div>
+            <!--// Brang Logo Single -->
+            <!-- Brang Logo Single -->
+            <div class="brandlogo">
+                <a href="#">
+                    <img src="~/assets/images/brand-logo/brand-logo-3.png" alt="brand-logo">
+                </a>
+            </div>
+            <!--// Brang Logo Single -->
+            <!-- Brang Logo Single -->
+            <div class="brandlogo">
+                <a href="#">
+                    <img src="~/assets/images/brand-logo/brand-logo-4.png" alt="brand-logo">
+                </a>
+            </div>
+            <!--// Brang Logo Single -->
+            <!-- Brang Logo Single -->
+            <div class="brandlogo">
+                <a href="#">
+                    <img src="~/assets/images/brand-logo/brand-logo-5.png" alt="brand-logo">
+                </a>
+            </div>
+            <!--// Brang Logo Single -->
+
+        </div>
+    </div>
+</div>
+
+
+
+
+@section localscript{
+
+
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+
+
+    <script>
+
+        function ShowProductDetail(id) {
+             var form = document.createElement("form");
+            var element1 = document.createElement("input");
+
+
+            form.method = "Post";
+            form.action = '/ProductDetailList/Index';
+
+            element1.value = id;
+            element1.name = "id";
+            element1.hidden = true;
+            form.appendChild(element1);
+
+
+
+            document.body.appendChild(form);
+
+            form.submit();
+        }
+
+    </script>
+
+}
+

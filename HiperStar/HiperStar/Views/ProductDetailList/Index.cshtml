@@ -1,0 +1,238 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_layout.cshtml";
+}
+
+@model HiperStar.Models.VmList.VmProductDetail
+
+<div class="tm-breadcrumb-area tm-padding-section"
+     style="background-image:url(../../assets/images/others/about-image-2.png)">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="tm-breadcrumb">
+                    <h2>فروشگاه</h2>
+                    <ul>
+                        <li><a href="index-1.html">خانه</a></li>
+                        <li>فروشگاه</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="tm-section shop-page-area bg-white tm-padding-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-9 col-12 order-1 order-lg-2">
+                <form action="#" class="tm-shop-header">
+                    <p class="tm-shop-countview">نمایش 1 تا 10 از @Model.ProductList.Count محصول </p>
+                    <select>
+                        <option value="value">نمایش پیشفرض</option>
+                        <option value="value">نام</option>
+                        <option value="value">تاریخ</option>
+                        <option value="value">برترین فروشندگان</option>
+                        <option value="value">پرفروش ترین</option>
+                    </select>
+                </form>
+                <div class="tm-shop-products">
+                    <div class="row mt-50-reverse">
+
+
+                        @foreach (var item in Model.ProductList)
+                        {
+                            <div class="col-lg-4 col-md-6 col-sm-6 col-12 mt-50">
+                                <div class="tm-product">
+                                    <div class="tm-product-image">
+                                        <a class="tm-product-imagelink" href="#">
+                                            @if (item.ProductImage.Where(p => p.IdProduct == item.Id).FirstOrDefault() != null)
+                                            {
+
+                                                <img class="img-responsive"
+                                                     src="~/Image/productImage/@item.ProductImage.Where(p => p.IdProduct == item.Id).FirstOrDefault().Url"
+                                                     alt="product image" style="width:300px;height:300px">
+                                            }
+                                            else
+                                            {
+                                                <img class="img-responsive" src="~/Image/nopic_s.jpg" style="width:300px;height:300px" />
+                                            }
+                                        </a>
+                                        <ul class="tm-product-actions">
+                                            <li><a href="#" onclick="AddToBasket(@item.Id)"><i class="fas fa-shopping-cart"></i></a></li>
+                                            @*<li><button type="button" data-toggle="modal" data-target="#tm-product-quickview"><i class="far fa-eye"></i></button></li>*@
+                                        </ul>
+                                    </div>
+                                    <div class="tm-product-content">
+                                        <h5 class="tm-product-title"><a href="product-details.html">@item.Name</a></h5>
+                                        <div class="tm-product-rating">
+                                            <span class="active"><i class="fas fa-star"></i></span>
+                                            <span class="active"><i class="fas fa-star"></i></span>
+                                            <span class="active"><i class="fas fa-star"></i></span>
+                                            <span class="active"><i class="fas fa-star"></i></span>
+                                            <span class="active"><i class="fas fa-star"></i></span>
+                                        </div>
+                                        <h6 class="tm-product-price"><del>@item.ProductProperty.Where(p => p.IdProduct == item.Id && p.IdProperty == 3).FirstOrDefault().Value تومان</del> @item.ProductProperty.Where(p => p.IdProduct == item.Id && p.IdProperty == 4).FirstOrDefault().Value تومان</h6>
+                                        <br />
+                                        <br />
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        }
+                        <!-- Single Product -->
+
+
+                    </div>
+                </div>
+
+                <div class="tm-pagination mt-50">
+                    <div id="pagination"></div>
+
+                </div>
+
+
+            </div>
+            <div class="col-lg-3 col-12 order-2 order-lg-1">
+                <div class="widgets sidebar-widgets3 sticky-sidebar">
+
+                    <!-- Single Widget -->
+                    <div class="single-widget widget-categories">
+                        <h5 class="widget-title">دسته بندی</h5>
+                        <ul>
+                            <li><a href="#">موبایل</a></li>
+                            <li><a href="#">ساعت</a></li>
+                            <li><a href="#">کفش</a></li>
+                            <li><a href="#">اسباب بازی</a></li>
+                            <li><a href="#">سلامتی</a></li>
+                            <li><a href="#">لوازم ورزشی</a></li>
+                        </ul>
+                    </div>
+                    <!--// Single Widget -->
+                    <!-- Single Widget -->
+                    <div class="single-widget widget-pricefilter">
+                        <h5 class="widget-title">فیلتر بر اساس قیمت</h5>
+                        <div class="widget-pricefilter-inner">
+                            <div class="tm-rangeslider" data-range_min="0" data-range_max="800" data-cur_min="200" data-cur_max="550">
+                                <div class="tm-rangeslider-bar nst-animating"></div>
+                                <span class="tm-rangeslider-leftgrip nst-animating" tabindex="0"></span>
+                                <span class="tm-rangeslider-rightgrip nst-animating" tabindex="0"></span>
+                            </div>
+                            <div class="widget-pricefilter-actions">
+                                <p class="widget-pricefilter-price">
+                                    قیمت : $<span class="tm-rangeslider-leftlabel">308</span>
+                                    تا $<span class="tm-rangeslider-rightlabel">798</span>
+                                </p>
+                                <button class="widget-pricefilter-button">فیلتر</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!--// Single Widget -->
+                    <!-- Single Widget -->
+                    <div class="single-widget widget-popularproduct">
+                        <h5 class="widget-title">محصولات محبوب</h5>
+                        <ul>
+                            <li>
+                                <a href="product-details.html" class="widget-popularproduct-image">
+                                    <img src="~/assets/images/product/thumbnails/product-thumbnail-1.png" alt="product thumbnail">
+                                </a>
+                                <div class="widget-popularproduct-content">
+                                    <h6><a href="product-details.html">هدفون</a></h6>
+                                    <span>20000 تومان</span>
+                                </div>
+                            </li>
+                            <li>
+                                <a href="product-details.html" class="widget-popularproduct-image">
+                                    <img src="~/assets/images/product/thumbnails/product-thumbnail-2.png" alt="product thumbnail">
+                                </a>
+                                <div class="widget-popularproduct-content">
+                                    <h6><a href="product-details.html">ساعت</a></h6>
+                                    <span>200000 تومان</span>
+                                </div>
+                            </li>
+                            <li>
+                                <a href="product-details.html" class="widget-popularproduct-image">
+                                    <img src="~/assets/images/product/thumbnails/product-thumbnail-3.png" alt="product thumbnail">
+                                </a>
+                                <div class="widget-popularproduct-content">
+                                    <h6><a href="product-details.html">دوربین</a></h6>
+                                    <span>40000 تومان</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--// Single Widget -->
+                    <!-- Single Widget -->
+                    <div class="single-widget widget-size">
+                        <h5 class="widget-title">اندازه</h5>
+                        <ul>
+                            <li><a href="#">کوچک </a></li>
+                            <li><a href="#">متوسط</a></li>
+                            <li><a href="#">بزرگ</a></li>
+                            <li><a href="#">خیلی بزرگ </a></li>
+                        </ul>
+                    </div>
+                    <!--// Single Widget -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section localscript{
+
+    <script>
+
+        function AddToBasket(id) {
+            $.ajax({
+                url: '/Home/AddtoBasket',
+                data: { id: id },
+                type: 'post',
+                beforeSend: function () {
+                    $(LoadingGift).show();
+                },
+                success: function (data) {
+
+                    $(LoadingGift).hide();
+
+                    GetBasketCooki(CountBasket);
+
+                }
+            });
+        }
+
+    </script>
+
+
+        <script>
+
+        var dataPaging;
+
+        var currentpage;
+
+        dataPaging=@Model.AllPage;
+
+
+        currentpage =@Model.CurrentPage;
+
+        var init = function () {
+            Pagination.Init(document.getElementById('pagination'), {
+                size: dataPaging, // pages size
+                page: currentpage,  // selected page
+                step: 3   // pages before and after current
+            });
+
+        };
+
+
+
+        document.addEventListener('DOMContentLoaded', init, false);
+
+
+
+        </script>
+    
+}
