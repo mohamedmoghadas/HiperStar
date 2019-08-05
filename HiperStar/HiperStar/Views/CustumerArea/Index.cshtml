@@ -1,0 +1,492 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_layout.cshtml";
+}
+
+@model HiperStar.Models.VmComponent.vmCArea
+
+<div class="tm-breadcrumb-area tm-padding-section" style="background-image:url(../../Resorce_2/img/aboutus/header.jpg)">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="tm-breadcrumb">
+                    <h2>حساب کاربری</h2>
+                    <ul>
+                        <li><a href="~/Home/Index"><i class="fa fa-home"></i> خانه </a></li>
+                        <li>حساب کاربری</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="tm-section tm-my-account-area bg-white tm-padding-section">
+    <div class="container">
+        <div class="tm-myaccount">
+            <ul class="nav tm-tabgroup justify-content-start justify-content-lg-center" id="account" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="account-dashboard-tab" data-toggle="tab" href="#account-dashboard" role="tab" aria-controls="account-dashboard" aria-selected="true">داشبورد</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="account-readyorders-tab" data-toggle="tab" href="#account-readyorders" role="tab" aria-controls="account-readyorders" aria-selected="false">سفارشات آماده پرداخت</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="account-payedorder-tab" data-toggle="tab" href="#account-payedorder" role="tab" aria-controls="account-payedorder" aria-selected="false">سفارشات پرداخت شده</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="account-deliveredorder-tab" data-toggle="tab" href="#account-deliveredorder" role="tab" aria-controls="account-deliveredorder" aria-selected="false">سفارشات ارسال شده</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" id="account-otherorder-tab" data-toggle="tab" href="#account-otherorder" role="tab" aria-controls="account-otherorder" aria-selected="false">دیگر سفارشات</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="account-acdetails-tab" data-toggle="tab" href="#account-acdetails" role="tab" aria-controls="account-acdetails" aria-selected="false">اطلاعات شخصی</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" id="account-changpass-tab" data-toggle="tab" href="#account-changpass" role="tab" aria-controls="account-changpass" aria-selected="false">تغییر رمز</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="~/fCustomerTicket/Index" role="tab">مدیریت تیکت ها</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" id="account-logout-tab" href="~/fCArea/LogOut" role="tab" aria-controls="account-address" aria-selected="false">خروج</a>
+                </li>
+            </ul>
+
+            <div class="tab-content" id="account-ontent">
+                <div class="tab-pane fade show active" id="account-dashboard" role="tabpanel" aria-labelledby="account-dashboard-tab">
+                    <div class="tm-myaccount-dashboard">
+                        <h4>
+                            خوش آمدید  <span>@Model.Customer.FullName</span>
+                            @if (Model.Customer.userimage == "" || Model.Customer.userimage == null)
+                            {
+                                <img style="float:left" class="img-responsive img-circle" width="150" height="150" src="~/Resorce_2/img/CustomerImage/user-default.jpg" />
+                            }
+                            else
+                            {
+                                <img style="float:left" class="img-responsive img-circle" width="150" height="150" src="~/Resorce_2/img/CustomerImage/@Model.Customer.userimage" />
+                            }
+                        </h4>
+                        <h5>نام کاربری: @Model.Customer.UserName</h5>
+                        <h5>ایمیل: @Model.Customer.Email</h5>
+
+
+                    </div>
+
+                </div>
+                <div class="tab-pane fade" id="account-readyorders" role="tabpanel" aria-labelledby="account-readyorders-tab">
+                    <div class="tm-myaccount-orders">
+                        <div class="table-responsive">
+
+                            @if (Model.CustomerProducts.Where(p => p.IdState == 1).Count() > 0)
+                            {
+
+                                <table class="table table-bordered mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center">عکس</th>
+
+                                            <th class="text-center">شماره سفارش</th>
+                                            <th class="text-center">نام کالا</th>
+
+                                            <th class="text-center">تاریخ سفارش</th>
+                                            <th class="text-center">تعداد</th>
+
+                                            <th class="text-center">وضعیت</th>
+                                            <th class="text-center">مجموع</th>
+                                            <th class="text-center">حذف</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+
+                                        @foreach (var item1 in Model.CustomerProducts.Where(p => p.IdState == 1))
+                                        {
+                                            <tr>
+                                                <td><img class="img-responsive" height="100" width="100" src="~/Resorce_2/img/Product/@item1.Product.ProductImage.FirstOrDefault().Url" /></td>
+
+                                                <td>#@item1.factorcod</td>
+                                                <td>@item1.Product.Name</td>
+
+                                                <td>@ExtentionFunction.Topersian(item1.DateRequest)</td>
+                                                <td>@item1.Count</td>
+
+                                                <td>@item1.StateCustomerProduct.StateName</td>
+                                                <td>@item1.TotalPrice</td>
+
+                                                <td><button onclick="deletereadyorders(@item1.Id)" class="btn btn-danger fa fa-trash"><b></b></button></td>
+
+                                            </tr>
+                                        }
+
+
+                                    </tbody>
+                                </table>
+                                <br />
+                                <a href="~/fPayment/Index" class="tm-button" style="float:left">رفتن به صفحه پرداخت <b></b></a>
+
+
+                            }
+                            else
+                            {
+                                <h1 class="text-danger">اطلاعاتی موجود نیست</h1>
+                                <a href="~/fproducts/Index" class="tm-button">ادامه خرید <b></b></a>
+
+                            }
+
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="account-payedorder" role="tabpanel" aria-labelledby="account-payedorder-tab">
+                    <div class="tm-myaccount-orders">
+                        <div class="table-responsive">
+                            @if (Model.CustomerProducts.Where(p => p.IdState == 3).Count() > 0)
+                            {
+                                <table class="table table-bordered mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th class="tm-myaccount-orders-col-id">شماره سفارش</th>
+                                            <th class="text-center">تاریخ سفارش</th>
+                                            <th class="text-center">وضعیت</th>
+                                            <th class="text-center">مجموع</th>
+                                            <th class="text-center">نمایش</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item1 in Model.CustomerProducts.Where(p => p.IdState == 3))
+                                        {
+                                            <tr>
+                                                <td>#@item1.factorcod</td>
+                                                <td>@ExtentionFunction.Topersian(item1.DateRequest)</td>
+                                                <td>@item1.StateCustomerProduct.StateName</td>
+                                                <td>@item1.TotalPrice</td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            }
+                            else
+                            {
+                                <h1 class="text-danger">اطلاعاتی موجود نیست</h1>
+                                <a href="~/fproducts/Index" class="tm-button">ادامه خرید <b></b></a>
+                            }
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-pane fade" id="account-deliveredorder" role="tabpanel" aria-labelledby="account-deliveredorder-tab">
+                    <div class="tm-myaccount-orders">
+                        <div class="table-responsive">
+                            @if (Model.CustomerProducts.Where(p => p.IdState == 5).Count() > 0)
+                            {
+                                <table class="table table-bordered mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th class="tm-myaccount-orders-col-id">شماره سفارش</th>
+                                            <th class="text-center">تاریخ سفارش</th>
+                                            <th class="text-center">تاریخ ارسال</th>
+                                            <th class="text-center">تاریخ تحویل</th>
+
+                                            <th class="text-center">وضعیت</th>
+                                            <th class="text-center">مجموع</th>
+                                            <th class="text-center">نمایش</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item1 in Model.CustomerProducts.Where(p => p.IdState == 5))
+                                        {
+                                            <tr>
+                                                <td>#@item1.factorcod</td>
+                                                <td>@ExtentionFunction.Topersian(item1.DateRequest)</td>
+                                                <td>@ExtentionFunction.Topersian(Convert.ToDateTime(item1.DateRespond))</td>
+                                                <td>@ExtentionFunction.Topersian(Convert.ToDateTime(item1.DateDelivery))</td>
+
+                                                <td>@item1.StateCustomerProduct.StateName</td>
+                                                <td>@item1.TotalPrice</td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            }
+                            else
+                            {
+                                <h1 class="text-danger">اطلاعاتی موجود نیست</h1>
+                                <a href="~/fproducts/Index" class="tm-button">ادامه خرید <b></b></a>
+                            }
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="tab-pane fade" id="account-otherorder" role="tabpanel" aria-labelledby="account-otherorder-tab">
+                    <div class="tm-myaccount-orders">
+                        <div class="table-responsive">
+                            @if (Model.CustomerProducts.Where(p => p.IdState != 5 && p.IdState != 3 && p.IdState != 1).Count() > 0)
+                            {
+                                <table class="table table-bordered mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th class="tm-myaccount-orders-col-id">شماره سفارش</th>
+                                            <th class="text-center">تاریخ</th>
+                                            <th class="text-center">وضعیت</th>
+                                            <th class="text-center">مجموع</th>
+                                            <th class="text-center">توضیحات</th>
+
+                                            <th class="text-center">نمایش</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item1 in Model.CustomerProducts.Where(p => p.IdState != 5 && p.IdState != 3 && p.IdState != 1))
+                                        {
+                                            <tr>
+                                                <td>#@item1.factorcod</td>
+                                                <td>@ExtentionFunction.Topersian(item1.DateRequest)</td>
+                                                <td>@item1.StateCustomerProduct.StateName</td>
+                                                <td>@item1.TotalPrice</td>
+                                                <td>@item1.resonofnotconfirm</td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            }
+                            else
+                            {
+                                <h1 class="text-danger">اطلاعاتی موجود نیست</h1>
+                                <a href="~/fproducts/Index" class="tm-button">ادامه خرید <b></b></a>
+                            }
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-pane fade" id="account-acdetails" role="tabpanel" aria-labelledby="account-acdetails-tab">
+                    <div class="tm-myaccount-acdetails">
+                        <div class="tm-form tm-form-bordered">
+                            <h4>جزئیات حساب کاربری</h4>
+                            <div class="tm-form-inner">
+
+                                <div class="tm-form-field">
+                                    <label for="acdetails_fullname"> نام و نام خانوادگی</label>
+                                    <input type="text" value="@Model.Customer.FullName" placeholder="نام و نام خانوادگی*" id="acdetails_fullname">
+                                </div>
+
+                                <div class="tm-form-field">
+                                    <label for="acdetails_mobile">موبایل</label>
+                                    <input type="text"
+                                           onkeypress='return event.charCode >= 48 && event.charCode <= 57'
+                                           value="@Model.Customer.Mobile" placeholder="موبایل*" id="acdetails_mobile">
+                                </div>
+                                <div class="tm-form-field">
+                                    <label for="acdetails_tel">تلفن</label>
+                                    <input type="text"
+                                           onkeypress='return event.charCode >= 48 && event.charCode <= 57'
+                                           value="@Model.Customer.Tel" placeholder="تلفن*" id="acdetails_tel">
+                                </div>
+                                <div class="tm-form-field">
+                                    <label for="acdetails_email">آدرس ایمیل</label>
+                                    <input type="email"
+                                           onmousedown="return false"
+                                           onkeydown="return false"
+                                           value="@Model.Customer.Email" placeholder="آدرس ایمیل*" id="acdetails_email">
+                                    <br />
+                                    <label class="control-label">برای تغییر ایمیلتان با مدیر سیستم تماس بگیرید</label>
+                                </div>
+                                <div class="tm-form-field">
+                                    <label for="acdetails_CompanyName">نام شرکت یا موسسه</label>
+                                    <input type="text" value="@Model.Customer.CompanyName" placeholder="نام شرکت یا موسسه (اختیاری)" id="acdetails_CompanyName">
+                                </div>
+                                <div class="tm-form-field">
+                                    <label for="acdetails_Address">آدرس</label>
+                                    <textarea cols="30" rows="5" value="@Model.Customer.Address" placeholder="آدرس*" id="acdetails_Address">@Model.Customer.Address</textarea>
+                                </div>
+
+                                <div class="tm-form-field">
+                                    <label for="acdetails_UserName">نام کاربری</label>
+                                    <input type="text"
+                                           onmousedown="return false"
+                                           onkeydown="return false"
+                                           value="@Model.Customer.UserName" placeholder="نام کاربری*" id="acdetails_UserName">
+                                    <br />
+                                    <label class="control-label">برای تغییر نام کاربری خود با مدیر سیستم تماس بگیرید</label>
+                                </div>
+
+
+                                <div class="tm-form-field">
+                                    <label for="acdetails_image">عکس</label>
+                                    @if (Model.Customer.userimage == "" || Model.Customer.userimage == null)
+                                    {
+                                        <img id="acdetails_shownimage" class="img-responsive img-circle" width="150" height="150" src="~/Resorce_2/img/CustomerImage/user-default.jpg" />
+                                        <input id="acdetails_image" type="file" style="display:none" accept=".jpeg" />
+                                        <button onclick="return acdetails_image.click()" class="fa fa-camera-retro" style="font-size:18px;"> انتخاب</button>
+                                        <br />
+                                        <label class="control-label">عکس اختیاری است</label>
+                                        <br />
+                                        <label class="control-label">عکس انتخابی باید .jpeg  باشد.</label>
+
+                                    }
+                                    else
+                                    {
+
+
+                                        <img id="acdetails_shownimage" class="img-responsive img-circle" width="150" height="150" src="~/Resorce_2/img/CustomerImage/@Model.Customer.userimage" />
+
+                                        <input id="acdetails_image" type="file" style="display:none" accept=".jpeg" />
+                                        <button onclick="return acdetails_image.click()" class="fa fa-camera-retro" style="font-size:18px;"></button>
+                                        <br />
+                                        <label class="control-label">عکس اختیاری است</label>
+                                        <br />
+                                        <label class="control-label">عکس انتخابی باید .jpeg  باشد.</label>
+
+                                    }
+                                </div>
+                                <div class="tm-form-field">
+                                    <input type="checkbox" id="acdetails_term">
+                                    <label for="acdetails_term">تایید قوانین و مقررات</label>
+                                </div>
+                                <div class="tm-form-field">
+                                    <button type="button" id="mngcustomer" class="tm-button">ذخیره تغییرات <b></b></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="tab-pane fade" id="account-changpass" role="tabpanel" aria-labelledby="account-changpass-tab">
+                    <div class="tm-myaccount-acdetails">
+                        <div class="tm-form tm-form-bordered">
+                            <h4>تغییر رمز</h4>
+                            <div class="tm-form-inner">
+
+                                <div class="tm-form-field">
+                                    <label for="acdetails_oldpass"> رمز قبلی</label>
+                                    <input type="password" placeholder="رمز قبلی*" id="acdetails_oldpass">
+                                </div>
+
+
+                                <div class="tm-form-field">
+                                    <label for="acdetails_newpass"> رمز جدید</label>
+                                    <input type="password" placeholder="رمز جدید*" id="acdetails_newpass">
+                                </div>
+
+                                <div class="tm-form-field">
+                                    <label id="PassWordStrengh"></label>
+                                </div>
+
+                                <div class="tm-form-field">
+                                    <label for="acdetails_repnewpass"> تکرار رمز جدید</label>
+                                    <input type="password" placeholder="تکرار رمز جدید*" id="acdetails_repnewpass">
+                                </div>
+
+
+
+                                <div class="tm-form-field">
+                                    <button type="button" id="changecuspass" class="tm-button">ذخیره تغییرات <b></b></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class="modal fade" id="modal_delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header alert alert-danger">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">حذف اطلاعات</h4>
+            </div>
+            <div class="modal-body">
+                <p class="alert alert-danger">آیا از حذف اطلاعات مطمئن هستید؟</p>
+                <label class="control-label" for="_resonofcancelatio">لطفا علت انصراف یا حذف خود را برای یادداشت نمایید</label>
+
+                <textarea id="_txtresonofcancelatio" rows="5" placeholder="لطفا علت انصراف یا حذف خود را برای یادداشت نمایید"></textarea>
+            </div>
+            <div class="modal-footer">
+                <button id="btn_modal_confirm" class="btn btn-danger">تایید</button>
+                <button id="btn_modal_cancel" class="btn btn-default" data-dismiss="modal">خروج</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class="modal fade" id="modal_editpr" role="dialog" aria-labelledby="myModalLabel2">
+
+
+
+    <div class="modal-dialog" style="margin-top:150px">
+        <div class="modal-content">
+            <div class="modal-header alert-warning">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="text-center">ویرایش اطلاعات</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="ed_mainpr">محصول اصلی</label>
+                    <select id="ed_mainpr"></select>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="ed_subpr">محصول</label>
+                    <select id="ed_subpr"></select>
+                </div>
+
+                <div class="form-group">
+                    <label>قیمت</label>
+                    <label id="ed_prprice"></label>
+                </div>
+
+                <div class="form-group">
+                    <label id="ed_prcount">تعداد</label>
+                    <input id="ed_prcount" class="form-control" type="number" min="1" />
+                </div>
+
+                <div class="form-group">
+                    <label>مجموع قیمت</label>
+                    <label id="ed_prtotalprice"></label>
+                </div>
+
+
+
+
+                <div class="form-group">
+                    <label>عکس</label>
+                    <img id="ed_prpic" class="img-responsive" />
+
+                </div>
+            </div>
+
+
+
+            <div class="modal-footer">
+                <button id="btn_modaleditpr_confirm" class="btn btn-success">تایید</button>
+                <button id="btn_modaleditpr_cancel" class="btn btn-default" data-dismiss="modal">خروج</button>
+            </div>
+        </div>
+    </div>
+
+</div>

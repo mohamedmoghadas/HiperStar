@@ -49,7 +49,10 @@ namespace System
             return UTF8Encoding.UTF8.GetString(resultArray);
         }
 
-
-
+        public static string HashPass(string str)
+        {
+            string pass=Hash(str);
+            return Encrypt(pass);
+        }
     }
 }

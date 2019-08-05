@@ -1,0 +1,102 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_layout.cshtml";
+}
+
+<div class="tm-breadcrumb-area tm-padding-section" style="background-image:url(../../Resorce_2/img/aboutus/header.jpg)">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="tm-breadcrumb">
+                    <h2>ورود/عضویت</h2>
+                    <ul>
+                        <li><a href="~/Home/Index"><i class="fa fa-home"></i> خانه </a></li>
+                        <li>ورود/عضویت</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="tm-section tm-login-register-area bg-white tm-padding-section">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-6">
+                <form action="~/fLR/Index" target="_blank" method="post" class="tm-form tm-login-form tm-form-bordered">
+                    <h4>ورود</h4>
+                    <div class="tm-form-inner">
+                        <div class="tm-form-field">
+                            <label for="login_Username">آدرس ایمیل یا نام کاربری*</label>
+                            <input type="text" id="login_Username" name="UserName" required="required">
+                        </div>
+                        <div class="tm-form-field">
+                            <label for="login_password">رمز عبور*</label>
+                            <input type="password" id="login_password" name="Password" required="required">
+                        </div>
+
+                        <div class="tm-form-field">
+                            <button type="submit" class="tm-button">ورود <b></b></button>
+                        </div>
+                        <div class="tm-form-field">
+                            <a href="#">فراموشی رمز عبور</a>
+                        </div>
+
+
+                        @if (ViewBag.WrongIdentity != null)
+                        {
+
+                            <div class="tm-form-field">
+                                <label class="alert alert-danger">نام کاربری یا رمز عبور اشتباه است</label>
+                            </div>
+                        }
+
+
+                    </div>
+                </form>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="tm-form tm-register-form tm-form-bordered">
+                    <h4>عضویت</h4>
+                    <div class="tm-form-inner">
+
+                        <div class="tm-form-field">
+                            <label for="fullname">نام ونام خانوادگی</label>
+                            <input type="text" id="fullname" required="required">
+                        </div>
+
+                        <div class="tm-form-field">
+                            <label for="username">نام کاربری</label>
+                            <input type="text" id="username" required="required">
+                        </div>
+                        <div class="tm-form-field">
+                            <label for="email">آدرس ایمیل</label>
+                            <input type="email" id="email" required="required">
+                        </div>
+                        <div class="tm-form-field">
+                            <label for="password">رمز عبور</label>
+                            <input type="password" id="password" required="required">
+                        </div>
+
+                        <div class="tm-form-field">
+                            <label id="PassWordStrengh"></label>
+                        </div>
+
+                        <div class="tm-form-field">
+                            <input type="checkbox" id="terms">
+                            <label for="terms">تایید قوانین و مقررات</label>
+                        </div>
+                        <div class="tm-form-field">
+                            <button type="button" id="mngcustomer" class="tm-button">عضویت <b></b></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

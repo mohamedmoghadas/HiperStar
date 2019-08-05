@@ -123,98 +123,7 @@
     <Content Include="assets\fonts\lg.svg" />
     <Content Include="assets\fonts\slick.svg" />
     <Content Include="assets\images\ajax-loader.gif" />
-    <Content Include="assets\images\bg\bg-image-1.jpeg" />
-    <Content Include="assets\images\bg\bg-image-2.jpeg" />
-    <Content Include="assets\images\bg\breadcrumb-bg-1.jpg" />
-    <Content Include="assets\images\bg\breadcrumb-bg-2.jpg" />
-    <Content Include="assets\images\blog\authors\author-image-1.png" />
-    <Content Include="assets\images\blog\authors\author-image-2.png" />
-    <Content Include="assets\images\blog\authors\author-image-3.png" />
-    <Content Include="assets\images\blog\blog-image-1.jpeg" />
-    <Content Include="assets\images\blog\blog-image-2.jpeg" />
-    <Content Include="assets\images\blog\blog-image-3.jpeg" />
-    <Content Include="assets\images\blog\blog-image-4.jpeg" />
-    <Content Include="assets\images\blog\blog-image-5.jpeg" />
-    <Content Include="assets\images\blog\blog-image-6.jpeg" />
-    <Content Include="assets\images\blog\blog2\blog2-image-1.jpeg" />
-    <Content Include="assets\images\blog\blog2\blog2-image-2.jpeg" />
-    <Content Include="assets\images\blog\blog2\blog2-image-3.jpeg" />
-    <Content Include="assets\images\blog\blog2\blog2-image-4.jpeg" />
-    <Content Include="assets\images\blog\blog2\blog2-image-5.jpeg" />
-    <Content Include="assets\images\blog\blog2\blog2-image-6.jpeg" />
-    <Content Include="assets\images\blog\blog2\blog2-image-7.jpeg" />
-    <Content Include="assets\images\blog\widget\blog-thumbnail-1.png" />
-    <Content Include="assets\images\blog\widget\blog-thumbnail-2.png" />
-    <Content Include="assets\images\blog\widget\blog-thumbnail-3.png" />
-    <Content Include="assets\images\brand-logo\brand-logo-1.png" />
-    <Content Include="assets\images\brand-logo\brand-logo-2.png" />
-    <Content Include="assets\images\brand-logo\brand-logo-3.png" />
-    <Content Include="assets\images\brand-logo\brand-logo-4.png" />
-    <Content Include="assets\images\brand-logo\brand-logo-5.png" />
     <Content Include="assets\images\favicon.ico" />
-    <Content Include="assets\images\funfact\funfact-shape.png" />
-    <Content Include="assets\images\heroslider\heroslider-image-1.jpg" />
-    <Content Include="assets\images\heroslider\heroslider-image-2.jpg" />
-    <Content Include="assets\images\heroslider\heroslider-image-3.jpg" />
-    <Content Include="assets\images\heroslider\heroslider-shape-2.png" />
-    <Content Include="assets\images\heroslider\heroslider-shape.png" />
-    <Content Include="assets\images\icons\accordio-minus.png" />
-    <Content Include="assets\images\icons\accordio-plus.png" />
-    <Content Include="assets\images\icons\bg-map-shapes.png" />
-    <Content Include="assets\images\icons\down-caret.png" />
-    <Content Include="assets\images\icons\white-shape.png" />
-    <Content Include="assets\images\logo\logo-dark.png" />
-    <Content Include="assets\images\logo\logo-light.png" />
-    <Content Include="assets\images\others\about-image-2.png" />
-    <Content Include="assets\images\others\about-image.png" />
-    <Content Include="assets\images\others\author-image-1.png" />
-    <Content Include="assets\images\others\author-image-2.png" />
-    <Content Include="assets\images\others\faq-image.png" />
-    <Content Include="assets\images\others\feature-image.png" />
-    <Content Include="assets\images\others\promo-image-2.png" />
-    <Content Include="assets\images\others\promo-image.png" />
-    <Content Include="assets\images\others\service-details.jpeg" />
-    <Content Include="assets\images\portfolio\lg\portfolio-image-lg-1.jpeg" />
-    <Content Include="assets\images\portfolio\lg\portfolio-image-lg-2.jpeg" />
-    <Content Include="assets\images\portfolio\lg\portfolio-image-lg-3.jpeg" />
-    <Content Include="assets\images\portfolio\lg\portfolio-image-lg-4.jpeg" />
-    <Content Include="assets\images\portfolio\lg\portfolio-image-lg-6.jpeg" />
-    <Content Include="assets\images\portfolio\lg\portfolio-image-lg-7.jpeg" />
-    <Content Include="assets\images\portfolio\lg\portfolio-image-lg-8.jpeg" />
-    <Content Include="assets\images\portfolio\lg\portfolio-image-lg-9.jpeg" />
-    <Content Include="assets\images\portfolio\portfolio-image-1.jpeg" />
-    <Content Include="assets\images\portfolio\portfolio-image-2.jpeg" />
-    <Content Include="assets\images\portfolio\portfolio-image-3.jpeg" />
-    <Content Include="assets\images\portfolio\portfolio-image-4.jpeg" />
-    <Content Include="assets\images\portfolio\portfolio-image-5.jpeg" />
-    <Content Include="assets\images\portfolio\portfolio-image-6.jpeg" />
-    <Content Include="assets\images\portfolio\portfolio-image-7.jpeg" />
-    <Content Include="assets\images\portfolio\portfolio-image-8.jpeg" />
-    <Content Include="assets\images\portfolio\portfolio-image-9.jpeg" />
-    <Content Include="assets\images\product\product-details\prdoduct-details-image-1-lg.jpeg" />
-    <Content Include="assets\images\product\product-details\prdoduct-details-image-1.jpeg" />
-    <Content Include="assets\images\product\product-image-1.jpeg" />
-    <Content Include="assets\images\product\product-image-2.jpeg" />
-    <Content Include="assets\images\product\product-image-3.jpeg" />
-    <Content Include="assets\images\product\product-image-4.jpeg" />
-    <Content Include="assets\images\product\product-image-5.jpeg" />
-    <Content Include="assets\images\product\product-image-6.jpeg" />
-    <Content Include="assets\images\product\product-image-7.jpeg" />
-    <Content Include="assets\images\product\product-image-8.jpeg" />
-    <Content Include="assets\images\product\product-image-9.jpeg" />
-    <Content Include="assets\images\product\thumbnails\product-thumbnail-1.png" />
-    <Content Include="assets\images\product\thumbnails\product-thumbnail-2.png" />
-    <Content Include="assets\images\product\thumbnails\product-thumbnail-3.png" />
-    <Content Include="assets\images\team\team-image-1.jpeg" />
-    <Content Include="assets\images\team\team-image-2.jpeg" />
-    <Content Include="assets\images\team\team-image-3.jpeg" />
-    <Content Include="assets\images\team\team-image-4.jpeg" />
-    <Content Include="assets\images\testimonial\testimonial-fullimage-1.jpeg" />
-    <Content Include="assets\images\testimonial\testimonial-fullimage-2.jpeg" />
-    <Content Include="assets\images\testimonial\testimonial-fullimage-3.jpeg" />
-    <Content Include="assets\images\testimonial\testimonial-image-1.png" />
-    <Content Include="assets\images\testimonial\testimonial-image-2.png" />
-    <Content Include="assets\images\testimonial\testimonial-image-3.png" />
     <Content Include="assets\img\loading.gif" />
     <Content Include="assets\js\ajaxmail.js" />
     <Content Include="assets\js\bootstrap.min.js" />
@@ -393,6 +302,7 @@
     <Compile Include="Models\Users.cs">
       <DependentUpon>HiperStar.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\VmComponent\vmCArea.cs" />
     <Compile Include="Models\VmComponent\VmHome.cs" />
     <Compile Include="Models\VmList\VmAllPage.cs" />
     <Compile Include="Models\VmList\VmProductDetail.cs" />
@@ -455,6 +365,8 @@
     <Content Include="Views\ProductDetailList\Index.cshtml" />
     <Content Include="Views\Products\Index.cshtml" />
     <Content Include="Views\AboutUs\Index.cshtml" />
+    <Content Include="Views\SinSup\Index.cshtml" />
+    <Content Include="Views\CustumerArea\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -464,9 +376,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Image\CustomerImage\" />
     <Folder Include="Views\ContactUs\" />
-    <Folder Include="Views\CustumerArea\" />
-    <Folder Include="Views\SinSup\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
