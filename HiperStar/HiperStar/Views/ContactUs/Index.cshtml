@@ -1,0 +1,111 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_layout.cshtml";
+}
+
+@model IEnumerable<HiperStar.Models.ContactUs>
+
+<div class="tm-breadcrumb-area tm-padding-section" style="background-image:url(../../Image/Contact-Us.jpg)">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="tm-breadcrumb">
+                    <h2>تماس با ما</h2>
+                    <ul>
+                        <li><a href="~/Home/Index"><i class="fa fa-home"></i> خانه </a></li>
+                        <li>تماس با ما</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="tm-section contact-us-area tm-padding-section bg-white">
+    <div class="container">
+        <div class="row justify-content-center mt-30-reverse">
+
+            <div class="col-lg-4 col-md-6 col-sm-6 mt-30">
+                <div class="tm-contact-block text-center">
+                    <span class="tm-contact-icon">
+                        <i class="flaticon-placeholder"></i>
+                    </span>
+                    <h5>آدرس</h5>
+                    <p>@Model.Where(p => p.Name.Contains("آدرس")).FirstOrDefault().Description</p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 col-sm-6 mt-30">
+                <div class="tm-contact-block text-center">
+                    <span class="tm-contact-icon">
+                        <i class="flaticon-call"></i>
+                    </span>
+                    <h5>تلفن</h5>
+                    <p><a href="#">@Model.Where(p => p.Name.Contains("شماره تلفن شرکت")).FirstOrDefault().Description</a></p>
+                    <p><a href="#">@Model.Where(p => p.Name.Contains("همراه")).FirstOrDefault().Description</a></p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 col-sm-6 mt-30">
+                <div class="tm-contact-block text-center">
+                    <span class="tm-contact-icon">
+                        <i class="flaticon-email-1"></i>
+                    </span>
+                    <h5>آدرس</h5>
+                    <p>ایمیل : <a href="mailto:@Model.Where(p=>p.Name.Contains("ایمیل")).FirstOrDefault().Description">@Model.Where(p=>p.Name.Contains("ایمیل")).FirstOrDefault().Description</a></p>
+                    <p>کدپستی : <a href="#">@Model.Where(p => p.Name.Contains("کد پستی")).FirstOrDefault().Description</a></p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="container tm-padding-section-top">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="tm-contact-formwrapper">
+                    <h5>با ما در تماس باشید </h5>
+                    <h6>نظرات،پیشنهادات و انتقادات خود را با ما در میان بگذارید </h6>
+
+                    <div id="tm-contactform" class="tm-contact-form">
+                        <div class="tm-contact-formfield">
+                            <input type="text" id="_fullname" name="name" placeholder="نام*">
+                        </div>
+                        <div class="tm-contact-formfield">
+                            <input type="email" id="_email" name="email" placeholder="ایمیل*">
+                        </div>
+                        <div class="tm-contact-formfield">
+                            <input type="text" id="_subject" name="subject" placeholder="موضوع*">
+                        </div>
+                        <div class="tm-contact-formfield">
+                            <textarea name="message" id="_message" cols="30" rows="5" placeholder="متن پیام*"></textarea>
+                        </div>
+                        <div class="tm-contact-formfield">
+                            <button type="button" id="sendsuggest" class="tm-button">ارسال پیام <b></b></button>
+                        </div>
+                    </div>
+                    <p class="form-messages">
+                </div>
+            </div>
+            <div class="col-lg-6">
+
+                @Html.Raw(Model.Where(p => p.Name.Contains("نقشه")).FirstOrDefault().Description)
+
+            </div>
+        </div>
+    </div>
+</div>
+
+@section localscript{
+
+
+    <script>
+        function msuggestion(e, s, a, n, o, t) { this.Id = e, this.Name = s, this.Tel = a, this.Email = n, this.Subject = o, this.Message = t } var _msuggestion = new msuggestion(0, "", "", "", "", ""); $(sendsuggest).click(function () { if ("" == _fullname.value || "" == _email.value || "" == _message.value || "" == _subject.value) return AlertInAjax("تمام اطلاعات باید وارد شود. لطفا دوباره اقدام نمایید", modalerrorInAjax, "alert-danger"), void $(modalerrorInAjax).modal("show"); _msuggestion.Name = _fullname.value, _msuggestion.Email = _email.value, _msuggestion.Message = _message.value, _msuggestion.Subject = _subject.value, $.ajax({ url: "/fContactUs/Suggestion", data: { _sug: _msuggestion }, type: "post", beforeSend: function () { $(LoadingGift).show() }, success: function (e) { $(LoadingGift).hide(), AlertInAjax("عملیات با موفقیت انجام شد", modalerrorInAjax, "alert-success"), $(modalerrorInAjax).modal("show"), $(modalerrorInAjax).on("hidden.bs.modal", function () { location.href = "/fContactUs/Index" }) } }) });
+
+
+
+
+    </script>
+}
+

@@ -1,0 +1,1 @@
+﻿function AlertInAjax(a, l, d) { var s = '<div class="modal-dialog" role="document"><div class="modal-header ' + d + '"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button><h4 class="modal-title" id="myModalLabel">' + a + "</h4></div></div>"; l.innerHTML = s }

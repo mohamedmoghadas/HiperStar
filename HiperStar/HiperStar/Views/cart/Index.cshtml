@@ -1,0 +1,353 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_layout.cshtml";
+}
+
+@model HiperStar.Models.VmComponent.vmProductDetail
+
+<style>
+    .flash {
+        -moz-animation: flash 1s ease-out;
+        -moz-animation-iteration-count: 1;
+        -webkit-animation: flash 1s ease-out;
+        -webkit-animation-iteration-count: 1;
+        -ms-animation: flash 1s ease-out;
+        -ms-animation-iteration-count: 1;
+    }
+
+    keyframes flash {
+        0%
+
+    {
+        background-color: transparent;
+    }
+
+    50% {
+        background-color: #fbf8b2;
+    }
+
+    100% {
+        background-color: transparent;
+    }
+
+    }
+
+    -webkit-keyframes flash {
+        0%
+
+    {
+        background-color: transparent;
+    }
+
+    50% {
+        background-color: #fbf8b2;
+    }
+
+    100% {
+        background-color: transparent;
+    }
+
+    }
+
+    -moz-keyframes flash {
+        0%
+
+    {
+        background-color: transparent;
+    }
+
+    50% {
+        background-color: #fbf8b2;
+    }
+
+    100% {
+        background-color: transparent;
+    }
+
+    }
+
+    -ms-keyframes flash {
+        0%
+
+    {
+        background-color: transparent;
+    }
+
+    50% {
+        background-color: #fbf8b2;
+    }
+
+    100% {
+        background-color: transparent;
+    }
+    }
+</style>
+
+
+<div class="tm-section shopping-cart-area bg-white tm-padding-section">
+    <div class="container">
+
+
+        <!-- Shopping Cart Table -->
+        <div class="tm-cart-table table-responsive">
+            @if (Model.listProducts != null && Model.listProducts.Count() > 0)
+            {
+                <table class="table table-bordered mb-0">
+                    <thead>
+                        <tr>
+                            <th class="text-center" scope="col">تصویر</th>
+                            <th class="text-center" scope="col">نام محصول</th>
+                            <th class="text-center" scope="col">قیمت</th>
+                            <th class="text-center" scope="col">تعداد</th>
+                            <th class="text-center" scope="col">مجموع</th>
+                            <th class="text-center" scope="col">حذف</th>
+                        </tr>
+                    </thead>
+                    <tbody id="bodyfcart">
+
+
+                        @foreach (var item in Model.listProducts)
+                        {
+
+                            <tr id="@item.ProductId">
+                                <td>
+                                    <a href="product-details.html" class="tm-cart-productimage">
+                                        @if (item.ImageUrl == null)
+                                        {
+                                            <img src="~/Resorce_2/img/Product/nopic_s.jpg"
+                                                 alt="product image">
+                                        }
+                                        else
+                                        {
+                                            <img class="img-responsive" width="100" height="100" src="~/Image/productImage/@item.ImageUrl" alt="product image">
+                                        }
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="#" class="tm-cart-productname">@item.Name</a>
+                                </td>
+                                <td class="tm-cart-price">@item.CustomerPrice ریال</td>
+                                <td>
+
+                                    <input onchange="changecount(this)"
+                                           id="Prcount_@item.ProductId"
+                                           itempid="@item.ProductId"
+                                           onkeypress='return event.charCode >= 48 && event.charCode <= 57'
+                                           itemprice="@item.CustomerPrice"
+                                           style="width:100px"
+                                           type="number" min="1" value="1">
+
+                                </td>
+                                <td>
+                                    <span id="totalthisprprice_@item.ProductId" class="tm-cart-totalprice prices">@item.CustomerPrice</span>
+                                </td>
+                                <td>
+                                    <button onclick="deletecartcooki(@item.ProductId)" class="tm-cart-removeproduct"><i class="fas fa-times"></i></button>
+                                </td>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+            }
+            else
+            {
+                <h1 class="text-danger">سبد کالای شما خالی است</h1>
+                <i class="fa fa-shopping-cart" style="font-size:20px;"></i>
+            }
+
+        </div>
+        <!--// Shopping Cart Table -->
+        <!-- Shopping Cart Content -->
+        <div class="tm-cart-bottomarea">
+            <div class="row">
+                <div class="col-lg-8 col-md-6">
+                    <div class="tm-buttongroup">
+                        <a href="~/fproducts/Index" class="tm-button">ادامه خرید <b></b></a>
+                        <a href="~/fcart/Index" class="tm-button">بروزرسانی <b style="top: -10.4px; right: 193.817px;"></b></a>
+                        <a id="gotologin" class="tm-button" style="display:none" href='~/fLR/Index'>وارد شوید</a>
+                        <a id="editinformation" class="tm-button" style="display:none" href='~/fCArea/Index'>ویرایش اطلاعات شخصی</a>
+
+
+                    </div>
+
+                    @if (Model.listProducts != null && Model.listProducts.Count() > 0)
+                    {
+                        <div class="tm-cart-coupon">
+                            <label for="discount_field">ورود کد تخفیف</label>
+                            <input type="text" id="discount_field" placeholder="کد تخفیف را وارد نمایید.." required="required">
+                            <button type="button" id="discount_btn" class="tm-button">ارسال <b></b></button>
+                        </div>
+                    }
+
+
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    @if (Model.listProducts != null && Model.listProducts.Count() > 0)
+                    {
+                        <div class="tm-cart-pricebox">
+                            <div class="table-responsive">
+                                <table class="table table-borderless">
+                                    <tbody>
+                                        <tr class="tm-cart-pricebox-subtotal">
+                                            <td>مجموع</td>
+                                            <td id="totalPrice1"></td>
+                                        </tr>
+                                        <tr class="tm-cart-pricebox-shipping">
+                                            <td>(+) هزینه ارسال</td>
+                                            <td id="sendcost">@ViewBag.SendCost</td>
+                                        </tr>
+                                        <tr class="tm-cart-pricebox-total">
+                                            <td>مجموع</td>
+                                            <td id="totalprice"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <button id="gotoPayment" class="tm-button">رفتن به صفحه پرداخت <b></b></button>
+                        </div>
+                    }
+
+                </div>
+            </div>
+        </div>
+        <!--// Shopping Cart Content -->
+
+    </div>
+</div>
+
+@section localscript{
+
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+
+    <script>
+        window.onload = load;
+        var _discontcode = "",
+            discountpersent = 0;
+        function load() {
+            var n = 0;
+            $(".prices").each(function () {
+                n += parseInt(this.innerText)
+            }),
+                totalPrice1.innerHTML = n,
+                totalprice.innerHTML = parseInt(totalPrice1.innerHTML) + parseInt(sendcost.innerHTML)
+        }
+    </script>
+
+
+    <script>
+        $(discount_btn).click(function () {
+            if ("" == discount_field.value)
+                return
+            AlertInAjax("کد تخفیف را وارد نمایید.", modalerrorInAjax, "alert-danger"),
+                void $(modalerrorInAjax).modal("show");
+            var a = discount_field.value; $.ajax({
+                url: "/cart/checkdiscountcod",
+                data: { dicode: a },
+                type: "post",
+                error: function (a) {
+                    return 506 == a.status ? (
+                        $(LoadingGift).hide(), discount_field.value = "",
+                        AlertInAjax("کد تخفیف اشتباه است.", modalerrorInAjax, "alert-danger"),
+                        void $(modalerrorInAjax).modal("show")) : 507 == a.status ? (
+                            $(LoadingGift).hide(), discount_field.value = "",
+                            AlertInAjax("مدت کد تخفیف گذشته", modalerrorInAjax, "alert-danger"),
+                            void $(modalerrorInAjax).modal("show")) : 508 == a.status ? (
+                                $(LoadingGift).hide(), discount_field.value = "",
+                                AlertInAjax("ابتدا باید وارد حساب کاربری خود شوید.لطفا ابتدا وارد شده و مجددا امتحان نمایید", modalerrorInAjax, "alert-danger"),
+                                void $(modalerrorInAjax).modal("show")) : 509 == a.status ? (
+                                    $(LoadingGift).hide(), discount_field.value = "",
+                                    AlertInAjax("این کد توسط شما قبلا استفاده شده است", modalerrorInAjax, "alert-danger"),
+                                    void $(modalerrorInAjax).modal("show")) : void 0
+                },
+                beforeSend: function () {
+                    $(LoadingGift).show()
+                }, success: function (o) {
+                    $(LoadingGift).hide(),
+                        AlertInAjax("تبریک .کد تخفیف اعمال شد.", modalerrorInAjax, "alert-success"),
+                        $(modalerrorInAjax).modal("show"),
+                        discount_field.value = "",
+                        _discontcode =
+                        a, discountpersent = o,
+                        totalprice.innerHTML = parseInt(totalprice.innerHTML) - parseInt(totalprice.innerHTML) * o / 100
+                }
+            })
+        });
+    </script>
+
+    <script>
+        function changecount(t) {
+            var e = t.getAttribute("itemprice") * t.value;
+            $("#totalthisprprice_" + t.getAttribute("itempid")).text(e); var n = 0;
+            $(".prices").each(function () {
+                n += parseInt(this.innerText)
+            }),
+                totalPrice1.innerHTML = n,
+                totalprice.innerHTML = parseInt(totalPrice1.innerHTML) - parseInt(totalPrice1.innerHTML) * discountpersent / 100 + parseInt(sendcost.innerHTML)
+        }
+    </script>
+
+
+
+    <script>
+        $(gotoPayment).click(function () {
+            SelectedProp = {}, ListProps = []; var o = !1;
+            $("#bodyfcart tr").each(function (r)
+            {
+                var a = $(this).attr("id"),
+                    t = $("#Prcount_" + a).val();
+                "" == $("#Prcount_" + a).val() ? o = !0 : 0 ==
+                    $("#Prcount_" + a).val() && (o = !0),
+                    item = {}, item.Id = a, item.Value = t,
+                    ListProps.push(item)
+            }),
+                SelectedProp.ListProps = ListProps;
+            var r = totalprice.innerHTML; 0 == o ?
+                $.ajax({
+                    url: "/cart/registercustomerproduct",
+                    data: { _prop: SelectedProp, discontcode: _discontcode, _toltalprice: r },
+                    type: "post",
+                    beforeSend: function () {
+                        $(LoadingGift).show()
+                    }, error: function (o) {
+                        return 501 == o.status ? ($(LoadingGift).hide(), AlertInAjax("برای ادامه پرداخت باید وارد حساب کاربری خود شوید.", modalerrorInAjax, "alert-danger"),
+                            $(modalerrorInAjax).modal("show"), void $(modalerrorInAjax).on("hidden.bs.modal", function () {
+                                $(gotologin).addClass("flash").fadeIn()
+                            })) : 504 == o.status ?
+                                ($(LoadingGift).hide(),
+                                    AlertInAjax("اطلاعات خود را تکمیل کنید", modalerrorInAjax, "alert-danger"),
+                                    $(modalerrorInAjax).modal("show"),
+                                    void $(modalerrorInAjax).on("hidden.bs.modal", function () {
+                                        $(editinformation).addClass("flash").fadeIn()
+                                    })) : void 0
+                    }, success: function (o) {
+                        $(LoadingGift).hide(),
+                            location.href = "/Payment/Index"
+                    }
+                }) : (AlertInAjax("تعداد نمیتواند خالی یا صفر باشد", modalerrorInAjax, "alert-danger"),
+                    $(modalerrorInAjax).modal("show"), $(modalerrorInAjax).on("hidden.bs.modal", function () {
+                        location.href = "/cart/Index"
+                    }))
+        });
+
+   </script>
+
+
+    <script>
+        function deletecartcooki(t) {
+            $.ajax(
+                {
+                    url: "/cart/deletecartcooki",
+                    data: { id: t },
+                    type: "post",
+                    beforeSend: function () {
+                        $(LoadingGift).show()
+                    }, success: function (t) {
+                        $(LoadingGift).hide(), location.href = "/cart/Index"
+                    }
+                })
+        }
+    </script>
+}

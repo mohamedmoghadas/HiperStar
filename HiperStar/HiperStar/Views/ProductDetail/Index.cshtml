@@ -4,5 +4,290 @@
     Layout = "~/Views/Shared/_layout.cshtml";
 }
 
+@model  HiperStar.Models.VmComponent.vmPrDetail
+
+
+
+
+<div class="tm-breadcrumb-area tm-padding-section" style="background-image:url(../../Image/AboutUs.jpg)">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="tm-breadcrumb">
+                    <h2>محصول : @Model._mainproduct.Name</h2>
+                    <ul>
+                        <li><a href="~/Home/Index"><i class="fa fa-home"></i> خانه </a></li>
+                        <li>جزئیات</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="tm-section product-details-area bg-white tm-padding-section">
+    <div class="container">
+        <div class="tm-prodetails">
+            <div class="row">
+                @if (Model != null)
+                {
+                    <div class="col-lg-5 col-md-6 col-12">
+
+                        <!-- Product Details Images -->
+                        <div class="tm-prodetails-images">
+                            <div class="tm-prodetails-largeimage">
+
+                                @if (Model.Product.FirstOrDefault().ImageUrl == null)
+                                {
+                                    <img src="~/Image/nopic_s.jpg"
+                                         alt="product image">
+                                }
+                                else
+                                {
+                                    <img id="mainimage" src="~/Image/productImage/@Model.Product.FirstOrDefault().ImageUrl" data-zoom-image="~/Image/productImage/@Model.Product.FirstOrDefault().ImageUrl" alt="product image">
+
+                                }
+
+
+                            </div>
+                            <div id="image-gallery" class="tm-prodetails-thumbs">
+
+                                @if (Model.ImageProduct == null || Model.ImageProduct.Count == 0)
+                                {
+
+
+                                    <a href="#" data-image="~/Image/nopic_s.jpg"
+                                       data-zoom-image="~/Image/nopic_s.jpg">
+                                        <img src="~/Image/nopic_s.jpg"
+                                             alt="product image" onclick="changeimage(this)">
+                                    </a>
+
+
+                                }
+                                else
+                                {
+                                    foreach (var item in Model.ImageProduct)
+                                    {
+                                        <a href="#" data-image="~/Image/productImage/@item.Url"
+                                           data-zoom-image="~/Image/productImage/@item.Url">
+                                            @if (item.Url == null)
+                                            {
+                                                <img src="~/Image/nopic_s.jpg"
+                                                     alt="product image" onclick="changeimage(this)">
+                                            }
+                                            else
+                                            {
+                                                <img src="~/Image/productImage/@item.Url" onclick="changeimage(this)" alt="">
+                                            }
+                                        </a>
+
+                                    }
+                                }
+
+
+
+
+                            </div>
+                        </div>
+                        <!--// Product Details Images -->
+
+                    </div>
+
+                    <div class="col-lg-7 col-md-6 col-12">
+                        <div class="tm-prodetails-content">
+                            <h3 class="tm-prodetails-title">@Model.Product.FirstOrDefault().Name</h3>
+                            <div class="tm-rating">
+                                <span class="active"><i class="fas fa-star"></i></span>
+                                <span class="active"><i class="fas fa-star"></i></span>
+                                <span class="active"><i class="fas fa-star"></i></span>
+                                <span class="active"><i class="fas fa-star"></i></span>
+                                <span class="active"><i class="fas fa-star"></i></span>
+                            </div>
+                            <p class="tm-prodetails-availability">
+                                وضعیت : @if (Model.Product.FirstOrDefault().Exist == true)
+                                {
+                                    <span>موجود</span>
+                                }
+                                else
+                                {
+                                    <span style="color:red">ناموجود</span>
+                                }
+                            </p>
+                            <div class="tm-prodetails-price">
+                                <span><del>@Model.Product.FirstOrDefault().Price ريال</del> @Model.Product.FirstOrDefault().CustomerPrice ريال</span>
+                            </div>
+
+
+                            <div class="tm-prodetails-categories">
+                                <h6>دسته بندی ها :</h6>
+                                <ul>
+                                    <li><a href="#">@Model._mainproduct.Name</a></li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+                }
+
+            </div>
+        </div>
+
+        <!-- Product Details Description & Review -->
+        <div class="tm-prodetails-desreview tm-padding-section-sm-top">
+            <ul class="nav tm-tabgroup2" id="prodetails" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="prodetails-area1-tab" data-toggle="tab" href="#prodetails-area1" role="tab"
+                       aria-controls="prodetails-area1" aria-selected="true">توضیحات</a>
+                </li>
+
+            </ul>
+            <div class="tab-content" id="prodetails-content">
+                <div class="tab-pane fade show active" id="prodetails-area1" role="tabpanel" aria-labelledby="prodetails-area1-tab">
+                    <div class="tm-prodetails-description">
+
+
+                        <br />
+                        <br />
+
+                        <div class="tm-prodetails-description">
+                            <div class="table-responsive">
+                                @if (Model.PropertyList != null && Model.PropertyList.Count() > 0)
+                                {
+
+                                    <table class="table-data-sheet">
+                                        <tbody>
+                                            @foreach (var z in Model.PropertyList)
+                                            {
+                                                <tr style="background:#f6f6f6">
+                                                    <td class="text-capitalize" style="font-weight:bolder">@z.Subject.FirstOrDefault().Name</td>
+                                                    <td></td>
+                                                    <td></td>
+
+
+                                                </tr>
+
+
+                                                foreach (var item in z.Properties)
+                                                {
+
+
+                                                    <tr>
+                                                        <td class="text-capitalize" style="font-weight:bolder">@item.Key : </td>
+
+                                                        <td> @item.Value </td>
+
+                                                    </tr>
+                                                }
+                                            }
+
+                                        </tbody>
+                                    </table>
+                                }
+                            </div>
+                        </div>
+
+
+
+
+
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!--// Product Details Description & Review -->
+
+        <div class="tm-similliar-products tm-padding-section-sm-top">
+            <h3 class="small-title">محصولات مشابه</h3>
+            <div class="tab-content" id="bstab1-ontent">
+                <div class="tab-pane fade show active" id="bstab1-area1" role="tabpanel"
+                     aria-labelledby="bstab1-area1-tab">
+
+                    <div class="product-vertical-slider-active tm-slider-dots tm-slider-dots-vertical">
+                        <div class="product-vertical-slider-row">
+                            <div class="row mt-30-reverse">
+
+                                @foreach (var item3 in Model._relativeproduct)
+                                {
+                                    <div class="col-lg-4 col-md-6 col-sm-6 col-12 mt-30">
+                                        <div class="tm-product">
+                                            <div class="tm-product-image">
+
+
+                                                @if (item3.Url == null || item3.Url == "")
+                                                {
+                                                    <img src="~/Image/nopic_s.jpg"
+                                                         alt="product image">
+                                                }
+
+                                                else
+                                                {
+                                                    <img src="~/Image/productImage/@item3.Url"
+                                                         alt="product image">
+                                                }
+
+
+
+                                            </div>
+                                            <div class="tm-product-content">
+                                                <p class="tm-product-title">
+                                                    <a href="#">
+                                                        @item3.ProductName
+                                                    </a>
+                                                </p>
+
+
+
+
+
+                                                <div class="tm-product-rating">
+
+                                                    <span class="active"><i class="fas fa-star"></i></span>
+                                                    <span class="active"><i class="fas fa-star"></i></span>
+                                                    <span class="active"><i class="fas fa-star"></i></span>
+                                                    <span class="active"><i class="fas fa-star"></i></span>
+                                                    <span><i class="fas fa-star"></i></span>
+
+
+
+                                                </div>
+
+
+
+
+
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section localscript{
+    <script>
+        function changeimage(item) {
+            mainimage.src = item.src;
+        }
+    </script>
+}
 
 

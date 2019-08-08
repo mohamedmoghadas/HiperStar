@@ -55,10 +55,9 @@
                                     }
                                 </a>
                                 <ul class="tm-product-actions">
-                                    <li><a href="cart.html"><i class="fas fa-shopping-cart"></i></a></li>
+                                    <li><a href="#" onclick="AddToBasket(@item.Id)" ><i class="fas fa-shopping-cart"></i></a></li>
                                     <li>
-                                        <button type="button" data-toggle="modal"
-                                                data-target="#tm-product-quickview">
+                                        <button type="button" onclick="ShowDetail('@CreatHash.Encrypt(item.Id.ToString())')">
                                             <i class="far fa-eye"></i>
                                         </button>
                                     </li>
@@ -102,6 +101,50 @@
     </div>
 </div>
 @section localscript{
+
+    <script>
+        function ShowDetail(id) {
+             var form = document.createElement("form");
+            var element1 = document.createElement("input");
+
+
+            form.method = "Post";
+            form.action = '/ProductDetail/Index';
+
+            element1.value = id;
+            element1.name = "id";
+            element1.hidden = true;
+            form.appendChild(element1);
+
+
+
+            document.body.appendChild(form);
+
+            form.submit();
+        }
+    </script>
+
+    <script>
+
+        function AddToBasket(id) {
+            $.ajax({
+                url: '/Home/AddtoBasket',
+                data: { id: id },
+                type: 'post',
+                beforeSend: function () {
+                    $(LoadingGift).show();
+                },
+                success: function (data) {
+
+                    $(LoadingGift).hide();
+
+                    GetBasketCooki(CountBasket);
+
+                }
+            });
+        }
+
+    </script>
     <script>
 
         var dataPaging;

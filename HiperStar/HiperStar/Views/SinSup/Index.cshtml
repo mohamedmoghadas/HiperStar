@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/_layout.cshtml";
 }
 
-<div class="tm-breadcrumb-area tm-padding-section" style="background-image:url(../../Resorce_2/img/aboutus/header.jpg)">
+<div class="tm-breadcrumb-area tm-padding-section" style="background-image:url(../../Image/AboutUs.jpg)">
     <div class="container">
         <div class="row">
             <div class="col-lg-6">
@@ -26,7 +26,7 @@
         <div class="row">
 
             <div class="col-lg-6">
-                <form action="~/fLR/Index" target="_blank" method="post" class="tm-form tm-login-form tm-form-bordered">
+                <form action="~/SinSup/Index" target="_blank" method="post" class="tm-form tm-login-form tm-form-bordered">
                     <h4>ورود</h4>
                     <div class="tm-form-inner">
                         <div class="tm-form-field">
@@ -100,3 +100,112 @@
         </div>
     </div>
 </div>
+
+
+@section localscript{
+
+
+    <script>
+
+
+        $(password).keyup(function ()
+        {
+            pwdStrength(this.value);
+        });
+
+
+
+
+        function pwdStrength(password)
+            {
+        var desc = new Array();
+        desc[0] = "خیلی ضعیف";
+        desc[1] = "ضعیف";
+        desc[2] = "متوسط";
+        desc[3] = "خوب";
+        desc[4] = "خیلی خوب";
+        desc[5] = "عالی";
+            var score = 0;
+            if (password.length>4) {
+        if (password.length > 6) score++;
+        if ( ( password.match(/[a-z]/) ) && ( password.match(/[A-Z]/) ) ) score++;
+        if (password.match(/\d+/)) score++;
+        if ( password.match(/.[!,@Html.Raw('@'),#,$,%,^,&,*,?,_,~,-,(,)]/) ) score++;
+        if (password.length > 12) score++;
+                document.getElementById("PassWordStrengh").innerHTML = desc[score];
+
+                if (score < 2) {
+                    $(PassWordStrengh).removeClass();
+                    $(PassWordStrengh).addClass('alert-danger');
+                }
+
+               else if (score == 2) {
+                    $(PassWordStrengh).removeClass();
+                    $(PassWordStrengh).addClass('alert-warning');
+                }
+
+                else if (score >= 3) {
+                    $(PassWordStrengh).removeClass();
+                    $(PassWordStrengh).addClass('alert-success');
+                }
+            }
+            else {
+                PassWordStrengh.innerHTML = "ضعیف";
+                $(PassWordStrengh).removeClass();
+                $(PassWordStrengh).addClass('alert-danger');
+            }
+
+
+}
+    </script>
+
+
+    <script>
+
+        function mcustomer(r, a, e, o, n) {
+            this.Id = r, this.FullName = a, this.Email = e, this.UserName = o, this.Password = n
+        } var _mcustomer = new mcustomer(0, "", "", "", "");
+        $(mngcustomer).click(function () {
+            return "" == fullname.value
+                || "" == username.value
+                || "" == email.value
+                || "" == password.value ?
+                (AlertInAjax("تمام اطلاعات باید وارد شود. لطفا دوباره اقدام نمایید", modalerrorInAjax, "alert-danger"),
+                    void $(modalerrorInAjax).modal("show")) :
+                terms.checked ? "خوب" != PassWordStrengh.innerHTML
+                    && "خیلی خوب" != PassWordStrengh.innerHTML
+                    && "عالی" != PassWordStrengh.innerHTML ? (AlertInAjax("رمز شما ضعیف است", modalerrorInAjax, "alert-danger"),
+                        void $(modalerrorInAjax).modal("show")) :
+                    (_mcustomer.FullName = fullname.value,
+                        _mcustomer.UserName = username.value,
+                        _mcustomer.Email = email.value,
+                        _mcustomer.Password = password.value,
+                        void $.ajax({
+                            url: "/SinSup/mngcustomer",
+                            data: {
+                                _mcustomer: _mcustomer
+                            }, type: "post",
+                            beforeSend: function () {
+                                $(LoadingGift).show()
+                            }, error: function (r) {
+                                return 503 == r.status ? (
+                                    $(LoadingGift).hide(),
+                                    AlertInAjax("نام کاربری و یا ایمیل تکراری است لطفا مجددا امتحان نمایید", modalerrorInAjax, "alert-danger"),
+                                    void $(modalerrorInAjax).modal("show")) : 502 == r.status ?
+                                        ($(LoadingGift).hide(), AlertInAjax("نوع فایل درست انتخاب نشده. لطفا مجددا امتحان نمایید", modalerrorInAjax, "alert-danger"),
+                                            void $(modalerrorInAjax).modal("show")) : 505 == r.status ?
+                                            ($(LoadingGift).hide(), AlertInAjax("شما هم اکنون داخل حساب کاربری خود می باشید و قادر به ثبت نام مجدد نمی باشید و یا اطلاعات شخصی خود را به صورت کامل وارد نکرده اید.", modalerrorInAjax, "alert-danger"),
+                                                void $(modalerrorInAjax).modal("show")) : void 0
+                            }, success: function (r) {
+                                $(LoadingGift).hide(),
+                                    AlertInAjax("عملیات با موفقیت انجام شد", modalerrorInAjax, "alert-success"),
+                                    $(modalerrorInAjax).modal("show"),
+                                    $(modalerrorInAjax).on("hidden.bs.modal", function () { location.href = "/SinSup/Index" })
+                            }
+                        })) : (AlertInAjax("تیک قوانین را بزنید", modalerrorInAjax, "alert-danger"), void $(modalerrorInAjax).modal("show"))
+        });
+
+
+
+    </script>
+}

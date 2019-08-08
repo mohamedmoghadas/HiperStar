@@ -1,0 +1,56 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_layout.cshtml";
+}
+
+@model IEnumerable<HiperStar.Models.ComponyRule>
+
+<div class="tm-breadcrumb-area tm-padding-section" style="background-image:url(../../Resorce_2/img/aboutus/header.jpg)">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="tm-breadcrumb">
+                    <h2>قوانین</h2>
+                    <ul>
+                        <li><a href="~/Home/Index"><i class="fa fa-home"></i> خانه </a></li>
+
+                        <li>قوانین</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="tm-section blogs-area bg-whtie tm-padding-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="blogitem">
+
+                    <div class="blogitem-content">
+
+                        <h5><a href="blog-details.html">قوانین</a></h5>
+                        @foreach (var item in Model)
+                        {
+                            <blockquote>
+                                <p>
+                                    @item.roledescription
+                                </p>
+
+                            </blockquote>
+                        }
+
+
+                    </div>
+
+                    <!--// Blogitem Commentbox -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

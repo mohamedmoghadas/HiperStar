@@ -144,6 +144,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Image\AboutUs.jpg" />
+    <Content Include="Image\AnsarBank.png" />
+    <Content Include="Image\Contact-Us.jpg" />
     <Content Include="Image\nopic_s.jpg" />
     <Content Include="Image\productImage\bag.jpg" />
     <Content Include="Image\productImage\dress.jpg" />
@@ -184,6 +186,7 @@
     <Content Include="Scripts\jquery-3.3.1.min.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
+    <Content Include="Scripts\Js\ErrorInAjax.js" />
     <Content Include="Scripts\Js\GetBasketCooki.js" />
     <Content Include="Scripts\Js\Pagination\pagination.js" />
     <Content Include="Scripts\Js\Pagination\Pgination.css" />
@@ -193,12 +196,15 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AboutUsController.cs" />
+    <Compile Include="Controllers\cartController.cs" />
     <Compile Include="Controllers\ContactUsController.cs" />
     <Compile Include="Controllers\CustumerAreaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PaymentController.cs" />
     <Compile Include="Controllers\ProductDetailController.cs" />
     <Compile Include="Controllers\ProductDetailListController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
+    <Compile Include="Controllers\RolesController.cs" />
     <Compile Include="Controllers\SinSupController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -302,8 +308,12 @@
     <Compile Include="Models\Users.cs">
       <DependentUpon>HiperStar.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\VmComponent\itemcart.cs" />
     <Compile Include="Models\VmComponent\vmCArea.cs" />
     <Compile Include="Models\VmComponent\VmHome.cs" />
+    <Compile Include="Models\VmComponent\vmPayment.cs" />
+    <Compile Include="Models\VmComponent\vmPrDetail.cs" />
+    <Compile Include="Models\VmComponent\vmProductDetail.cs" />
     <Compile Include="Models\VmList\VmAllPage.cs" />
     <Compile Include="Models\VmList\VmProductDetail.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -367,6 +377,10 @@
     <Content Include="Views\AboutUs\Index.cshtml" />
     <Content Include="Views\SinSup\Index.cshtml" />
     <Content Include="Views\CustumerArea\Index.cshtml" />
+    <Content Include="Views\cart\Index.cshtml" />
+    <Content Include="Views\Payment\Index.cshtml" />
+    <Content Include="Views\ContactUs\Index.cshtml" />
+    <Content Include="Views\Roles\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -377,7 +391,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Image\CustomerImage\" />
-    <Folder Include="Views\ContactUs\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

@@ -6,7 +6,7 @@
 
 @model HiperStar.Models.VmComponent.vmCArea
 
-<div class="tm-breadcrumb-area tm-padding-section" style="background-image:url(../../Resorce_2/img/aboutus/header.jpg)">
+<div class="tm-breadcrumb-area tm-padding-section" style="background-image:url(../../Image/AboutUs.jpg)">
     <div class="container">
         <div class="row">
             <div class="col-lg-6">
@@ -51,11 +51,11 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="~/fCustomerTicket/Index" role="tab">مدیریت تیکت ها</a>
+                    <a class="nav-link" href="#" role="tab">مدیریت تیکت ها</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" id="account-logout-tab" href="~/fCArea/LogOut" role="tab" aria-controls="account-address" aria-selected="false">خروج</a>
+                    <a class="nav-link" id="account-logout-tab" href="~/CustumerArea/LogOut" role="tab" aria-controls="account-address" aria-selected="false">خروج</a>
                 </li>
             </ul>
 
@@ -66,7 +66,8 @@
                             خوش آمدید  <span>@Model.Customer.FullName</span>
                             @if (Model.Customer.userimage == "" || Model.Customer.userimage == null)
                             {
-                                <img style="float:left" class="img-responsive img-circle" width="150" height="150" src="~/Resorce_2/img/CustomerImage/user-default.jpg" />
+                                <i class="fa fa-user" style="width:150px;height:150px;font-size:50px"></i>
+                                @*<img style="float:left" class="img-responsive img-circle" width="150" height="150" src="~/Resorce_2/img/CustomerImage/user-default.jpg" />*@
                             }
                             else
                             {
@@ -490,3 +491,204 @@
     </div>
 
 </div>
+
+
+
+
+@section localscript{
+
+
+
+    <script>
+
+
+        $(acdetails_newpass).keyup(function ()
+        {
+            pwdStrength(this.value);
+        });
+
+
+
+
+        function pwdStrength(password)
+            {
+        var desc = new Array();
+        desc[0] = "خیلی ضعیف";
+        desc[1] = "ضعیف";
+        desc[2] = "متوسط";
+        desc[3] = "خوب";
+        desc[4] = "خیلی خوب";
+        desc[5] = "عالی";
+            var score = 0;
+            if (password.length>4) {
+        if (password.length > 6) score++;
+        if ( ( password.match(/[a-z]/) ) && ( password.match(/[A-Z]/) ) ) score++;
+        if (password.match(/\d+/)) score++;
+        if ( password.match(/.[!,@Html.Raw('@'),#,$,%,^,&,*,?,_,~,-,(,)]/) ) score++;
+        if (password.length > 12) score++;
+                document.getElementById("PassWordStrengh").innerHTML = desc[score];
+
+                if (score < 2) {
+                    $(PassWordStrengh).removeClass();
+                    $(PassWordStrengh).addClass('alert-danger');
+                }
+
+               else if (score == 2) {
+                    $(PassWordStrengh).removeClass();
+                    $(PassWordStrengh).addClass('alert-warning');
+                }
+
+                else if (score >= 3) {
+                    $(PassWordStrengh).removeClass();
+                    $(PassWordStrengh).addClass('alert-success');
+                }
+            }
+
+
+
+}
+    </script>
+
+    <script>
+        $(acdetails_image).change(function () {
+            acdetails_shownimage.src = URL.createObjectURL(acdetails_image.files[0]);
+        });
+    </script>
+
+
+    <script>
+
+
+        $(mngcustomer).click(function () {
+            if ("" == acdetails_fullname.value
+                || "" == acdetails_mobile.value
+                || "" == acdetails_tel.value
+                || "" == acdetails_email.value
+                || "" == acdetails_Address.value
+                || "" == acdetails_UserName.value)
+                return AlertInAjax("تمام اطلاعات باید وارد شود. لطفا دوباره اقدام نمایید", modalerrorInAjax, "alert-danger"),
+                    void $(modalerrorInAjax).modal("show");
+            if (!acdetails_term.checked)
+                return AlertInAjax("تیک قوانین را بزنید", modalerrorInAjax, "alert-danger"),
+                    void $(modalerrorInAjax).modal("show");
+            var a = new FormData; a.append("_mcustomer.FullName",
+                acdetails_fullname.value),
+                a.append("_mcustomer.Mobile", acdetails_mobile.value),
+                a.append("_mcustomer.Tel", acdetails_tel.value),
+                a.append("_mcustomer.Email", acdetails_email.value),
+                a.append("_mcustomer.CompanyName", acdetails_CompanyName.value),
+                a.append("_mcustomer.Address", acdetails_Address.value),
+                a.append("_mcustomer.UserName", acdetails_UserName.value),
+                a.append("file1", acdetails_image.files[0]), $.ajax({
+                    url: "/SinSup/mngcustomer",
+                    type: "post",
+                    beforeSend: function () {
+                        $(LoadingGift).show()
+                    }, error: function (a) {
+                        return 503 == a.status ? ($(LoadingGift).hide(),
+                            AlertInAjax("نام کاربری تکراری است لطفا مجددا امتحان نمایید",
+                                modalerrorInAjax, "alert-danger"),
+                            void $(modalerrorInAjax).modal("show")) : 502 == a.status ?
+                                ($(LoadingGift).hide(),
+                                AlertInAjax("نوع فایل درست انتخاب نشده. لطفا مجددا امتحان نمایید", modalerrorInAjax, "alert-danger"),
+                                void $(modalerrorInAjax).modal("show")) : 505 == a.status ? (
+                                    $(LoadingGift).hide(),
+                                    AlertInAjax("شما هم اکنون داخل حساب کاربری خود می باشید و قادر به ثبت نام مجدد نمی باشید و یا اطلاعات شخصی خود را به صورت کامل وارد نکرده اید.", modalerrorInAjax, "alert-danger"),
+                                    void $(modalerrorInAjax).modal("show")) : void 0
+                    },
+                    data: a, enctype: "multipart/form-data", processData: !1, contentType: !1, success: function () {
+                        $(LoadingGift).hide(), AlertInAjax("عملیات با موفقیت انجام شد", modalerrorInAjax, "alert-success"),
+                            $(modalerrorInAjax).modal("show"), $(modalerrorInAjax).on("hidden.bs.modal", function () {
+                                location.href = "/CustumerArea/Index"
+                            })
+                    }
+                })
+        });
+
+
+
+
+    </script>
+
+
+
+
+    <script>
+        function mcustomer(Password) {
+
+            this.Password = Password;
+        }
+
+        var _mcustomer = new mcustomer("");
+
+        $(changecuspass).click(function ()
+        {
+            return "" == acdetails_oldpass.value || "" == acdetails_newpass.value || "" == acdetails_repnewpass.value ?
+                (AlertInAjax("تمام اطلاعات باید وارد شود. لطفا دوباره اقدام نمایید", modalerrorInAjax, "alert-danger"),
+                    void $(modalerrorInAjax).modal("show")) : acdetails_newpass.value != acdetails_repnewpass.value ?
+                    (AlertInAjax("رمزها یکسان نیست. لطفا دوباره اقدام نمایید", modalerrorInAjax, "alert-danger"),
+                        void $(modalerrorInAjax).modal("show")) : "خوب" != PassWordStrengh.innerHTML
+                        && "خیلی خوب" != PassWordStrengh.innerHTML
+                        && "عالی" != PassWordStrengh.innerHTML ? (AlertInAjax("رمز شما ضعیف است", modalerrorInAjax, "alert-danger"),
+                            void $(modalerrorInAjax).modal("show")) : (_mcustomer.Password = acdetails_newpass.value, void
+                            $.ajax({
+                                url: "/SinSup/changecuspass", data: { _mcustomer: _mcustomer },
+                                type: "post", beforeSend: function () { $(LoadingGift).show() },
+                                success: function (a) {
+                                    $(LoadingGift).hide(),
+                                        AlertInAjax("عملیات با موفقیت انجام شد",
+                                            modalerrorInAjax, "alert-success"),
+                                        $(modalerrorInAjax).modal("show"),
+                                        $(modalerrorInAjax).on("hidden.bs.modal",
+                                            function () { location.href = "/CustumerArea/Index" })
+                                }
+                            }))
+        });
+
+
+
+
+    </script>
+
+
+
+    <script>
+
+        function deletecustomerproduct(e, o) {
+            this.Id = e, this.ResonOfCancelletion = o
+        }
+        var _deletecustomerproduct = new deletecustomerproduct(0, "");
+        function deletereadyorders(e) {
+            _deletecustomerproduct.Id = e,
+                $(modal_delete).modal("show")
+        }
+        $(btn_modal_confirm).click(function ()
+        {
+        _deletecustomerproduct.ResonOfCancelletion = _txtresonofcancelatio.value,
+            $.ajax({
+                url: "/CustumerArea/deletecustomerproduct",
+                data: { _deletecustomerproduct: _deletecustomerproduct },
+                type: "post", beforeSend:
+                    function () { $(LoadingGift).show() },
+                error: function (e) {
+                506 == e.status &&
+                    (AlertInAjax("شما از حساب خود خارج شده اید", modalerrorInAjax, "alert-danger"),
+                    $(modalerrorInAjax).modal("show"),
+                    $(modalerrorInAjax).on("hidden.bs.modal",
+                        function () { location.href = "/SinSup/Index" }))
+                },
+                success: function (e) {
+                    $(LoadingGift).hide(),
+                        $(modal_delete).modal("hide"),
+                        AlertInAjax("عملیات با موفقیت انجام شد", modalerrorInAjax, "alert-success"),
+                        $(modalerrorInAjax).modal("show"), $(modalerrorInAjax).on("hidden.bs.modal", function () {
+                            location.href = "/CustumerArea/Index"
+                        })
+                }
+            })
+        });
+
+    </script>
+
+
+}

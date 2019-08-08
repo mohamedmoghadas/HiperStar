@@ -17,6 +17,8 @@ namespace HiperStar.Controllers
         {
             return View();
         }
+        [HttpPost]
+
         public ActionResult Index(Customer _customer)
         {
             var _fCustomer = db.Customer.Where(p => p.Statedelete == false && (p.UserName == _customer.UserName || p.Email == _customer.UserName)).FirstOrDefault();

@@ -1,0 +1,243 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_layout.cshtml";
+}
+
+@model HiperStar.Models.VmComponent.vmPayment
+
+
+<div class="tm-breadcrumb-area tm-padding-section" style="background-image:url(../../Image/AboutUs.jpg)">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="tm-breadcrumb">
+                    <h2>صفحه پرداخت</h2>
+                    <ul>
+                        <li><a href="~/Home/Index"><i class="fa fa-home"></i> خانه </a></li>
+
+                        <li>صفحه پرداخت</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="tm-section tm-checkout-area bg-white tm-padding-section">
+    <div class="container">
+
+        <div class="tm-checkout-coupon">
+            <a href="#checkout-couponform" data-toggle="collapse"> کد تخفیف دارید ؟<span> برای ورود اینجا را کلیک کنید .</span></a>
+            <div id="checkout-couponform" class="collapse">
+                <div class="tm-checkout-couponform">
+                    <input type="text" id="discountcod_field" placeholder="کد تخفیف را وارد نمایید ..." required="required">
+                    <button type="button" id="btndiscpunt" class="tm-button">ارسال <b></b></button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <h4 class="small-title">اطالاعات خریدار</h4>
+
+                <!-- Billing Form -->
+                <div class="tm-checkout-billingform">
+                    <div class="tm-form-inner">
+                        <div class="tm-form-field">
+                            <label for="acdetails_fullname"> نام و نام خانوادگی</label>
+                            <input type="text"
+                                   onmousedown="return false"
+                                   onkeydown="return false"
+                                   value="@Model.Customerinfo.FullName" placeholder="نام و نام خانوادگی*" id="acdetails_fullname">
+                        </div>
+
+                        <div class="tm-form-field">
+                            <label for="acdetails_mobile">موبایل</label>
+                            <input type="text"
+                                   onmousedown="return false"
+                                   onkeydown="return false"
+                                   value="@Model.Customerinfo.Mobile" placeholder="موبایل*" id="acdetails_mobile">
+                        </div>
+                        <div class="tm-form-field">
+                            <label for="acdetails_tel">تلفن</label>
+                            <input type="text"
+                                   onmousedown="return false"
+                                   onkeydown="return false"
+                                   value="@Model.Customerinfo.Tel" placeholder="تلفن*" id="acdetails_tel">
+                        </div>
+                        <div class="tm-form-field">
+                            <label for="acdetails_email">آدرس ایمیل</label>
+                            <input type="email"
+                                   onmousedown="return false"
+                                   onkeydown="return false"
+                                   value="@Model.Customerinfo.Email" placeholder="آدرس ایمیل*" id="acdetails_email">
+                        </div>
+                        <div class="tm-form-field">
+                            <label for="acdetails_CompanyName">نام شرکت یا موسسه</label>
+                            <input type="text"
+                                   onmousedown="return false"
+                                   onkeydown="return false"
+                                   value="@Model.Customerinfo.CompanyName" placeholder="نام شرکت یا موسسه" id="acdetails_CompanyName">
+                        </div>
+                        <div class="tm-form-field">
+                            <label for="acdetails_Address">آدرس</label>
+                            <textarea cols="30" rows="5"
+                                      onmousedown="return false"
+                                      onkeydown="return false"
+                                      value="@Model.Customerinfo.Address" placeholder="آدرس*" id="acdetails_Address">@Model.Customerinfo.Address</textarea>
+                        </div>
+
+                        <div class="tm-form-field">
+                            <label for="acdetails_UserName">نام کاربری</label>
+                            <input type="text"
+                                   onmousedown="return false"
+                                   onkeydown="return false"
+                                   value="@Model.Customerinfo.UserName" placeholder="نام کاربری*" id="acdetails_UserName">
+
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="col-lg-6">
+                <div class="tm-checkout-orderinfo">
+                    <img src="~/Image/AboutUs.jpg" width="100%" />
+                    <br />
+                    <div class="table-responsive">
+                        <table class="table table-borderless tm-checkout-ordertable">
+
+
+                            <tbody>
+                                <tr class="tm-checkout-subtotal">
+                                    <td>مبلغ پرداختی</td>
+                                    <td>@Model.Amount ريال</td>
+                                </tr>
+                                <tr class="tm-checkout-shipping">
+                                    <td>(+) هزینه ارسال</td>
+                                    <td>@Model.sendcoust ريال</td>
+                                </tr>
+                                <tr class="tm-checkout-total">
+                                    <td>مجموع</td>
+                                    <td id="tdtotalprice">@Model.Amount</td>
+                                </tr>
+                            </tbody>
+
+                        </table>
+                        <div class="panel-footer">
+                            <p> تمامي كالاها و خدمات اين فروشگاه، حسب مورد داراي مجوزهاي لازم از مراجع مربوطه مي‌باشند و فعاليت‌هاي اين سايت تابع قوانين و مقررات جمهوري اسلامي ايران است.</p>
+
+                        </div>
+                    </div>
+                    <form action="~/Payment/Index" method="post" class="tm-form tm-checkout-form">
+                        <div class="tm-checkout-payment">
+                            <h4>انتخاب روش پرداخت</h4>
+                            <div class="tm-form-inner">
+                                <input id="discountCod" name="discountCod" style="display:none" />
+                                <input id="Amount" name="Amount" value="@Model.Amount" style="display:none" />
+
+                                <div class="tm-form-field">
+                                    <input type="radio" checked name="paymentmethod" value="بانک انصار" id="paymentmethod1">
+                                    <label for="paymentmethod1">بانک انصار</label>
+                                    <div class="tm-checkout-payment-content">
+                                        <p>پرداخت با درگاه بانک انصار</p>
+                                        <img src="~/Image/AnsarBank.png" />
+                                    </div>
+                                </div>
+                                <div class="tm-form-field">
+                                    <input type="radio" name="paymentmethod" value="پی پال" id="paymentmethod2">
+                                    <label for="paymentmethod2">پی پال</label>
+                                    <div class="tm-checkout-payment-content">
+                                        <p>پرداخت با درگاه پس پال</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-footer">
+                                <span class="label label-danger textare-lg" style="font-weight:bolder;font-size:18px">@Html.Raw(ViewBag.message)</span>
+                            </div>
+                        </div>
+                        @*<div class="g-recaptcha" data-sitekey="6LfJIaoUAAAAAH6AzwrpY4ME-iNjQTDNtkg_-xHj"></div>*@
+
+                        <div id="example3"></div>
+
+                        <div class="tm-checkout-submit">
+                            <div class="tm-form-inner">
+
+                                <div class="tm-form-field" id="divOrder" style="display:none">
+                                    <button type="submit" class="tm-button ml-auto">سفارش <b></b></button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+@section localscript{
+
+
+    <script type="text/javascript">
+        var verifyCallback = function (response) {
+
+            if (response) {
+
+            $(divOrder).show();
+            }
+        };
+
+        var onloadCallback = function () {
+
+
+            grecaptcha.render('example3', {
+                'sitekey': '6LfJIaoUAAAAAH6AzwrpY4ME-iNjQTDNtkg_-xHj',
+                'callback': verifyCallback,
+                'theme': 'light',
+                'lang': 'fa'
+            });
+        };
+    </script>
+
+
+    <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit&hl=fa"
+            async defer>
+    </script>
+
+    <script>
+
+        var discountpersent = 0; $(btndiscpunt).click(function () {
+            if ("" == discountcod_field.value)
+                return AlertInAjax("کد تخفیف را وارد نمایید.", modalerrorInAjax, "alert-danger"),
+                    void $(modalerrorInAjax).modal("show"); var o = discountcod_field.value;
+            $.ajax(
+                {
+                    url: "/Payment/checkdiscountcod",
+                    data: { dicode: o },
+                    type: "post",
+                    error: function (o) {
+                        return 506 == o.status ? ($(LoadingGift).hide(),
+                            discountcod_field.value = "",
+                            AlertInAjax("کد تخفیف اشتباه است.", modalerrorInAjax, "alert-danger"),
+                            void $(modalerrorInAjax).modal("show")) : 507 == o.status ?
+                                ($(LoadingGift).hide(), discountcod_field.value = "", AlertInAjax("مدت کد تخفیف گذشته", modalerrorInAjax, "alert-danger"),
+                                    void $(modalerrorInAjax).modal("show")) : 508 == o.status ? ($(LoadingGift).hide(), discountcod_field.value = "",
+                                        AlertInAjax("ابتدا باید وارد حساب کاربری خود شوید.لطفا ابتدا وارد شده و مجددا امتحان نمایید", modalerrorInAjax, "alert-danger"),
+                                        void $(modalerrorInAjax).modal("show")) : 509 == o.status ? ($(LoadingGift).hide(), discountcod_field.value = "",
+                                            AlertInAjax("این کد توسط شما قبلا استفاده شده است", modalerrorInAjax, "alert-danger"), void $(modalerrorInAjax).modal("show")) : void 0
+                    }, beforeSend: function () { $(LoadingGift).show() },
+                    success: function (o) {
+                        $(LoadingGift).hide(),
+                            discountCod.value = discountcod_field.value;
+                        AlertInAjax("تبریک .کد تخفیف اعمال شد.", modalerrorInAjax, "alert-success"),
+                            $(modalerrorInAjax).modal("show"), discountcod_field.value = "",
+                            discountpersent = o;
+                        var a = $(tdtotalprice).text(); $(tdtotalprice).text(parseInt(a) - parseInt(a) * o / 100)
+                    }
+                })
+        });
+    </script>
+}
